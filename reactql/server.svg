@@ -1,0 +1,23 @@
+﻿<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 80 80" style="fill: rgb(76, 102, 90);" xml:space="preserve" width="50" height="50">
+<g>
+	<rect x="16.5" y="2.5" style="fill:#E1EBF2;" width="47" height="75"/>
+	<g>
+		<path style="fill:#66798F;" d="M63,3v74H17V3H63 M64,2H16v76h48V2L64,2z"/>
+	</g>
+</g>
+<g>
+	<rect x="24.5" y="12.5" style="fill:#B0C1D4;" width="31" height="33"/>
+	<path style="fill:#66798F;" d="M55,13v32H25V13H55 M56,12H24v34h32V12L56,12z"/>
+</g>
+<rect x="39.5" y="7.5" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 63.5 -16.5)" style="fill:#66798F;" width="1" height="32"/>
+<rect x="39.5" y="18.5" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 74.5 -5.5)" style="fill:#66798F;" width="1" height="32"/>
+<rect x="46" y="26" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 76 -18)" style="fill:#FFFFFF;" width="2" height="6"/>
+<rect x="46" y="37" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 87 -7)" style="fill:#FFFFFF;" width="2" height="6"/>
+<rect x="46" y="15" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 65 -29)" style="fill:#FFFFFF;" width="2" height="6"/>
+<g>
+	<circle style="fill:#8BB7F0;" cx="40" cy="60" r="5.5"/>
+	<g>
+		<path style="fill:#4E7AB5;" d="M40,55c2.757,0,5,2.243,5,5s-2.243,5-5,5s-5-2.243-5-5S37.243,55,40,55 M40,54&#10;&#9;&#9;&#9;c-3.314,0-6,2.686-6,6s2.686,6,6,6s6-2.686,6-6S43.314,54,40,54L40,54z"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,22 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 40 40" style="fill: rgb(76, 102, 90);" xml:space="preserve" width="100" height="100">
+<g>
+	<rect x="24.5" y="28.5" style="fill:#DFF0FE;" width="14" height="10"/>
+	<g>
+		<path style="fill:#4788C7;" d="M38,29v9H25v-9H38 M39,28H24v11h15V28L39,28z"/>
+	</g>
+</g>
+<g>
+	<rect x="24.5" y="13.5" style="fill:#DFF0FE;" width="14" height="10"/>
+	<g>
+		<path style="fill:#4788C7;" d="M38,14v9H25v-9H38 M39,13H24v11h15V13L39,13z"/>
+	</g>
+</g>
+<g>
+	<rect x="1.5" y="1.5" style="fill:#98CCFD;" width="14" height="10"/>
+	<g>
+		<path style="fill:#4788C7;" d="M15,2v9H2V2H15 M16,1H1v11h15V1L16,1z"/>
+	</g>
+</g>
+<polygon style="fill:#4788C7;" points="24,33 9,33 9,12 8,12 8,34 24,34 "/>
+<rect x="15.5" y="10.5" transform="matrix(4.547480e-011 -1 1 4.547480e-011 -2.5 34.5)" style="fill:#4788C7;" width="1" height="16"/>
+</svg>

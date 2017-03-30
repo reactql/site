@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 80 80" style="fill: rgb(76, 102, 90);" xml:space="preserve" width="80" height="80">
+<g>
+	<rect x="4.5" y="6.5" style="fill:#424E5C;" width="71" height="67"/>
+	<g>
+		<path style="fill:#AFC5D8;" d="M75,7v66H5V7H75 M76,6H4v68h72V6L76,6z"/>
+	</g>
+</g>
+<g>
+	<rect x="4" y="6" style="fill:#AFC5D8;" width="72" height="12"/>
+</g>
+<line style="fill:none;stroke:#BAE0BD;stroke-width:2;stroke-miterlimit:10;" x1="45" y1="30.5" x2="35" y2="57.5"/>
+<polyline style="fill:none;stroke:#BAE0BD;stroke-width:2;stroke-miterlimit:10;" points="28.538,53.692 17.5,44 28.538,34.308 "/>
+<polyline style="fill:none;stroke:#BAE0BD;stroke-width:2;stroke-miterlimit:10;" points="51.562,53.75 62.5,44.058 51.562,34.365   "/>
+</svg>
