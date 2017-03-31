@@ -1,3 +1,8 @@
+.reactql-bg {
+  background-image: url(/reactql/bg/bg2@2x-75.jpg);
+  background-size: 100% 100%;
+}
+
 .card-img-top {
   max-height: 100px !important;
 }
