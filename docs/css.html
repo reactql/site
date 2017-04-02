@@ -218,7 +218,7 @@
 <h2 id="cssnext" title="CSSNext">Next-generation CSS parsing</h2>
 
 <hr>
-<p><code>.css</code> and <code>.s(c|a)ss</code> stylesheets are parsed through <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a>, using the default settings.</p>
+<p><code>.css</code> and <code>.sass / .scss</code> stylesheets are parsed through <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a>, using the default settings.</p>
 <p>That means you can use things like nested statements out-the-box:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.anotherClassName &#123;</div><div class="line">  &amp; h1 &#123;</div><div class="line">    text-size: 2em;</div><div class="line">  &#125;</div><div class="line">  &amp; p &#123;</div><div class="line">    color: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>As well as variable names, and other goodies:</p>
@@ -228,13 +228,13 @@
 
 <hr>
 <p><a href="http://sass-lang.com/" target="_blank" rel="external">SASS</a> code is also compiled through PostCSS in the same way. Simply use <code>.sass</code>/<code>.scss</code> files instead, and your stylesheets will pass through <a href="https://github.com/sass/node-sass" target="_blank" rel="external">node-sass</a> first.</p>
-<h2 id="local" title="Local modules">Local modules - preventing ‘bleed out’</h2>
+<h2 id="local" title="Local modules">Local modules - preventing bleed-out</h2>
 
 <hr>
 <p>By default, class styles in your CSS/SASS files will be exported as <em>local</em> modules. Class names will be hashed to prevent bleeding out to your global namespace, and those same class names are then injected into the React code that is bundled for you. e.g:</p>
 <p><img src="images/classnames.png" alt="CSS local classnames"></p>
 <p>The benefit to this is tight coupling of style logic with your components.  You don’t have to worry that you’ve used globally unique class names, because Webpack will transpile your names into garbled, hashed versions to avoid conflicts.</p>
-<h2 id="global">Global styles</h2>
+<h2 id="global_styles">Global styles</h2>
 
 <hr>
 <p>If you want to override the ‘local by default’ classnames, simply prefix <code>:global</code> before the rule and it’ll be made available across your entire app:</p>

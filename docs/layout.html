@@ -213,23 +213,20 @@
 <p>This starter has been designed to provide you with a few skeletal pieces to get you going, and make it easier to layer in your own code.</p>
 <p>Here’s the folder layout:</p>
 <h2 id="git"><a href="#git" class="headerlink" title=".git"></a><code>.git</code></h2><hr>
-<p>Git folder.  By default, this points to the <em>reactql</em> starter kit, so you can safely delete this if you want to initialise your own git repo and start contributing to it.</p>
+<p>Git folder.  By default, this points to the ReactQL starter kit, so you can safely delete this if you want to initialise your own git repo and start contributing to it.</p>
 <h2 id="config"><a href="#config" class="headerlink" title="config"></a><code>config</code></h2><hr>
 <p>Project configuration files, such as the folder structure that ReactQL will use to determine where your code lives.</p>
 <p>You can put your own settings in <code>config/project.js</code> or create new files in this folder to host them.</p>
-<p>By default, <code>config/project.js</code> contains just the URI that Apollo will use to connect to your back-end GraphQL server.</p>
-<p>You can extend this with your own configuration options, for example SMTP details or other API endpoints, or simply create new files in this folder to house separate configuration options.</p>
+<p>By default, <code>config/project.js</code> contains just the URI that Apollo will use to connect to your back-end GraphQL server. You can extend this with your own configuration options, for example SMTP details or other API endpoints.</p>
 <p>This is written in ES6 style with no defaults, so you can import select configuration options from the client side without exposing credentials thanks to automatic tree-shaking/dead code elimination.</p>
 <h2 id="kit"><a href="#kit" class="headerlink" title="kit"></a><code>kit</code></h2><hr>
-<p>The bulk of <em>reactql</em> is found in <code>./kit</code>.  If you need to dive into the Webpack config or add some custom functionality to your web server or browser instantiation, you’d do it here.</p>
+<p>The bulk of ReactQL is found in <code>./kit</code>.  If you need to dive into the Webpack config or add some custom functionality to your web server or browser instantiation, you’d do it here.</p>
 <p>For the most part though, you probably won’t need to touch this stuff.</p>
 <h3 id="kit-entry"><a href="#kit-entry" class="headerlink" title="kit/entry"></a><code>kit/entry</code></h3><hr>
 <p>This is where Webpack looks for entry points for building the browser and the server.</p>
 <p>Note: There’s no separate entry for ‘vendors’, since the bundle is built automatically by testing whether packages reside in <code>node_modules</code></p>
 <h3 id="kit-lib"><a href="#kit-lib" class="headerlink" title="kit/lib"></a><code>kit/lib</code></h3><hr>
-<p>Custom libraries built for <em>reactql</em>.  You’ll find custom helpers for Redux and Apollo for creating new stores, and building connections to your GraphQL endpoint via Apollo.</p>
-<h3 id="kit-repo"><a href="#kit-repo" class="headerlink" title="kit/repo"></a><code>kit/repo</code></h3><hr>
-<p>Non-code files specific to the starter kit.  For example, the <em>reactql</em> logo that github pulls.  You can safely delete this folder, if you want.</p>
+<p>Custom libraries built for ReactQL.  You’ll find custom helpers for Redux and Apollo for creating new stores, and building connections to your GraphQL endpoint via Apollo.</p>
 <h3 id="kit-webpack"><a href="#kit-webpack" class="headerlink" title="kit/webpack"></a><code>kit/webpack</code></h3><hr>
 <p>Webpack configuration files, notably:</p>
 <ul>
