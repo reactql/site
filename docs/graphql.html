@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Basic -->
+    <title>React components with GraphQL data | ReactQL</title>
+    <meta name="description" content="How to write components that talk to a GraphQL server">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicons -->
+    <link rel="shortcut icon" type="image/png" href="images/favicons/32x32.png" sizes="32x32" />
+    <link rel="shortcut icon" type="image/png" href="images/favicons/16x16.png" sizes="16x16" />
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://reactql.js.org">
+    <meta property="og:title" content="React components with GraphQL data | ReactQL">
+    <meta property="og:description" content="How to write components that talk to a GraphQL server">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="React components with GraphQL data | ReactQL">
+    <meta name="twitter:description" content="How to write components that talk to a GraphQL server">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/docs/style/style.css">
+  </head>
+  <body class="">
+    
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+    <div class="nav-item">
+      
+      <a class="logo-wrapper" href="https://reactql.org" title="ReactQL Docs Modern stack for React+GraphQL"  >
+        <img src="images/reactql-logo.svg" alt="ReactQL Docs" class="logo"/>
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-group right">
+    
+      
+      <div class="nav-item show-desktop false ">
+        <a class="link" href="https://reactql.org"  >
+          <span>Main site</span>
+        </a>
+      </div>
+    
+      
+      <div class="nav-item show-desktop false ">
+        <a class="link" href="https://github.com/leebenson/reactql"  >
+          <span>Get ReactQL</span>
+        </a>
+      </div>
+    
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item">
+      <a class="" href="https:/reactql.org" title="ReactQL Docs"  >
+        <span>ReactQL Docs Modern stack for React+GraphQL</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://reactql.org"  >
+          <span>Main site</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://github.com/leebenson/reactql"  >
+          <span>Get ReactQL</span>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">ReactQL</span>
+      
+    </div>
+
+    
+
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="index.html" class="sidebar-link ">
+                  <span>Welcome</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Setup</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="setup.html" class="sidebar-link ">
+                  <span>Installation</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="layout.html" class="sidebar-link ">
+                  <span>Project layout</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Writing Code</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="styleguide.html" class="sidebar-link ">
+                  <span>Styleguide</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="css.html" class="sidebar-link ">
+                  <span>CSS stylesheets</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="modules.html" class="sidebar-link ">
+                  <span>Module resolution</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
+                  <span>GraphQL components</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Resources</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="faq.html" class="sidebar-link ">
+                  <span>FAQ</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">React components with GraphQL data</h1>
+      
+        <div class="subtitle-page">How to write components that talk to a GraphQL server</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn tertiary small round lowercase" href="https://github.com/leebenson/reactql-docs/tree/master/source/graphql.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <p>When running <code>npm start</code>, you’ll see an example of GraphQL talking to a live server end-point hosted at <a href="https://www.graph.cool/" target="_blank" rel="external">graph.cool</a></p>
+<p>Check out <a href="https://github.com/leebenson/reactql/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a> to see this working in action.</p>
+<p>The cool thing is, if you run the component on the server via <code>npm run build-run</code> and navigate to <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>, you’ll see the GraphQL response directly in the source code, too!</p>
+<p>That’s because ReactQL automatically requests data from GraphQL <em>before</em> rendering the resulting HTML back to the browser.</p>
+<p>Furthermore, it will send back the initial Redux state with the HTML, too, ensuring that the browser doesn’t re-request data it already has.</p>
+<p>Here’s a blow-by-blow of how it works:</p>
+<p>First, set the GraphQL API endpoint.  By default, I’ve included a sample to a <a href="https://www.graph.cool/" target="_blank" rel="external">graph.cool</a> service I created for this starter kit – change this to your own GraphQL server in production:</p>
+<p><strong>config/project.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> APOLLO = &#123;</div><div class="line">  <span class="attr">uri</span>: <span class="string">'https://api.graph.cool/simple/v1/cinomw2r1018601o42x5z69uc'</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>Both the browser and server entry points will create an Apollo client based on the above config.</p>
+<p>Then, in your <a href="https://github.com/leebenson/reactql/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a> file, we define the GraphQL query to grab the data we need:</p>
+<p><strong>src/app.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// First, create the GraphQL query that we'll use to request data from our</span></div><div class="line"><span class="comment">// sample endpoint</span></div><div class="line"><span class="keyword">const</span> query = gql<span class="string">`</span></div><div class="line">  query &#123;</div><div class="line">    allMessages(first:1) &#123;</div><div class="line">      text</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">`;</div></pre></td></tr></table></figure></p>
+<p>We use Apollo’s <code>gql</code> template function to specify the data we require.</p>
+<p>Next, we’ll create the ‘plain’ component that will ultimately take the data in via props. Note: This doesn’t have any ‘special’ GraphQL related syntax. It’s just a plain React component that will take in GraphQL data via plain props:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Message = <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// `data` will initially be blank before GraphQL has returned with data, so test it exists</span></div><div class="line">  <span class="keyword">const</span> message = data.allMessages &amp;&amp; data.allMessages[<span class="number">0</span>].text;</div><div class="line">  <span class="keyword">const</span> isLoading = data.loading ? <span class="string">'yes'</span> : <span class="string">'nope'</span>;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;h2&gt;Message from GraphQL server: &lt;em&gt;&#123;message&#125;&lt;/em&gt;&lt;/h2&gt;</div><div class="line">      &lt;h2&gt;Currently loading?: &#123;isLoading&#125;&lt;/h2&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>Now, for use in development, we can add custom <code>propTypes</code> to the component so that React knows what to expect.</p>
+<p>In <a href="https://github.com/leebenson/reactql/blob/master/kit/lib/apollo.js" target="_blank" rel="external">kit/lib/apollo.js</a>, we have a custom <code>mergeData()</code> helper that will provide us with the <code>data.loading</code> boolean, and allow us to merge in expected data.</p>
+<p>In this example, we’re expecting an <code>allMessages</code> array which will contain an object with <code>text</code> property, containing our message received from our GraphQL endpoint.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Add propTypes for React to expect data from GraphQL</span></div><div class="line">Message.propTypes = &#123;</div><div class="line">  <span class="attr">data</span>: mergeData(&#123;</div><div class="line">    <span class="attr">allMessages</span>: React.PropTypes.arrayOf(</div><div class="line">      React.PropTypes.shape(&#123;</div><div class="line">        <span class="attr">text</span>: React.PropTypes.string.isRequired,</div><div class="line">      &#125;).isRequired,</div><div class="line">    ),</div><div class="line">  &#125;),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>Finally, we create a higher-order component that wraps our plain component, and gives it GraphQL listening powers:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> GraphQLMessage = graphql(query)(Message);</div></pre></td></tr></table></figure>
+<p>Now, we can use <code>&lt;GraphQLMessage /&gt;</code> inside any other React component, and it’ll automatically update with props when data has been retrieved or is updated via Apollo.</p>
+<h2 id="How-can-I-prevent-data-loading-on-the-server"><a href="#How-can-I-prevent-data-loading-on-the-server" class="headerlink" title="How can I prevent data loading on the server?"></a>How can I prevent data loading on the server?</h2><p>Server-side rendering is an awesome feature that will bolster your SEO strategy, and generally improve the user experience by making the full page available on initial render.</p>
+<p>However, sometimes you don’t want or need all of the data to load at once. At times, this may slow down the user experience because the time-to-first-byte will be delayed until ALL GraphQL data is available.</p>
+<p>At those times, you can tell Apollo <em>not</em> to load on the server, by specifying options on your <code>graphql()</code> HOC:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> GraphQLMessage = graphql(query, &#123;</div><div class="line">  <span class="attr">options</span>: &#123; <span class="attr">ssr</span>: <span class="literal">false</span> &#125;, <span class="comment">// won't be called during SSR</span></div><div class="line">&#125;)(Message);</div></pre></td></tr></table></figure>
+<p>See <a href="http://dev.apollodata.com/react/server-side-rendering.html#skip-for-ssr" target="_blank" rel="external">“Skipping queries for SSR”</a> in the official Apollo docs for info.</p>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="modules.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Module resolution
+        </a>
+      
+      
+        <a class="link primary next"
+          href="faq.html">
+          <span class="subtitle-pagination">Next</span>
+          FAQ
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/leebenson/reactql-docs/tree/master/source/graphql.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+</div>
+
+    <script src="/docs/script/smooth-scroll.min.js"></script>
+    <script src="/docs/script/main.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+    <script>
+     
+      
+
+      // search box
+      
+
+      
+    </script>
+  </body>
+</html>
