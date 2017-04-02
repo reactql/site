@@ -173,6 +173,29 @@
       
         <li>
           
+            <div class="heading-toc">Concepts</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="routing.html" class="sidebar-link ">
+                  <span>Routing</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="bundling.html" class="sidebar-link ">
+                  <span>Code bundling</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
             <div class="heading-toc">Resources</div>
           
           <ul class="list-toc">
@@ -224,10 +247,14 @@
 <p>As well as variable names, and other goodies:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:root</span> &#123;</div><div class="line">  <span class="attribute">--mainColor</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--mainColor);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Vendor prefixes will automatically be added, so you can write the bare CSS and let PostCSS worry about polyfilling browsers.</p>
+<blockquote>
+<p>See <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a> for more details and syntax.</p>
+</blockquote>
 <h2 id="sass">SASS support</h2>
 
 <hr>
 <p><a href="http://sass-lang.com/" target="_blank" rel="external">SASS</a> code is also compiled through PostCSS in the same way. Simply use <code>.sass</code>/<code>.scss</code> files instead, and your stylesheets will pass through <a href="https://github.com/sass/node-sass" target="_blank" rel="external">node-sass</a> first.</p>
+<p><code>@import</code> statements are parsed through SASS first, so you can use parent settings, SASS functions and variables in the calling <code>.sass</code>, too.</p>
 <h2 id="local" title="Local modules">Local modules - preventing bleed-out</h2>
 
 <hr>
