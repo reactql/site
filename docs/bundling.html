@@ -198,6 +198,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="env.html" class="sidebar-link ">
+                  <span>Server/browser awareness</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -293,8 +300,9 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Component = (</div><div class="line">  &lt;div&gt;</div><div class="line">    &#123; /* `image` = string containing path to file name */ &#125;</div><div class="line">    &lt;SomeOtherComponent image=&#123;backgroundImage&#125; /&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
 <p>You can also include images in your CSS files, which will be processed by Webpack, too:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.logo</span> &#123;</div><div class="line">  <span class="comment">/* this will be processed exactly the same way as if imported in JS */</span></div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'./path/to/file.png'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Image-compression"><a href="#Image-compression" class="headerlink" title="Image compression"></a>Image compression</h3><p>In production, images are processed through <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="external">image-webpack-loader</a>, which minifies JPEG, GIF, PNG and SVG files via <a href="https://github.com/imagemin/imagemin" target="_blank" rel="external">imagemin</a> and copied to <code>[root]/dist/public/assets/img</code>. In development, original images files are served from memory (and compression is skipped), and no files are copied to the physical filesystem.</p>
 <blockquote>
-<p>In production, images are processed through <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="external">image-webpack-loader</a>, which minifies JPEG, GIF, PNG and SVG files via <a href="https://github.com/imagemin/imagemin" target="_blank" rel="external">imagemin</a> and copied to <code>[root]/dist/public/assets/img</code>. In development, images files are stored in RAM, but no files are copied to the physical filesystem.</p>
+<p>By default, the JPG compression is set at 65% the quality of the original, and PNG has a target range of 65-90%. If images appear fuzzy, you can override this by editing <a href="https://github.com/leebenson/reactql/blob/master/kit/webpack/base.js" target="_blank" rel="external">kit/webpack/base.js</a></p>
 </blockquote>
 <h2 id="fonts">Fonts</h2>
 
@@ -361,6 +369,14 @@
 <blockquote>
 <p>Once assets have been built, you can run <code>npm run server</code> to start a live web server</p>
 </blockquote>
+<h2 id="gzip">Gzip compression</h2>
+
+<hr>
+<p>Gzip is a standard compression technology supported by all major browsers, that can significantly reduce file sizes and data downloads, and provide users with a faster first load.</p>
+<p>Static assets that wind up in the <code>dist/</code> folder – including CSS, images and fonts – get gzip’d <code>.gz</code> versions automatically courtesy of the <a href="https://webpack.js.org/plugins/compression-webpack-plugin/" target="_blank" rel="external">Compression Webpack Plugin</a>. Alongside the original, a new <code>[file].gz</code> will appear in the same folder – e.g. <code>styles.css</code> gets a <code>styles.css.gz</code> too.</p>
+<p>The ReactQL web server that comes built-in will look for <code>.gz</code> file before serving the original.  If it finds one, it’ll send that version down the wire instead.</p>
+<p>Since your assets are minified one-time in advance, this prevents CPU cycles crunching the data in ‘real-time’ for every visit.</p>
+<p>You don’t need to do anything to activate this– it’s enabled autoamtically.</p>
 
     </div>
   </div>
