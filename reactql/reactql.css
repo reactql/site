@@ -7,6 +7,10 @@
   max-height: 80%;
 }
 
+.nav-btn img {
+  max-height: 24px;
+}
+
 .reactql-bg {
   background-image: url(/reactql/bg/bg2@2x-75-opt.jpg);
   background-size: 100% 100%;
@@ -29,5 +33,9 @@
 }
 
 .svg-small {
+  height: 20px;
+}
+
+.git {
   height: 20px;
 }

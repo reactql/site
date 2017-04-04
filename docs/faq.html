@@ -221,6 +221,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="support.html" class="sidebar-link ">
+                  <span>Support</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -244,12 +251,27 @@
     </div>
 
     <div class="document-formatting">
-      <h2 id="why_use">Why should I use ReactQL?</h2>
+      <h2 id="tl_dr" title="TL;DR"><strong>TL;DR:</strong> I’m short on time. How do I run this now?</h2>
+
+<hr>
+<ul>
+<li>Step 1: Start a new project with <code>git clone --depth 1 https://github.com/leebenson/reactql &lt;project_folder&gt;</code></li>
+<li>Step 2: <code>cd</code> into the folder, then install packages with <code>npm i</code></li>
+<li>Step 3: Run <code>npm start</code></li>
+</ul>
+<p>This will spawn a dev server on <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></p>
+<p>To build in production, do steps 1-2 above then run <code>npm run build-run</code></p>
+<h2 id="why_use">Why should I use ReactQL?</h2>
 
 <hr>
 <p>This starter kit is the product of over 2 years working with React, and GraphQL since its initial public release.</p>
 <p>IMO, this represents the best available tooling for web apps in 2017. I use this stuff every day in production, so you can be confident it’ll be maintained and updated regularly.</p>
 <p>Use ReactQL if you want to skip the set-up, and get your next project up in record time.</p>
+<h2 id="where">Where do I start coding?</h2>
+
+<hr>
+<p><code>src/app.js</code> is the main React component, that both the browser and the serve will look to. Overwrite it with your own code.</p>
+<p>If you need to edit the build defaults, you can start digging into the <code>kit</code> dir which contains the ‘under the hood’ build stuff.  But that generally comes later.</p>
 <h2 id="production_ready">Is this production ready?</h2>
 
 <hr>
@@ -276,21 +298,23 @@
 
 <hr>
 <p>There’s currently no test library, so feel free to add your own.</p>
-<h2 id="where">Where do I start coding?</h2>
+<h2 id="integration">Will ReactQL play nicely with themes or other frameworks?</h2>
 
 <hr>
-<p><code>src/app.js</code> is the main React component, that both the browser and the serve will look to. Overwrite it with your own code.</p>
-<p>If you need to edit the build defaults, you can start digging into the <code>kit</code> dir which contains the ‘under the hood’ build stuff.  But that generally comes later.</p>
-<h2 id="tl_dr" title="TL;DR"><strong>TL;DR:</strong> I haven’t got time to read the set-up guide. How can I get this running <em>now</em>?</h2>
+<p>ReactQL provides UI, flux/app state, routing, code bundling and SASS/PostCSS stylesheets out the box. It should play nicely with any framework that isn’t opinionated about any of those things.</p>
+<p>If you’re using a theme that’s built on React, many times it will include its own competing build flow for the site – e.g. <a href="http://gulpjs.com/" target="_blank" rel="external">Gulp</a> for build tasks, <a href="http://lesscss.org/" target="_blank" rel="external">LESS</a> for stylesheets, <a href="https://www.browsersync.io/" target="_blank" rel="external">Browsersync</a> for hot code reloading, etc. The work involved in translating that flow to ReactQL can vary. It depends how tightly coupled the components are to the flow the author provides.</p>
+<p>Try to opt for components that are ‘self-contained’, that don’t rely on specific build tools to compile. I’d encourage you to use components that you are in control of that don’t require lots of third-party tooling, where possible. Sometimes, it makes sense to use HTML themes and manually translate to React instead.</p>
+<h2 id="backend">I’m using [insert database/back-end X here]. Will ReactQL work?</h2>
 
 <hr>
-<ul>
-<li>Step 1: Start a new project with <code>git clone --depth 1 https://github.com/leebenson/reactql &lt;project_folder&gt;</code></li>
-<li>Step 2: <code>cd</code> into the folder, then install packages with <code>npm i</code></li>
-<li>Step 3: Run <code>npm start</code></li>
-</ul>
-<p>This will spawn a dev server on <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></p>
-<p>To build in production, do steps 1-2 above then run <code>npm run build-run</code></p>
+<p>ReactQL is designed to consume <a href="http://graphql.org/" target="_blank" rel="external">GraphQL APIs</a>, and includes its own built-in web server to serve HTML on the front-end. It’s completely agnostic about your back-end, and will connect to any API that can speak GraphQL.</p>
+<p>If you’re using a database such as MySQL or PostgreSQL, and you’d typically use REST to interact with a legacy system, consider building a GraphQL server that’s designed to handle more dynamic requests instead.</p>
+<h2 id="graphql_server">How do I build a GraphQL server?</h2>
+
+<hr>
+<p>GraphQL is a layer ‘above’ an existing database. It’s agnostic about your back-end technology or stack, and simply defines the shape of queries it will accept. It’s up to you to define how data is retrieved. There’s lots of community tooling to handle translating queries to SQL, handling data loading, caching, etc.</p>
+<p>Check out <a href="https://github.com/chentsulin/awesome-graphql" target="_blank" rel="external">Awesome GraphQL</a> for a list of current libraries and resources for your back-end platform.</p>
+<p>FWIW, I generally use <a href="http://dev.apollodata.com/tools/" target="_blank" rel="external">Apollo Server</a> (Node.js) and <a href="http://graphene-python.org/" target="_blank" rel="external">Graphene</a> (Python) in my own projects for building GraphQL servers.</p>
 
     </div>
   </div>
@@ -306,6 +330,13 @@
           Server/browser awareness
         </a>
       
+      
+        <a class="link primary next"
+          href="support.html">
+          <span class="subtitle-pagination">Next</span>
+          Support
+          <span class="icon-arrow-right-alt"></span>
+        </a>
       
     </div>
   </div>
