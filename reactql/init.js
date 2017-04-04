@@ -2,8 +2,8 @@ var player;
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('yt', {
-    height: '390',
-    width: '640',
+    height: '100%',
+    width: '100%',
     videoId: 'hFm4PBQghgA',
     playerVars: {
       modestbranding: 1
