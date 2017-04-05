@@ -259,27 +259,36 @@
 <p>Inside your CSS:</p>
 <p><strong>someCssFile.css</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.someClass</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>someJsFile.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> css <span class="keyword">from</span> <span class="string">'./someCssFile.css'</span>;</div><div class="line"></div><div class="line"><span class="comment">// .someClass will get transformed into a hashed, 'local' name, to avoid</span></div><div class="line"><span class="comment">// collisions with the global namespace</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> props =&gt; (</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;p className=&#123;css.someClass&#125;&gt;Hello world&lt;/p&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>You can import <code>.css</code> (plain CSS), <code>.scss</code> &amp; <code>.sass</code> (<a href="http://sass-lang.com/" target="_blank" rel="external">SASS</a>) and <code>.less</code> (<a href="http://lesscss.org/" target="_blank" rel="external">LESS</a>) files. All three flavours export <a href="#local">localised classnames</a>.</p>
+</blockquote>
 <h2 id="cssnext" title="CSSNext">Next-generation CSS parsing</h2>
 
 <hr>
-<p><code>.css</code> and <code>.sass / .scss</code> stylesheets are parsed through <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a>, using the default settings.</p>
-<p>That means you can use things like nested statements out-the-box:</p>
+<p>All stylesheets - plain CSS, LESS or SASS - are all ultimately parsed through <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a> as a final step.</p>
+<p>That means you can use things like nested statements out-the-box in plain <code>.css</code>:</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.anotherClassName &#123;</div><div class="line">  &amp; h1 &#123;</div><div class="line">    text-size: 2em;</div><div class="line">  &#125;</div><div class="line">  &amp; p &#123;</div><div class="line">    color: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>As well as variable names, and other goodies:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:root</span> &#123;</div><div class="line">  <span class="attribute">--mainColor</span>: red;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--mainColor);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>Vendor prefixes will automatically be added, so you can write the bare CSS and let PostCSS worry about polyfilling browsers.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-pseudo">:root</span> &#123;</div><div class="line">  <span class="attribute">--mainColor</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--mainColor);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>See <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a> for more details and syntax.</p>
+<p>Since SASS and LESS use different syntax, you’ll need to write styles that are compatible with the respective parsers before reaching the CSSNext step.</p>
 </blockquote>
+<p>Vendor prefixes will automatically be added, so you can write the bare CSS and let PostCSS worry about polyfilling browsers.</p>
+<p>See <a href="http://cssnext.io/" target="_blank" rel="external">CSSNext</a> for more details and syntax.</p>
 <h2 id="sass">SASS support</h2>
 
 <hr>
-<p><a href="http://sass-lang.com/" target="_blank" rel="external">SASS</a> code is also compiled through PostCSS in the same way. Simply use <code>.sass</code>/<code>.scss</code> files instead, and your stylesheets will pass through <a href="https://github.com/sass/node-sass" target="_blank" rel="external">node-sass</a> first.</p>
-<p><code>@import</code> statements are parsed through SASS first, so you can use parent settings, SASS functions and variables in the calling <code>.sass</code>, too.</p>
+<p>ReactQL has <a href="http://sass-lang.com/" target="_blank" rel="external">SASS</a> support. Any imported file with a <code>.scss</code> or <code>.sass</code> extension will be parsed through <a href="https://github.com/sass/node-sass" target="_blank" rel="external">node-sass</a> first.</p>
+<p><code>@import</code> statements are also parsed through SASS first, so you can use parent settings, SASS functions and variables in the calling <code>.sass / .scss</code>, too.</p>
+<h2 id="less">LESS support</h2>
+
+<hr>
+<p>ReactQL offers <a href="http://sass-lang.com/" target="_blank" rel="external">LESS</a> support, too. <code>.less</code> files will be parsed through the Webpack <a href="https://github.com/webpack-contrib/less-loader" target="_blank" rel="external">less-loader</a>.</p>
+<p>You can use any feature offered by the <a href="http://lesscss.org/" target="_blank" rel="external">LESS parser</a>.</p>
 <h2 id="local" title="Local modules">Local modules - preventing bleed-out</h2>
 
 <hr>
-<p>By default, class styles in your CSS/SASS files will be exported as <em>local</em> modules. Class names will be hashed to prevent bleeding out to your global namespace, and those same class names are then injected into the React code that is bundled for you. e.g:</p>
+<p>By default, class styles in your CSS/SASS/LESS files will be exported as <em>local</em> modules. Class names will be hashed to prevent bleeding out to your global namespace, and those same class names are then injected into the React code that is bundled for you. e.g:</p>
 <p><img src="images/classnames.png" alt="CSS local classnames"></p>
 <p>The benefit to this is tight coupling of style logic with your components.  You don’t have to worry that you’ve used globally unique class names, because Webpack will transpile your names into garbled, hashed versions to avoid conflicts.</p>
 <h2 id="global_styles">Global styles</h2>
@@ -297,7 +306,7 @@
 <h2 id="server">Server-side support</h2>
 
 <hr>
-<p>CSS on the server is fully supported, so you can write your code without fear that stylesheets will break universal/server-side rendering.</p>
+<p>All stylesheet flavours are fully supported on the server, so you can write your code without fear that stylesheets will break universal/server-side rendering.</p>
 <p>In production, your styles will automatically be extracted out to a <code>dist/public/assets/css/style.css</code> and your server bundle will know the relevant ‘hashed’ classname to include in your <code>class=</code> attribute on your components.</p>
 <p>This is done for you automatically - no code changes required.</p>
 
