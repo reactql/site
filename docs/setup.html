@@ -270,6 +270,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;project_folder&gt;</div><div class="line">npm i</div></pre></td></tr></table></figure>
 <p>… and start writing over it.</p>
 <p>In future, you’ll be able to install globally via NPM and generate projects with a few other goodies such as code generation, deletion of the <code>.git</code> folder, etc.</p>
+<h2 id="tidying">Tidying up after the starter kit</h2>
+
+<hr>
+<p>When you clone the ReactQL repository, you’re inheriting version control and text files that are specific to the generic <a href="https://github.com/leebenson/reactql" target="_blank" rel="external">reactql repo</a>. These files won’t make sense to your new project.</p>
+<p>Clean them up with a command like this:</p>
+<p><strong>Linux/Mac:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf .git README.md CHANGELOG LICENSE</div></pre></td></tr></table></figure></p>
+<p><strong>Windows:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">del /S /Q .git README.md CHANGELOG LICENSE</div></pre></td></tr></table></figure></p>
+<p>You can then initialise your own git repo in the usual way, so that making changes and pushing them won’t attempt to update the parent starter kit:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
 <h2 id="development">Running in development</h2>
 
 <hr>
@@ -298,7 +307,9 @@
 <p>Then, simply run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run server</div></pre></td></tr></table></figure>
 <p>… which (by default) spawns a server at <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
-<p>Or, you can run the short-cut: <code>npm run build-run</code>, which has the same effect as running the above two commands separately.</p>
+<blockquote>
+<p>Tip: <code>npm run build-run</code> has same effect as running the above two commands separately.</p>
+</blockquote>
 
     </div>
   </div>
