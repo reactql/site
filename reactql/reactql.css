@@ -40,11 +40,18 @@
   height: 20px;
 }
 
+.version {
+  font-size: 22px;
+  font-weight: normal;
+}
+
 .install {
   width: 500px;
-  border: 2px solid black;
+  max-width: 80%;
   padding: 10px;
-  background-color: #ffc107;
+  background-color: white;
+  color: black;
+  opacity: 0.5;
   margin: 0 auto;
   font-size: 18px;
   font-weight: bold;
