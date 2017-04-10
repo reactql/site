@@ -11,3 +11,4 @@ https://reactql.org/docs/routing
 https://reactql.org/docs/setup
 https://reactql.org/docs/ssr
 https://reactql.org/docs/styleguide
+https://reactql.org/docs/support
