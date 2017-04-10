@@ -253,32 +253,22 @@
     <div class="document-formatting">
       <h2 id="what">System requirements</h2>
 
-<p>This starter kit should work with most flavours of OS X, *nix and Windows.</p>
-<p>You’ll need <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a> and <a href="https://git-scm.com/" target="_blank" rel="external">git</a> installed.</p>
-<h2 id="installation">Video walk-through</h2>
+<p>ReactQL should work with most flavours of OS X, Linux and Windows.</p>
+<p>You’ll need <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a> (7.6+ recommended).</p>
+<p><a href="https://yarnpkg.com/" target="_blank" rel="external">Yarn</a> is optional, but recommended. It’ll speed up building third-party modules for your new starter kit. If the <code>yarn</code> command is not found on your system, module bundling will fall-back to <code>npm</code> automatically.</p>
+<h2 id="installation">Installation</h2>
 
 <hr>
-<p>How to install a new ReactQL project step-by-step:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fnpbUdJ2ttY" frameborder="0" allowfullscreen style="max-width: 100%"></iframe>
-
+<p>Open Terminal (Mac) or Command Prompt (Windows) and run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g reactql</div></pre></td></tr></table></figure>
+<p>This will install the <code>reactql</code> CLI tool on your local machine.</p>
 <h2 id="new_project">Starting a new project</h2>
 
 <hr>
-<p>Simply clone the starter kit:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/leebenson/reactql &lt;project_folder&gt;</div></pre></td></tr></table></figure>
-<p>… then install the required packages:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> &lt;project_folder&gt;</div><div class="line">npm i</div></pre></td></tr></table></figure>
-<p>… and start writing over it.</p>
-<p>In future, you’ll be able to install globally via NPM and generate projects with a few other goodies such as code generation, deletion of the <code>.git</code> folder, etc.</p>
-<h2 id="tidying">Tidying up after the starter kit</h2>
-
-<hr>
-<p>When you clone the ReactQL repository, you’re inheriting version control and text files that are specific to the generic <a href="https://github.com/leebenson/reactql" target="_blank" rel="external">reactql repo</a>. These files won’t make sense to your new project.</p>
-<p>Clean them up with a command like this:</p>
-<p><strong>Linux/Mac:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -rf .git README.md CHANGELOG LICENSE</div></pre></td></tr></table></figure></p>
-<p><strong>Windows:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">del /S /Q .git README.md CHANGELOG LICENSE</div></pre></td></tr></table></figure></p>
-<p>You can then initialise your own git repo in the usual way, so that making changes and pushing them won’t attempt to update the parent starter kit:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<p>Run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reactql new</div></pre></td></tr></table></figure>
+<p>… to run through the interactive project wizard.</p>
+<p>ReactQL will create a new starter kit in the folder of your choosing, install the required NPM modules, and set everything up. When finished, usage instructions will be dumped to your console.</p>
 <h2 id="development">Running in development</h2>
 
 <hr>
@@ -289,7 +279,7 @@
 <li>Enable sourcemaps for your CSS and Javascript code</li>
 <li>Activate hot code reloading; any changes to your code will update automatically in the browser</li>
 </ul>
-<p>To activate development mode, run:</p>
+<p>To activate development mode, <code>cd</code> to your starter kit folder, and run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
 <p>Changes to your React components/styles will update in the browser in real-time, with no refreshes. Changes to other code may require a refresh.</p>
 <h2 id="production">Bundling for production</h2>
@@ -309,6 +299,17 @@
 <p>… which (by default) spawns a server at <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
 <blockquote>
 <p>Tip: <code>npm run build-run</code> has same effect as running the above two commands separately.</p>
+</blockquote>
+<h2 id="upgrading">Upgrading</h2>
+
+<hr>
+<p>Every time you run <code>reactql</code>, the tool will check the NPM repository to see if a new version is available. If it is, a message will be displayed on your console.</p>
+<p>To upgrade the ReactQL cli tool, simply re-run the original installation command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g reactql</div></pre></td></tr></table></figure>
+<p>This will grab the latest version of the <code>reactql</code> tool, and overwrite the old one.</p>
+<p>Since the starter kit is self-contained, there are no additional dependencies to manage – the next time you run <code>reactql</code>, you’ll be deploying the latest version.</p>
+<blockquote>
+<p>Note: There’s no way to upgrade an active project to the latest version, since doing so might require changes to code you’ve written that modifies the original starter kit. The best way to upgrade is to create a new project, copy over your custom files, and add any of your code changes manually (particularly code you may have extended inside the <code>kit</code> folder)</p>
 </blockquote>
 
     </div>
