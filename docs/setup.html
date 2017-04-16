@@ -268,7 +268,7 @@
 <p>Run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reactql new</div></pre></td></tr></table></figure>
 <p>… to run through the interactive project wizard.</p>
-<p>ReactQL will create a new starter kit in the folder of your choosing, install the required NPM modules, and set everything up. When finished, usage instructions will be dumped to your console.</p>
+<p>ReactQL will download the <a href="https://github.com/reactql/kit" target="_blank" rel="external">starter kit source</a> from Github, extract the archive to your chosen folder, install the required NPM modules, and set everything up. When finished, usage instructions will be dumped to your console.</p>
 <h2 id="development">Running in development</h2>
 
 <hr>
@@ -307,9 +307,9 @@
 <p>To upgrade the ReactQL cli tool, simply re-run the original installation command:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g reactql</div></pre></td></tr></table></figure>
 <p>This will grab the latest version of the <code>reactql</code> tool, and overwrite the old one.</p>
-<p>Since the starter kit is self-contained, there are no additional dependencies to manage – the next time you run <code>reactql</code>, you’ll be deploying the latest version.</p>
+<p>Note: The <a href="https://github.com/reactql/kit" target="_blank" rel="external">starter kit source code</a> is managed in a separate repo. Every time you run <code>reactql new</code>, the latest source code will be downloaded, meaning each new starter kit will lose the latest kit – even if you don’t upgrade the CLI tool.</p>
 <blockquote>
-<p>Note: There’s no way to upgrade an active project to the latest version, since doing so might require changes to code you’ve written that modifies the original starter kit. The best way to upgrade is to create a new project, copy over your custom files, and add any of your code changes manually (particularly code you may have extended inside the <code>kit</code> folder)</p>
+<p>Upgrading: There’s no way to upgrade an <em>active</em> project to the latest version, since doing so might require changes to code you’ve written that modifies the original starter kit. The best way to upgrade is to create a new project, copy over your custom files, and add any of your code changes manually (particularly code you may have extended inside the <code>kit</code> folder)</p>
 </blockquote>
 
     </div>
