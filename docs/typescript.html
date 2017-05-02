@@ -4,8 +4,8 @@
     <meta charset="utf-8">
 
     <!-- Basic -->
-    <title>Setup & Installation | ReactQL</title>
-    <meta name="description" content="How to deploy ReactQL for your next project">
+    <title>ES6 or Typescript? | ReactQL</title>
+    <meta name="description" content="Choose between ES6 Javascript or Typescript">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicons -->
     <link rel="shortcut icon" type="image/png" href="images/favicons/32x32.png" sizes="32x32" />
@@ -14,13 +14,13 @@
     <!-- Social -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="http://reactql.org">
-    <meta property="og:title" content="Setup & Installation | ReactQL">
-    <meta property="og:description" content="How to deploy ReactQL for your next project">
+    <meta property="og:title" content="ES6 or Typescript? | ReactQL">
+    <meta property="og:description" content="Choose between ES6 Javascript or Typescript">
     <meta property="og:image" content="">
     <meta name="twitter:card" content="summary_image_large">
     <meta name="twitter:site" content="">
-    <meta name="twitter:title" content="Setup & Installation | ReactQL">
-    <meta name="twitter:description" content="How to deploy ReactQL for your next project">
+    <meta name="twitter:title" content="ES6 or Typescript? | ReactQL">
+    <meta name="twitter:description" content="Choose between ES6 Javascript or Typescript">
     <meta name="twitter:image" content="">
 
     <!-- Misc -->
@@ -118,8 +118,8 @@
           <ul class="list-toc">
             
               
-              <li class="item-toc  current">
-                <a href="" class="sidebar-link  current">
+              <li class="item-toc ">
+                <a href="setup.html" class="sidebar-link ">
                   <span>Installation</span>
                 </a>
               </li>
@@ -141,8 +141,8 @@
           <ul class="list-toc">
             
               
-              <li class="item-toc ">
-                <a href="typescript.html" class="sidebar-link ">
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
                   <span>ES6 or Typescript?</span>
                 </a>
               </li>
@@ -254,87 +254,55 @@
 <div class="content">
   <div class="content-wrapper">
     <div class="header-content">
-      <h1 class="title-page">Setup & Installation</h1>
+      <h1 class="title-page">ES6 or Typescript?</h1>
       
-        <div class="subtitle-page">How to deploy ReactQL for your next project</div>
+        <div class="subtitle-page">Choose between ES6 Javascript or Typescript</div>
       
 
       <div class="page-actions">
         <div class="actions-group">
-          <a class="btn tertiary small round lowercase" href="https://github.com/reactql/docs/tree/master/source/setup.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+          <a class="btn tertiary small round lowercase" href="https://github.com/reactql/docs/tree/master/source/typescript.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
         </div>
       </div>
     </div>
 
     <div class="document-formatting">
-      <h2 id="video" title="Video: Installing ReactQL">Video: Installing ReactQL (Windows, Mac, Linux)</h2>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gOMHRBonsUQ" frameborder="0" allowfullscreen style="max-width: 100%"></iframe>
-
-<h2 id="what">System requirements</h2>
-
-<p>ReactQL should work with most flavours of OS X, Linux and Windows.</p>
-<p>You’ll need <a href="https://nodejs.org" target="_blank" rel="external">Node.js</a> (7.6+ recommended).</p>
-<p><a href="https://yarnpkg.com/" target="_blank" rel="external">Yarn</a> is optional, but recommended. It’ll speed up building third-party modules for your new starter kit. If the <code>yarn</code> command is not found on your system, module bundling will fall-back to <code>npm</code> automatically.</p>
-<h2 id="installation">Installation</h2>
+      <p>When you install a new project, you’ll be asked whether you want to download the <a href="https://github.com/reactql/kit" target="_blank" rel="external">ES6 Javascript</a> or <a href="https://github.com/reactql/kit.ts" target="_blank" rel="external">Typescript version</a> of the ReactQL starter kit.</p>
+<p>Both kits maintain the same core feature set, and can be started and built in the same way.</p>
+<p>There are a few differences:</p>
+<h2 id="type_checking">Type checking</h2>
 
 <hr>
-<p>Open Terminal (Mac) or Command Prompt (Windows) and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g reactql</div></pre></td></tr></table></figure>
-<p>This will install the <code>reactql</code> CLI tool on your local machine.</p>
-<h2 id="new_project">Starting a new project</h2>
+<p>The Typescript variant includes type annotations, to help enforce structure and prevent common code bugs that occur when passing around unexpected data between functions. You can learn more at <a href="http://www.typescriptlang.org/" target="_blank" rel="external">typescriptlang.org</a>.</p>
+<p>The ES6 version is ‘plain’, dynamically typed Javascript.</p>
+<p>Which version you choose depends on the requirements of your project. If you’re a sole developer or want to develop fast prototypes, ES6 is generally fewer keystrokes. If you’re a team and want to enforce rigour across your app, type checking might be for you.</p>
+<h2 id="build">Build pipeline</h2>
 
 <hr>
-<p>Run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">reactql new</div></pre></td></tr></table></figure>
-<p>… to run through the interactive project wizard.</p>
-<p>ReactQL will download the <a href="https://github.com/reactql/kit" target="_blank" rel="external">starter kit source</a> from Github, extract the archive to your chosen folder, install the required NPM modules, and set everything up. When finished, usage instructions will be dumped to your console.</p>
-<h2 id="es6_or_typescript">Typescript support</h2>
+<p>There are subtle differences to the Webpack build process.</p>
+<p>The Typescript version uses <a href="https://github.com/s-panferov/awesome-typescript-loader" target="_blank" rel="external">awesome-typescript-loader</a> alongside the common Webpack build config, which both removes type annotations in the resulting bundle, and throws an error on type mismatches.</p>
+<p>The ES6 Javascript version also throws syntax errors, but won’t do any kind of type checking. It uses <a href="http://babeljs.io/" target="_blank" rel="external">Babel</a> to transpile ES6 to browser compatible code.</p>
+<p>Both versions produce ‘plain’ Javascript for the server and browser; no runtime parser is needed.</p>
+<h2 id="build">Bundle sizes</h2>
 
 <hr>
-<p>You can choose from ES6 Javascript or Typescript flavours of the starter kit.</p>
-<p>See the <a href="typescript.html">Typescript page</a> for key differences.</p>
-<h2 id="development">Running in development</h2>
+<p>Generally, resulting bundle sizes are relatively similar– both ES6 and Typescript produced ‘plain’ Javascript that contains the appropriate polyfills to run properly in the browser, or via the Node.js web server. Bundle size alone is generally not a reason to choose one starter kit flavour over another.</p>
+<p>However, the Typescript version currently weighs in at around <em>11kb less</em> than the ES6 variant, thanks for slightly more optimised helpers in Typescript vs. Babel and the lack of <code>regenerator-runtime</code>.</p>
+<h2 id="jsx">React / JSX</h2>
 
 <hr>
-<p>In development, ReactQL will:</p>
+<p>Typescript files that use JSX / React syntax, should be suffixed with a <code>.tsx</code> extension. That tells the Webpack build pipeline to parse JSX properly.</p>
+<p>In the ES6 kit, React can appear in any <code>.js</code> file – no special extension is needed.</p>
+<h2 id="source">Kit sources</h2>
+
+<hr>
+<p>Direct links to the relevant starter kit source repository:</p>
 <ul>
-<li>Run a development server at <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a></li>
-<li>Build a browser-side bundle only</li>
-<li>Enable sourcemaps for your CSS and Javascript code</li>
-<li>Activate hot code reloading; any changes to your code will update automatically in the browser</li>
+<li><em>ES6 version:</em> <a href="https://github.com/reactql/kit" target="_blank" rel="external">https://github.com/reactql/kit</a></li>
+<li><em>Typescript version:</em> <a href="https://github.com/reactql/kit.ts" target="_blank" rel="external">https://github.com/reactql/kit.ts</a></li>
 </ul>
-<p>To activate development mode, <code>cd</code> to your starter kit folder, and run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
-<p>Changes to your React components/styles will update in the browser in real-time, with no refreshes. Changes to other code may require a refresh.</p>
-<h2 id="production">Bundling for production</h2>
-
-<hr>
-<p>In production, ReactQL will:</p>
-<ul>
-<li>Build a server bundle, which includes a built-in Koa web server</li>
-<li>Activate server-side rendering (SSR) for your React components / GraphQL data fetching</li>
-<li>Create a minified browser bundle</li>
-<li>Crunch your CSS, images and other web assets</li>
-</ul>
-<p>To run it, you first need to build the server and client bundles with:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
-<p>Then, simply run:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run server</div></pre></td></tr></table></figure>
-<p>… which (by default) spawns a server at <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
 <blockquote>
-<p>Tip: <code>npm run build-run</code> has same effect as running the above two commands separately.</p>
-</blockquote>
-<h2 id="upgrading">Upgrading</h2>
-
-<hr>
-<p>Every time you run <code>reactql</code>, the tool will check the NPM repository to see if a new version is available. If it is, a message will be displayed on your console.</p>
-<p>To upgrade the ReactQL cli tool, simply re-run the original installation command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g reactql</div></pre></td></tr></table></figure>
-<p>This will grab the latest version of the <code>reactql</code> tool, and overwrite the old one.</p>
-<p>Note: The <a href="https://github.com/reactql/kit" target="_blank" rel="external">starter kit source code</a> is managed in a separate repo. Every time you run <code>reactql new</code>, the latest source code will be downloaded, meaning each new starter kit will lose the latest kit – even if you don’t upgrade the CLI tool.</p>
-<blockquote>
-<p>Upgrading: There’s no way to upgrade an <em>active</em> project to the latest version, since doing so might require changes to code you’ve written that modifies the original starter kit. The best way to upgrade is to create a new project, copy over your custom files, and add any of your code changes manually (particularly code you may have extended inside the <code>kit</code> folder)</p>
+<p>Note: You can clone the kit directly, or use the <a href="setup.html">CLI tool</a> to choose which flavour of kit you’d like when starting a new project.</p>
 </blockquote>
 
     </div>
@@ -345,17 +313,17 @@
       
       
         <a class="link primary prev"
-          href="index.html">
+          href="layout.html">
           <span class="icon-arrow-left-alt"></span>
           <span class="subtitle-pagination">Previous</span>
-          ReactQL
+          Project layout
         </a>
       
       
         <a class="link primary next"
-          href="layout.html">
+          href="styleguide.html">
           <span class="subtitle-pagination">Next</span>
-          Project layout
+          Styleguide
           <span class="icon-arrow-right-alt"></span>
         </a>
       
@@ -363,7 +331,7 @@
   </div>
 
   <div class="github">
-    <a class="link tertiary " href="https://github.com/reactql/docs/tree/master/source/setup.md" target="_blank">
+    <a class="link tertiary " href="https://github.com/reactql/docs/tree/master/source/typescript.md" target="_blank">
       <span class="icon-github"></span>Edit on GitHub</a>
   </div>
 </div>

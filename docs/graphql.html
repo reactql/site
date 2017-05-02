@@ -142,6 +142,13 @@
             
               
               <li class="item-toc ">
+                <a href="typescript.html" class="sidebar-link ">
+                  <span>ES6 or Typescript?</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
                 <a href="styleguide.html" class="sidebar-link ">
                   <span>Styleguide</span>
                 </a>
@@ -261,7 +268,7 @@
 
     <div class="document-formatting">
       <p>When running <code>npm start</code>, you’ll see an example of GraphQL talking to a live server end-point hosted at <a href="https://www.graph.cool/" target="_blank" rel="external">graph.cool</a></p>
-<p>Check out <a href="https://github.com/leebenson/reactql/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a> to see this working in action.</p>
+<p>Check out <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a> to see this working in action.</p>
 <p>The cool thing is, if you run the component on the server via <code>npm run build-run</code> and navigate to <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>, you’ll see the GraphQL response directly in the source code, too!</p>
 <p>That’s because ReactQL automatically requests data from GraphQL <em>before</em> rendering the resulting HTML back to the browser.</p>
 <p>Furthermore, it will send back the initial Redux state with the HTML, too, ensuring that the browser doesn’t re-request data it already has.</p>
@@ -269,13 +276,13 @@
 <p>First, set the GraphQL API endpoint.  By default, I’ve included a sample to a <a href="https://www.graph.cool/" target="_blank" rel="external">graph.cool</a> service I created for this starter kit – change this to your own GraphQL server in production:</p>
 <p><strong>config/project.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> APOLLO = &#123;</div><div class="line">  <span class="attr">uri</span>: <span class="string">'https://api.graph.cool/simple/v1/cinomw2r1018601o42x5z69uc'</span>,</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>Both the browser and server entry points will create an Apollo client based on the above config.</p>
-<p>Then, in your <a href="https://github.com/leebenson/reactql/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a> file, we define the GraphQL query to grab the data we need:</p>
+<p>Then, in your <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a> file, we define the GraphQL query to grab the data we need:</p>
 <p><strong>src/app.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// First, create the GraphQL query that we'll use to request data from our</span></div><div class="line"><span class="comment">// sample endpoint</span></div><div class="line"><span class="keyword">const</span> query = gql<span class="string">`</span></div><div class="line">  query &#123;</div><div class="line">    allMessages(first:1) &#123;</div><div class="line">      text</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">`;</div></pre></td></tr></table></figure></p>
 <p>We use Apollo’s <code>gql</code> template function to specify the data we require.</p>
 <p>Next, we’ll create the ‘plain’ component that will ultimately take the data in via props. Note: This doesn’t have any ‘special’ GraphQL related syntax. It’s just a plain React component that will take in GraphQL data via plain props:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> Message = <span class="function">(<span class="params">&#123; data &#125;</span>) =&gt;</span> &#123;</div><div class="line">  <span class="comment">// `data` will initially be blank before GraphQL has returned with data, so test it exists</span></div><div class="line">  <span class="keyword">const</span> message = data.allMessages &amp;&amp; data.allMessages[<span class="number">0</span>].text;</div><div class="line">  <span class="keyword">const</span> isLoading = data.loading ? <span class="string">'yes'</span> : <span class="string">'nope'</span>;</div><div class="line">  <span class="keyword">return</span> (</div><div class="line">    &lt;div&gt;</div><div class="line">      &lt;h2&gt;Message from GraphQL server: &lt;em&gt;&#123;message&#125;&lt;/em&gt;&lt;/h2&gt;</div><div class="line">      &lt;h2&gt;Currently loading?: &#123;isLoading&#125;&lt;/h2&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  );</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>Now, for use in development, we can add custom <code>propTypes</code> to the component so that React knows what to expect.</p>
-<p>In <a href="https://github.com/leebenson/reactql/blob/master/kit/lib/apollo.js" target="_blank" rel="external">kit/lib/apollo.js</a>, we have a custom <code>mergeData()</code> helper that will provide us with the <code>data.loading</code> boolean, and allow us to merge in expected data.</p>
+<p>In <a href="https://github.com/reactql/kit/blob/master/kit/lib/apollo.js" target="_blank" rel="external">kit/lib/apollo.js</a>, we have a custom <code>mergeData()</code> helper that will provide us with the <code>data.loading</code> boolean, and allow us to merge in expected data.</p>
 <p>In this example, we’re expecting an <code>allMessages</code> array which will contain an object with <code>text</code> property, containing our message received from our GraphQL endpoint.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Add propTypes for React to expect data from GraphQL</span></div><div class="line">Message.propTypes = &#123;</div><div class="line">  <span class="attr">data</span>: mergeData(&#123;</div><div class="line">    <span class="attr">allMessages</span>: React.PropTypes.arrayOf(</div><div class="line">      React.PropTypes.shape(&#123;</div><div class="line">        <span class="attr">text</span>: React.PropTypes.string.isRequired,</div><div class="line">      &#125;).isRequired,</div><div class="line">    ),</div><div class="line">  &#125;),</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 <p>Finally, we create a higher-order component that wraps our plain component, and gives it GraphQL listening powers:</p>
