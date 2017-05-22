@@ -276,40 +276,48 @@
 <hr>
 <p>This starter has been designed to provide you with a few skeletal pieces to get you going, and make it easier to layer in your own code.</p>
 <p>Here’s the folder layout:</p>
-<h2 id="config"><a href="#config" class="headerlink" title="config"></a><code>config</code></h2><hr>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a><a href="https://github.com/reactql/kit/blob/master/config" target="_blank" rel="external"><code>config</code></a></h2><hr>
 <p>Project configuration files, such as the folder structure that ReactQL will use to determine where your code lives.</p>
-<p>You can put your own settings in <code>config/project.js</code> or create new files in this folder to host them.</p>
-<p>By default, <code>config/project.js</code> contains just the URI that Apollo will use to connect to your back-end GraphQL server. You can extend this with your own configuration options, for example SMTP details or other API endpoints.</p>
+<p>You can put your own settings in <a href="https://github.com/reactql/kit/blob/master/config/project.js" target="_blank" rel="external"><code>config/project.js</code></a> or create new files in this folder to host them.</p>
+<p>By default, <a href="https://github.com/reactql/kit/blob/master/config/project.js" target="_blank" rel="external"><code>config/project.js</code></a> contains just the URI that Apollo will use to connect to your back-end GraphQL server. You can extend this with your own configuration options, for example SMTP details or other API endpoints.</p>
 <p>This is written in ES6 style with no defaults, so you can import select configuration options from the client side without exposing credentials thanks to automatic tree-shaking/dead code elimination.</p>
-<h2 id="kit"><a href="#kit" class="headerlink" title="kit"></a><code>kit</code></h2><hr>
-<p>The bulk of ReactQL is found in <code>./kit</code>.  If you need to dive into the Webpack config or add some custom functionality to your web server or browser instantiation, you’d do it here.</p>
+<h2 id="kit"><a href="#kit" class="headerlink" title="kit"></a><a href="https://github.com/reactql/kit/blob/master/kit" target="_blank" rel="external"><code>kit</code></a></h2><hr>
+<p>The bulk of ReactQL is found in <a href="https://github.com/reactql/kit/blob/master/kit" target="_blank" rel="external"><code>./kit</code></a>.  If you need to dive into the Webpack config or add some custom functionality to your web server or browser instantiation, you’d do it here.</p>
 <p>For the most part though, you probably won’t need to touch this stuff.</p>
-<h3 id="kit-entry"><a href="#kit-entry" class="headerlink" title="kit/entry"></a><code>kit/entry</code></h3><hr>
+<h3 id="kit-entry"><a href="#kit-entry" class="headerlink" title="kit/entry"></a><a href="https://github.com/reactql/kit/blob/master/kit/entry" target="_blank" rel="external"><code>kit/entry</code></a></h3><hr>
 <p>This is where Webpack looks for entry points for building the browser and the server.</p>
 <blockquote>
 <p>Note: There’s no separate entry for ‘vendors’, since the bundle is built automatically by testing whether packages reside in <code>node_modules</code></p>
 </blockquote>
-<h3 id="kit-lib"><a href="#kit-lib" class="headerlink" title="kit/lib"></a><code>kit/lib</code></h3><hr>
+<h3 id="kit-lib"><a href="#kit-lib" class="headerlink" title="kit/lib"></a><a href="https://github.com/reactql/kit/blob/master/kit/lib" target="_blank" rel="external"><code>kit/lib</code></a></h3><hr>
 <p>Custom libraries built for ReactQL.  You’ll find custom helpers for Redux and Apollo for creating new stores, and building connections to your GraphQL endpoint via Apollo.</p>
-<h3 id="kit-views"><a href="#kit-views" class="headerlink" title="kit/views"></a><code>kit/views</code></h3><hr>
+<h3 id="kit-views"><a href="#kit-views" class="headerlink" title="kit/views"></a><a href="https://github.com/reactql/kit/blob/master/kit/views" target="_blank" rel="external"><code>kit/views</code></a></h3><hr>
 <p>Server-side React component views for rendering the full HTML.</p>
-<p>Contains an <a href="https://github.com/reactql/kit/blob/master/kit/views/ssr.js" target="_blank" rel="external"><code>ssr.js</code></a> file with a <code>&lt;Html&gt;</code> component, that generates the HTML, inserts title and meta tags, and dehydrates Redux store which the client uses to seed the initial application state.</p>
-<p>It also contains <a href="https://github.com/reactql/kit/blob/master/kit/views/webpack.html" target="_blank" rel="external"><code>webpack.html</code></a>, that’s used by the Webpack to load a minimal bootstrap when running a local development server.</p>
-<h3 id="kit-webpack"><a href="#kit-webpack" class="headerlink" title="kit/webpack"></a><code>kit/webpack</code></h3><hr>
+<p>Contains the following:</p>
+<ul>
+<li><p><a href="https://github.com/reactql/kit/blob/master/kit/views/browser.html" target="_blank" rel="external"><code>browser.html</code></a>: Used when you run <code>npm run build-browser-only</code> to generate a static <code>dist/public/index.html</code> file that bootstraps your CSS and Javascript code. <code>&lt;script&gt;</code> and <code>&lt;link&gt;</code> is automatically injected by Webpack to point to the latest assets.</p>
+</li>
+<li><p><a href="https://github.com/reactql/kit/blob/master/kit/views/ssr.js" target="_blank" rel="external"><code>ssr.js</code></a>: The <code>&lt;Html&gt;</code> server-side root component. Generates the HTML, inserts title and meta tags, and dehydrates Redux store which the client uses to seed the initial application state.</p>
+</li>
+<li><p><a href="https://github.com/reactql/kit/blob/master/kit/views/webpack.html" target="_blank" rel="external"><code>webpack.html</code></a>: used by the Webpack to load a minimal bootstrap when running a local development server.</p>
+</li>
+</ul>
+<h3 id="kit-webpack"><a href="#kit-webpack" class="headerlink" title="kit/webpack"></a><a href="https://github.com/reactql/kit/blob/master/kit/webpack" target="_blank" rel="external"><code>kit/webpack</code></a></h3><hr>
 <p>Webpack configuration files, notably:</p>
 <ul>
-<li><code>base.js</code>: Base configuration that all others inherit from</li>
-<li><code>browser.js</code>: Base configuration for the browser.  Inherits from base, and is extended by browser_dev and browser_prod</li>
-<li><code>browser_dev.js</code>: Config for the browser spawned at <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> when running <code>npm start</code></li>
-<li><code>browser_prod.js</code>: Production browser bundling.  Minifies and crunches code and images, gzips assets, removes source maps and debug flags, builds your browser bundles ready for production.  This is automatically served back to the client when you run <code>npm run build-run</code></li>
-<li><code>common.js</code>: Common objects shared amongst multiple Webpack config files, to save keystrokes</li>
-<li><code>eslint.js</code>: Entry point for the linter, to properly follow local module folders and avoid false positives</li>
-<li><code>server.js</code>: Node.js web server bundle.  Even though we’re running this through Node, Webpack still gets involved and properly handles inline file and CSS loading, and generates a build that works with your locally installed Node.js. You can build the server with <code>npm run build-server</code> or build and run with <code>npm run build-run</code></li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/base.js" target="_blank" rel="external"><code>base.js</code></a>: Base configuration that all others inherit from</li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser.js" target="_blank" rel="external"><code>browser.js</code></a>: Base configuration for the browser.  Inherits from base, and is extended by browser_dev and browser_prod</li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser_dev.js" target="_blank" rel="external"><code>browser_dev.js</code></a>: Config for the browser spawned at <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> when running <code>npm start</code></li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser_prod.js" target="_blank" rel="external"><code>browser_prod.js</code></a>: Production browser bundling.  Minifies and crunches code and images, gzips assets, removes source maps and debug flags, builds your browser bundles ready for production.  This is automatically served back to the client when you run <code>npm run build-run</code></li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser_only.js" target="_blank" rel="external"><code>browser_only.js</code></a>: Extends from <a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser_prod.js" target="_blank" rel="external"><code>browser_prod.js</code></a>, by also creating a static <code>index.html</code> file that allows you to host a browser-only version of your app – no web server required</li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/common.js" target="_blank" rel="external"><code>common.js</code></a>: Common objects shared amongst multiple Webpack config files, to save keystrokes</li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/eslint.js" target="_blank" rel="external"><code>eslint.js</code></a>: Entry point for the linter, to properly follow local module folders and avoid false positives</li>
+<li><a href="https://github.com/reactql/kit/blob/master/kit/webpack/server.js" target="_blank" rel="external"><code>server.js</code></a>: Node.js web server bundle.  Even though we’re running this through Node, Webpack still gets involved and properly handles inline file and CSS loading, and generates a build that works with your locally installed Node.js. You can build the server with <code>npm run build-server</code> or build and run with <code>npm run build-run</code></li>
 </ul>
-<h2 id="src"><a href="#src" class="headerlink" title="src"></a><code>src</code></h2><hr>
-<p>This is where all of your own code will live. By default, it contains the <code>&lt;App&gt;</code> component in <code>app.js</code> which demonstrates a few of the concepts that this starter kit offers you, along with styles defined in <code>app.css</code>.</p>
+<h2 id="src"><a href="#src" class="headerlink" title="src"></a><a href="https://github.com/reactql/kit/blob/master/src" target="_blank" rel="external"><code>src</code></a></h2><hr>
+<p>This is where all of your own code will live. By default, it contains the <code>&lt;App&gt;</code> component in <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank" rel="external"><code>app.js</code></a> which demonstrates a few of the concepts that this starter kit offers you, along with CSS defined in various style files.</p>
 <p>You can overwrite these files directly with your own code and use this as a starter point.</p>
-<h2 id="static"><a href="#static" class="headerlink" title="static"></a><code>static</code></h2><hr>
+<h2 id="static"><a href="#static" class="headerlink" title="static"></a><a href="https://github.com/reactql/kit/blob/master/static" target="_blank" rel="external"><code>static</code></a></h2><hr>
 <p>Put static files here that you want to wind up serving in production.</p>
 <p>Webpack will automatically crunch any of your GIF/JPEG/PNG/SVG images it finds in here, as well as generate pre-compressed <code>.gz</code> versions of every file so that your Koa web server on <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> (after running <code>npm run build-run</code>) can serve up the compressed versions instead of the full-sized originals.</p>
 <h2 id="root">Root files</h2>
@@ -317,23 +325,25 @@
 <hr>
 <p>There are various configuration files that you’ll find in the root:</p>
 <ul>
-<li><p><code>.babelrc</code>:  This exists solely to transpile the ES6 Webpack config into something Node.js can natively run. It has no bearing on the <a href="http://babeljs.io/" target="_blank" rel="external">Babel</a> config that’s used to transpile your Webpack code, so you can safely this leave alone.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/.babelrc" target="_blank" rel="external"><code>.babelrc</code></a>:  This exists solely to transpile the ES6 Webpack config into something Node.js can natively run. It has no bearing on the <a href="http://babeljs.io/" target="_blank" rel="external">Babel</a> config that’s used to transpile your Webpack code, so you can safely this leave alone.</p>
 </li>
-<li><p><code>.editorconfig</code>: Whitespace and syntax options for your editor/IDE. You probably won’t need to change this, unless you prefer tabs vs. spaces or need to change the encoding of saved files.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/.editorconfig" target="_blank" rel="external"><code>.editorconfig</code></a>: Whitespace and syntax options for your editor/IDE. You probably won’t need to change this, unless you prefer tabs vs. spaces or need to change the encoding of saved files.</p>
 </li>
-<li><p><code>.eslintignore</code>: Files the linter can safely ignore.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/.eslintignore" target="_blank" rel="external"><code>.eslintignore</code></a>: Files the linter can safely ignore.</p>
 </li>
-<li><p><code>.eslint.js</code>: <a href="http://eslint.org/" target="_blank" rel="external">ESLint</a> configuration. If your editor/IDE has ESLint installed, it will use this file to lint your code.  See “<a href="styleguide.html">Styleguide</a>“ to see the syntax rules that ReactQL lints your code with.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/.eslintrc.js" target="_blank" rel="external"><code>.eslintrc.js</code></a>: <a href="http://eslint.org/" target="_blank" rel="external">ESLint</a> configuration. If your editor/IDE has ESLint installed, it will use this file to lint your code.  See “<a href="styleguide.html">Styleguide</a>“ to see the syntax rules that ReactQL lints your code with.</p>
 </li>
-<li><p><code>.gitignore</code>: Files to ignore when checking in your code.  This is built around the ReactQL starter kit, but you will probably want to use it as a base for your own code since it ignores the usual Node stuff, along with <code>dist</code> and some of the caching folders used by Webpack.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/.gitignore" target="_blank" rel="external"><code>.gitignore</code></a>: Files to ignore when checking in your code.  This is built around the ReactQL starter kit, but you will probably want to use it as a base for your own code since it ignores the usual Node stuff, along with <code>dist</code> and some of the caching folders used by Webpack.</p>
 </li>
-<li><p><code>browserlist</code>: Browser target versions, so Webpack knows which polyfills to add. By default, we’re targeting the last 3 versions of all major browsers.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/browerslist" target="_blank" rel="external"><code>browerslist</code></a>: Browser target versions, so Webpack knows which polyfills to add. By default, we’re targeting the last 3 versions of all major browsers.</p>
 </li>
-<li><p><code>package.json</code>: NPM packages used in this starter kit.  When you’re extending this kit with your own code, you’ll probably want to change the name, description and repo links and replace with your own.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/package.json" target="_blank" rel="external"><code>package.json</code></a>: NPM packages used in this starter kit.  When you’re extending this kit with your own code, you’ll probably want to change the name, description and repo links and replace with your own.</p>
 </li>
-<li><p><code>webpack.config.babel.js</code>: The Webpack entry point.  This will invoke the config found in <code>kit/webpack</code> per the build command that spawned it.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/postcss.config.js" target="_blank" rel="external"><code>postcss.config.js</code></a>: PostCSS config. Currently not used (placeholder for PostCSS v6+)</p>
 </li>
-<li><p><code>yarn.lock</code>: If you have the <a href="https://yarnpkg.com/en/" target="_blank" rel="external">Yarn package manager</a> installed, the ReactQL CLI tool will use this lock file to download and bundle required NPM modules faster.</p>
+<li><p><a href="https://github.com/reactql/kit/blob/master/webpack.config.babel.js" target="_blank" rel="external"><code>webpack.config.babel.js</code></a>: The Webpack entry point.  This will invoke the config found in <a href="https://github.com/reactql/kit/blob/master/kit/webpack" target="_blank" rel="external"><code>kit/webpack</code></a> per the build command that spawned it.</p>
+</li>
+<li><p><a href="https://github.com/reactql/kit/blob/master/yarn.lock" target="_blank" rel="external"><code>yarn.lock</code></a>: If you have the <a href="https://yarnpkg.com/en/" target="_blank" rel="external">Yarn package manager</a> installed, the ReactQL CLI tool will use this lock file to download and bundle required NPM modules faster.</p>
 </li>
 </ul>
 

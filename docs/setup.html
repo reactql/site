@@ -325,6 +325,16 @@
 <blockquote>
 <p>Tip: <code>npm run build-run</code> has same effect as running the above two commands separately.</p>
 </blockquote>
+<h2 id="browser">Browser-only bundling (i.e. no web server)</h2>
+
+<hr>
+<p>If you only wish to target a browser and you don’t care about server-side rendering or running a web server, you can build assets with:</p>
+<p><code>npm run build-browser-only</code></p>
+<p>In addition to the regular Javascript, CSS and asset pipeline, the above command will also generate a static <code>index.html</code> file that will automatically load stylesheets and Javascript in the browser.</p>
+<p>You can then upload the contents of <code>dist/public</code> to any static file host (S3, Netlify, Github pages, etc) or FTP to your root web directory on any host, and you’ll have a complete application, minus the web server.</p>
+<blockquote>
+<p>Note: Your <code>index.html</code> file will contain only the minimum needed to bootstrap your application – your JS code will do the rest. You can customise the HTML that is sent back by editing <code>kit/views/browser.html</code>. Note that CSS and JS will be injected automatically by Webpack into the <code>&lt;head&gt;</code> and footer sections of the page.</p>
+</blockquote>
 <h2 id="upgrading">Upgrading</h2>
 
 <hr>

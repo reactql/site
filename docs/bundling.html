@@ -392,6 +392,19 @@
 <blockquote>
 <p>Once assets have been built, you can run <code>npm run server</code> to start a live web server</p>
 </blockquote>
+<h2 id="production">Browser-only bundling</h2>
+
+<hr>
+<p>If you don’t want to build a Node web server, you can run one of two commands:</p>
+<p><code>npm run build-browser</code></p>
+<p>or:</p>
+<p><code>npm run build-browser-only</code></p>
+<p>Both commands create the full browser bundles: Javascript, CSS and the asset minification pipeline, and both commands dump the same files to <code>dist/public</code>. Both commands also skip generating a <code>server.js</code> file for running a web server.</p>
+<p>The difference is the latter command <em>also</em> creates a static <code>index.html</code> file that is injected with the correct <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags to load the latest (hashed) CSS and JS assets.</p>
+<p>You can then upload <code>dist/public/*</code> to any static web host, and you’ll have your complete ReactQL application running in the browser – no web server required.</p>
+<blockquote>
+<p>Since <code>index.html</code> will contain just skeletal load code for your CSS and JS, you might want to check out a service like <a href="https://www.prerender.cloud/" target="_blank" rel="external">Prerender.cloud</a> to avoid the initial blank screen that will show before your app’s JS is fully downloaded/rendered. You could also use the open source <a href="https://github.com/prerender/prerender" target="_blank" rel="external">prerender</a> lib if you want to spin up a pre-render service in-house.</p>
+</blockquote>
 <h2 id="gzip">Gzip compression</h2>
 
 <hr>
