@@ -301,8 +301,8 @@
 <h2 id="how">How ReactQL implements SSR</h2>
 
 <hr>
-<p>ReactQL includes a <a href="http://koajs.com/" target="_blank" rel="external">Koa web server</a> in <a href="bundling.html#production">production mode</a>, which is defined in <a href="https://github.com/leebenson/reactql/blob/master/kit/entry/server.js" target="_blank" rel="external"><code>kit/entry/server.js</code></a>.</p>
-<p>Navigating to a server route returns a full HTML dump to the client.</p>
+<p>ReactQL includes a <a href="http://koajs.com/" target="_blank" rel="external">Koa web server</a>. In <a href="bundling.html#production">production mode</a>, the entry point Webpack will use to generate your web server code is <a href="https://github.com/reactql/kit/blob/master/kit/entry/server_prod.js" target="_blank" rel="external"><code>kit/entry/server_prod.js</code></a>. In development, it’s <a href="https://github.com/reactql/kit/blob/master/kit/entry/server_dev.js" target="_blank" rel="external"><code>kit/entry/server_dev.js</code></a></p>
+<p>In both modes, navigating to a server route returns a full HTML dump to the client.</p>
 <p>An example response– notes below:</p>
 <p><img src="images/ssr/features.png" alt="SSR, with features"></p>
 <p>This demonstrates the following features:</p>
@@ -347,7 +347,7 @@
 <h3 id="bundling">5. Code bundling</h3>
 
 <hr>
-<p>Two client-side bundles are produced in production, and loaded by your browser:</p>
+<p>Two client-side bundles are produced by the server config, and loaded by your browser:</p>
 <ol>
 <li><p><code>vendor.js</code>. Third-party code from NPM modules that are used in the starter kit, or imported into your own code.</p>
 </li>

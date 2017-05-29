@@ -270,7 +270,7 @@
       <h2 id="overview">Overview</h2>
 
 <hr>
-<p>ReactQL comes with an <a href="https://github.com/leebenson/reactql/tree/master/kit/webpack" target="_blank" rel="external">extensible</a> Webpack 2 configuration that bundles and optimises your code, for both development and production.</p>
+<p>ReactQL comes with an <a href="https://github.com/reactql/kit/tree/master/kit/webpack" target="_blank" rel="external">extensible</a> Webpack 2 configuration that bundles and optimises your code, for both development and production.</p>
 <p>In this doc, you’ll learn how it works with your Javascript, CSS and static assets.</p>
 <h2 id="basics">Basic concepts: Webpack 2</h2>
 
@@ -325,7 +325,7 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.logo</span> &#123;</div><div class="line">  <span class="comment">/* this will be processed exactly the same way as if imported in JS */</span></div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'./path/to/file.png'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Image-compression"><a href="#Image-compression" class="headerlink" title="Image compression"></a>Image compression</h3><p>In production, images are processed through <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="external">image-webpack-loader</a>, which minifies JPEG, GIF, PNG and SVG files via <a href="https://github.com/imagemin/imagemin" target="_blank" rel="external">imagemin</a> and copied to <code>[root]/dist/public/assets/img</code>. In development, original images files are served from memory (and compression is skipped), and no files are copied to the physical filesystem.</p>
 <blockquote>
-<p>By default, the JPG compression is set at 65% the quality of the original, and PNG has a target range of 65-90%. If images appear fuzzy, you can override this by editing <a href="https://github.com/leebenson/reactql/blob/master/kit/webpack/base.js" target="_blank" rel="external">kit/webpack/base.js</a></p>
+<p>By default, the JPG compression is set at 65% the quality of the original, and PNG has a target range of 65-90%. If images appear fuzzy, you can override this by editing <a href="https://github.com/reactql/kit/blob/master/kit/webpack/base.js" target="_blank" rel="external">kit/webpack/base.js</a></p>
 </blockquote>
 <h2 id="fonts">Fonts</h2>
 
@@ -352,23 +352,33 @@
 <hr>
 <p>To start a development server, run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
-<p>This is intended for on your local development machine. As you make changes, they will be reflected in the browser in real-time.</p>
-<p>This is what Webpack will do when spawning a dev server:</p>
+<p>This will create two ‘servers’:</p>
 <ol>
-<li><p>It will load your configuration at <a href="https://github.com/leebenson/reactql/blob/master/kit/webpack/browser_dev.js" target="_blank" rel="external">kit/webpack/browser_dev.js</a></p>
+<li><p>A ‘hot reloading’ Webpack dev server. This will build the <a href="https://github.com/reactql/kit/blob/master/kit/entry/browser.js" target="_blank" rel="external">kit/entry/browser.js</a> entry point into a browser-only bundle. Any code changes will be ‘pushed’ to the browser in real-time.</p>
 </li>
-<li><p>Webpack will start processing code in the <a href="https://github.com/leebenson/reactql/blob/master/kit/entry/browser.js" target="_blank" rel="external">kit/src/browser.js</a> entry file, start a development server at <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> and compile your source code into ‘in memory’ code bundles, at <a href="http://localhost:8080/vendor.js" target="_blank" rel="external">http://localhost:8080/vendor.js</a> (for third-party NPM code) and <a href="http://localhost:8080/bundle.js" target="_blank" rel="external">http://localhost:8080/bundle.js</a> (your own code). No physical files are stored on the filesystem.</p>
-</li>
-<li><p>All routes will be served by <a href="https://github.com/leebenson/reactql/blob/master/static/webpack.html" target="_blank" rel="external">static/webpack.html</a>. In development mode, there is no server-side rendering. Everything is loaded in the browser. That means GraphQL data fetching or anything ‘async’ will cause React to re-render with the correct props once it’s retrieved them.</p>
-</li>
-<li><p>Stylesheets will be included as inline code inside <code>bundle.js</code>. You might notice a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank" rel="external">flash of unstyled content</a> as <code>/bundle.js</code> is first loaded before snapping your styles into place.</p>
-</li>
-<li><p>The <code>./static</code> folder becomes your public route. Anything you might place in here - images, third-party scripts, etc - will be served ‘unprocessed’, in their original form.</p>
-</li>
-<li><p>A small snippet of code will be added to your in-memory <code>/vendor.js</code> entrypoint for handling hot code reload via websockets. Whenever you make changes to your code, the browser is ‘injected’ with the code difference and reflected in real-time.</p>
+<li><p>A full development web server. This builds <a href="https://github.com/reactql/kit/blob/master/kit/entry/server_dev.js" target="_blank" rel="external">kit/entry/server_dev.js</a> into a working web server, and runs it, enabling you to test <a href="ssr.html">server-side rendering</a> on-the-fly. Code changes will automatically re-build and restart the server; just hit refresh in your browser to see the new HTML.</p>
 </li>
 </ol>
+<p>This is what Webpack will do when spawning in development:</p>
+<p>Two configurations are loaded simultaneously:  <a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser_dev.js" target="_blank" rel="external">kit/webpack/browser_dev.js</a> for browser bundling, and <a href="https://github.com/reactql/kit/blob/master/kit/webpack/server_dev.js" target="_blank" rel="external">kit/webpack/server_dev.js</a> for building a development web server.</p>
+<p><strong>For the Webpack dev server (browser bundle)</strong></p>
+<p>Webpack will start processing code in the <a href="https://github.com/reactql/kit/blob/master/kit/entry/browser.js" target="_blank" rel="external">kit/entry/browser.js</a> entry file, start a development server at <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> and compile your source code into ‘in memory’ code bundles, at <a href="http://localhost:8080/vendor.js" target="_blank" rel="external">http://localhost:8080/vendor.js</a> (for third-party NPM code) and <a href="http://localhost:8080/bundle.js" target="_blank" rel="external">http://localhost:8080/bundle.js</a> (your own code). No physical files are stored on the filesystem.</p>
+<p>All routes will be served by <a href="https://github.com/reactql/kit/blob/master/static/webpack.html" target="_blank" rel="external">static/webpack.html</a>. In development mode, there is no server-side rendering. Everything is loaded in the browser. That means GraphQL data fetching or anything ‘async’ will cause React to re-render with the correct props once it’s retrieved them.</p>
+<p>Stylesheets will be included as inline code inside <code>bundle.js</code>. You might notice a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank" rel="external">flash of unstyled content</a> as <code>/bundle.js</code> is first loaded before snapping your styles into place.</p>
+<p>The <code>./static</code> folder becomes your public route. Anything you might place in here - images, third-party scripts, etc - will be served ‘unprocessed’, in their original form.</p>
+<p>A small snippet of code will be added to your in-memory <code>/vendor.js</code> entrypoint for handling hot code reload via websockets. Whenever you make changes to your code, the browser is ‘injected’ with the code difference and reflected in real-time.</p>
 <p>Development mode is not intended for production environments. Code bundles will be larger than production versions due to unminified sourcemaps and original files, and there is no server-side rendering in this mode.</p>
+<p><strong>For the web server bundle (SSR):</strong></p>
+<p>Webpack starts at  <a href="https://github.com/reactql/kit/blob/master/kit/entry/server_dev.js" target="_blank" rel="external">kit/entry/server_dev.js</a>, bundles server code at <code>dist/server_dev.js</code>, and spawns a web server at <a href="http://localhost:8081" target="_blank" rel="external">http://localhost:8081</a>. Static files are stored in <code>dist/dev</code>.</p>
+<p>A client-side bundle is generated for <code>dist/dev/vendor.js</code> and <code>dist/dev/browser.js</code>. A CSS file is generated in <code>dist/dev/assets/css/style.css</code>. The development web server will provide HTML code to load all of these files in the web server.</p>
+<p>Any images, fonts, or other static assets included in your code, will wind up in <code>dist/dev</code> too. This folder will be the public mount point for all requests to <a href="http://localhost:8081" target="_blank" rel="external">http://localhost:8081</a>. If the file doesn’t exist, it will be the ReactQL <a href="https://github.com/reactql/kit/blob/master/kit/entry/server.js#L72" target="_blank" rel="external">React handler</a> that serves the request (which is how routing on the server works.)</p>
+<p>The client bundles essentially uses the production browser bundling config, with two exceptions:</p>
+<ol>
+<li><p>Source maps are included, and <code>process.env.NODE_ENV === &#39;development&#39;</code>.</p>
+</li>
+<li><p>When you make changes to code (anywhere outside of Webpack config files), the server and browser bundles will be re-generated, and the server re-started. This allows you to refresh the page in the browser, and see the very latest version of your app via <a href="ssr.html">server-side rendering</a>.</p>
+</li>
+</ol>
 <h2 id="production">Production mode</h2>
 
 <hr>
@@ -376,9 +386,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
 <p>Webpack will follow these steps:</p>
 <ol>
-<li><p>It will first build your <em>browser</em> bundle by loading the Webpack config file at <a href="https://github.com/leebenson/reactql/blob/master/kit/webpack/browser_prod.js" target="_blank" rel="external">kit/webpack/browser_prod.js</a>, which will use <a href="https://github.com/leebenson/reactql/blob/master/kit/entry/browser.js" target="_blank" rel="external">kit/src/browser.js</a> as its entrypoint.</p>
+<li><p>It will first build your <em>browser</em> bundle by loading the Webpack config file at <a href="https://github.com/reactql/kit/blob/master/kit/webpack/browser_prod.js" target="_blank" rel="external">kit/webpack/browser_prod.js</a>, which will use <a href="https://github.com/reactql/kit/blob/master/kit/entry/browser.js" target="_blank" rel="external">kit/src/browser.js</a> as its entrypoint.</p>
 </li>
-<li><p>Webpack will then build your <em>server</em> bundle by loading the Webpack config file at <a href="https://github.com/leebenson/reactql/blob/master/kit/webpack/server.js" target="_blank" rel="external">kit/webpack/server.js</a>, which will use <a href="https://github.com/leebenson/reactql/blob/master/kit/entry/server.js" target="_blank" rel="external">kit/src/server.js</a> as its entrypoint.</p>
+<li><p>Webpack will then build your <em>server</em> bundle by loading the Webpack config file at <a href="https://github.com/reactql/kit/blob/master/kit/webpack/server.js" target="_blank" rel="external">kit/webpack/server.js</a>, which will use <a href="https://github.com/reactql/kit/blob/master/kit/entry/server.js" target="_blank" rel="external">kit/src/server.js</a> as its entrypoint.</p>
 </li>
 <li><p>Assets will appear in a new <code>[root]/dist</code> folder. A sub-folder, <code>./dist/public</code> is created which becomes the public entry point for the built-in <a href="http://koajs.com/" target="_blank" rel="external">Koa web server</a>.</p>
 </li>
@@ -392,13 +402,13 @@
 <blockquote>
 <p>Once assets have been built, you can run <code>npm run server</code> to start a live web server</p>
 </blockquote>
-<h2 id="production">Browser-only bundling</h2>
+<h2 id="production">Static bundling</h2>
 
 <hr>
 <p>If you don’t want to build a Node web server, you can run one of two commands:</p>
 <p><code>npm run build-browser</code></p>
 <p>or:</p>
-<p><code>npm run build-browser-only</code></p>
+<p><code>npm run build-static</code></p>
 <p>Both commands create the full browser bundles: Javascript, CSS and the asset minification pipeline, and both commands dump the same files to <code>dist/public</code>. Both commands also skip generating a <code>server.js</code> file for running a web server.</p>
 <p>The difference is the latter command <em>also</em> creates a static <code>index.html</code> file that is injected with the correct <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags to load the latest (hashed) CSS and JS assets.</p>
 <p>You can then upload <code>dist/public/*</code> to any static web host, and you’ll have your complete ReactQL application running in the browser – no web server required.</p>
