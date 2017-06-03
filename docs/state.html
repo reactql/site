@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Basic -->
+    <title>Custom Redux stores | ReactQL</title>
+    <meta name="description" content="Managing application state via Redux">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicons -->
+    <link rel="shortcut icon" type="image/png" href="images/favicons/32x32.png" sizes="32x32" />
+    <link rel="shortcut icon" type="image/png" href="images/favicons/16x16.png" sizes="16x16" />
+
+    <!-- Social -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://reactql.org">
+    <meta property="og:title" content="Custom Redux stores | ReactQL">
+    <meta property="og:description" content="Managing application state via Redux">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_image_large">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="Custom Redux stores | ReactQL">
+    <meta name="twitter:description" content="Managing application state via Redux">
+    <meta name="twitter:image" content="">
+
+    <!-- Misc -->
+    <meta name="google-site-verification" content="" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/docs/style/style.css">
+  </head>
+  <body class="">
+    
+
+<div class="nav dark">
+  <div class="nav-group">
+    <div class="nav-item show-mobile">
+      <span class="js-sidebar-toggle ">
+        <span class="icon-menu"></span>
+      </span>
+    </div>
+    <div class="nav-item">
+      
+      <a class="logo-wrapper" href="https://reactql.org" title="ReactQL Docs Modern stack for React+GraphQL"  >
+        <img src="images/reactql-logo.svg" alt="ReactQL Docs" class="logo"/>
+      </a>
+    </div>
+  </div>
+
+  <div class="nav-group right">
+    
+      
+      <div class="nav-item show-desktop false ">
+        <a class="link" href="https://reactql.org"  >
+          <span>Main site</span>
+        </a>
+      </div>
+    
+      
+      <div class="nav-item show-desktop false ">
+        <a class="link" href="https://github.com/reactql/cli"  >
+          <span>Github</span>
+        </a>
+      </div>
+    
+  </div>
+</div>
+
+<div class="sidebar">
+  <div class="panel">
+    <div class="panel-item">
+      <a class="" href="https:/reactql.org" title="ReactQL Docs"  >
+        <span>ReactQL Docs Modern stack for React+GraphQL</span>
+      </a>
+    </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://reactql.org"  >
+          <span>Main site</span>
+        </a>
+      </div>
+    
+      <div class="panel-item "">
+        <a class="" href="https://github.com/reactql/cli"  >
+          <span>Github</span>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="sidebar-content">
+    <div class="topcap">
+      <span class="title-sidebar">ReactQL</span>
+      
+    </div>
+
+    
+
+    <ul class="toc">
+      
+        <li>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="index.html" class="sidebar-link ">
+                  <span>Welcome</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Setup</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="setup.html" class="sidebar-link ">
+                  <span>Installation</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="layout.html" class="sidebar-link ">
+                  <span>Project layout</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Writing Code</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="typescript.html" class="sidebar-link ">
+                  <span>ES6 or Typescript?</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="styleguide.html" class="sidebar-link ">
+                  <span>Styleguide</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="modules.html" class="sidebar-link ">
+                  <span>Module resolution</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="graphql.html" class="sidebar-link ">
+                  <span>GraphQL components</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">CSS Styles</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="css.html" class="sidebar-link ">
+                  <span>CSS stylesheets</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Concepts</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="routing.html" class="sidebar-link ">
+                  <span>Routing</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="bundling.html" class="sidebar-link ">
+                  <span>Code bundling</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="ssr.html" class="sidebar-link ">
+                  <span>Server side rendering (SSR)</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="env.html" class="sidebar-link ">
+                  <span>Server/browser awareness</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc  current">
+                <a href="" class="sidebar-link  current">
+                  <span>Custom Redux stores</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+        <li>
+          
+            <div class="heading-toc">Resources</div>
+          
+          <ul class="list-toc">
+            
+              
+              <li class="item-toc ">
+                <a href="faq.html" class="sidebar-link ">
+                  <span>FAQ</span>
+                </a>
+              </li>
+            
+              
+              <li class="item-toc ">
+                <a href="support.html" class="sidebar-link ">
+                  <span>Support</span>
+                </a>
+              </li>
+            
+          </ul>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-wrapper">
+    <div class="header-content">
+      <h1 class="title-page">Custom Redux stores</h1>
+      
+        <div class="subtitle-page">Managing application state via Redux</div>
+      
+
+      <div class="page-actions">
+        <div class="actions-group">
+          <a class="btn tertiary small round lowercase" href="https://github.com/reactql/docs/tree/master/source/state.md" target="_blank"><span class="icon-github"></span> <span>Edit on GitHub</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="document-formatting">
+      <p>Out-the-box, Apollo - the GraphQL client that ReactQL includes - uses <a href="http://redux.js.org/" target="_blank" rel="external">Redux</a> to manage its own internal query state.</p>
+<p>You don’t need to do anything for this. Apollo takes care of itself.</p>
+<p>But what about other parts of your application? What if you want to store some kind of variables ‘globally’ across your app, and allow one or more React components to ‘listen’ to - or effect - the state?</p>
+<p>That’s where <a href="http://redux.js.org/" target="_blank" rel="external">Redux</a> comes back into play.</p>
+<h2 id="redux">How Redux works</h2>
+
+<hr>
+<p><a href="http://redux.js.org/" target="_blank" rel="external">Redux</a>  is a library that adopts a <a href="https://github.com/facebook/flux" target="_blank" rel="external">Flux-like</a> pattern, that allows you to trigger ‘actions’ that affect the global state. Any component ‘listening’ to state automatically re-render in response to changes:</p>
+<p><img src="images/flux-diagram.png" alt="Flux"></p>
+<p><a href="http://redux.js.org/" target="_blank" rel="external">Redux</a> adopts a similar pattern, but simplifies a lot of the boilerplate usually required to make this work.</p>
+<p>Instead of many ‘stores’ of state, your application has just one single state object, which you can apply ‘reducers’ to that affect changes to state.</p>
+<h2 id="example">An example: To-Do list</h2>
+
+<hr>
+<p>In the <a href="https://github.com/reactql/examples" target="_blank" rel="external">ReactQL examples</a> repo, there’s a ‘<a href="https://github.com/reactql/examples/tree/master/no-graphql" target="_blank" rel="external">No GraphQL, Just Redux</a>‘ project that provides a full-blown example of implementing Redux.</p>
+<p>You can clone this code, and run it locally.</p>
+<p>For the rest of this doc, I’m going to show you how to replicate this repo <em>without</em> removing GraphQL, so you can use the two side-by-side.</p>
+<p>I encourage you to review the <a href="http://redux.js.org/" target="_blank" rel="external">Redux documentation</a> too, to get familiar with how Redux works. Rather than repeating concepts, I’ll leave that to the library’s author to tackle and instead focus on code.</p>
+<h2 id="reducers">Adding custom reducers</h2>
+
+<hr>
+<p>A ‘<a href="http://redux.js.org/docs/basics/Reducers.html" target="_blank" rel="external">reducer</a>‘ is a function that modifies the state of your application, and returns a copy.</p>
+<p>This is what enables Redux to know that something has changed, and ultimately feed those changes back to any listening React components.</p>
+<p>The first thing we need to do is create a reducer.</p>
+<p>Since we’re building a simple to-do list, let’s create a reducer that has two simple functions: Adding a to-do, and removing one. We’ll create this at <code>store/reducer.js</code>, since we’ll only have one reducer throughout our application (the name’s not important; if we have more than one reducer, we might call it ‘reducers/todo.js’ or something similar.)</p>
+<p><strong>store/reducers.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Custom reducers.  We'll create a simple to-do list handler.</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state = [], action</span>) </span>&#123;</div><div class="line">  <span class="comment">// eslint-disable-next-line default-case</span></div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'ADD_TODO'</span>:</div><div class="line">      <span class="keyword">if</span> (action.todo &amp;&amp; !state.includes(action.todo)) &#123;</div><div class="line">        <span class="keyword">return</span> [...state, action.todo];</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'REMOVE_TODO'</span>:</div><div class="line">      <span class="keyword">return</span> state.filter(<span class="function"><span class="params">todo</span> =&gt;</span> action.todo !== todo);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> state;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>What’s happening here?</p>
+<p>Redux will pass in our current ‘state’ object. If we’re calling this for the first time, we won’t have an object, so by default we create an empty <code>state</code> array.</p>
+<p><code>action</code> will contain whatever our action (which we’ve not yet built) passes to the reducer. We’ll get to that in a moment, but for now let’s assume it’ll have an <code>action.type</code> string, which tells our reducer what to do with the <code>state</code>.</p>
+<p>If <code>action.type === &#39;ADD_TODO&#39;</code>, then we check to ensure that same to-do item doesn’t already exist on our state. If not, we’ll create a <em>new</em> array, passing in all of the old values, along with our new to-do.</p>
+<blockquote>
+<p>Note: Creating a new array and not simply mutating the old one is a <a href="http://redux.js.org/docs/recipes/UsingObjectSpreadOperator.html" target="_blank" rel="external">key concept</a> of Redux. This allows us to keep our state ‘clean’ and free of side-effects, by each new action always resulting in a new/fresh copy of the state. We can then guarantee our React components are never relying on stale data, and it also makes it trivial to implement ‘undo’ features that travel back to previous states.</p>
+</blockquote>
+<p>If <code>action.type === &#39;REMOVE_TODO&#39;</code>, we’ll pass back a new array with the todo filtered out. Again, note that we’re not just removing it from the current array – we pass back a fresh copy, just with that value omitted.</p>
+<p>Once we’ve built our reducer, we need to add it to our Redux instantiation code that both the server and browser will use to wire up Redux.</p>
+<p>Edit <a href="https://github.com/reactql/kit/blob/master/kit/lib/redux.js" target="_blank" rel="external">kit/lib/redux.js</a> by importing your reducer and adding it to the <code>combineReducers()</code> object that you’re passing:</p>
+<p><strong>kit/lib/redux.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="comment">// Import the new reducer we've just created</span></div><div class="line"><span class="keyword">import</span> todoReducer <span class="keyword">from</span> <span class="string">'store/reducer'</span>;</div><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="comment">// Add it to the existing `combineReducers()` call, alongside Apollo</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createNewStore</span>(<span class="params">apolloClient</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> store = createStore(</div><div class="line">    combineReducers(&#123;</div><div class="line">      <span class="attr">apollo</span>: apolloClient.reducer(),</div><div class="line">      <span class="attr">todos</span>: todoReducer, <span class="comment">// &lt;--- this is where we've added our custom reducer!</span></div><div class="line">    &#125;),</div><div class="line">    !SERVER ? <span class="built_in">window</span>.__STATE__ : &#123;&#125;, <span class="comment">// initial state</span></div><div class="line">    compose(</div><div class="line">        applyMiddleware(apolloClient.middleware()),</div><div class="line">        (!SERVER &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__ !== <span class="string">'undefined'</span>) ? <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__() : <span class="function"><span class="params">f</span> =&gt;</span> f,</div><div class="line">    ),</div><div class="line">  );</div><div class="line"></div><div class="line">  <span class="keyword">return</span> store;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Note that we’ve given the reducer object a <code>todos</code> root keyword. This means changes to the state will affect <em>only</em> that ‘part’ of the state. Apollo has its own <code>apollo</code> root, to avoid clashing with other ‘parts’ of our application state.</p>
+<p>That’s it - we now have a custom reducer that’s concerned with responding to our to-do actions</p>
+<h2 id="actions">Adding custom actions</h2>
+
+<hr>
+<p>Now, we need to create a couple of simple ‘<a href="http://redux.js.org/docs/basics/Actions.html" target="_blank" rel="external">actions</a>‘ that will ‘notify’ our reducer when something needs changing.</p>
+<p>Create a file called <code>store/actions.js</code> with this:</p>
+<p><strong>store/actions.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">addToDo</span>(<span class="params">todo</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">    todo,</div><div class="line">  &#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">removeToDo</span>(<span class="params">todo</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">type</span>: <span class="string">'REMOVE_TODO'</span>,</div><div class="line">    todo,</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Actions are super simple. They basically just return an object with a <code>type</code> key (that tells Redux what type of action this is) and then whatever other data we need to carry along with the request.</p>
+<p>Remember the <code>switch()</code> statement in our reducer that looks at <code>action.type</code> to respond to <code>ADD_TODO</code> and <code>REMOVE_TODO</code>? The return statement of our action gets fed into the second parameter of our reducer, which is how we know what kind of action was sent.</p>
+<p>We’ll use these actions in the next step, inside our components.</p>
+<h2 id="components" title="React components">Adding React components that ‘listen’ to or ‘trigger’ state changes</h2>
+
+<hr>
+<p>Finally, we just need to set-up our React components that either ‘listen’ to store state, or trigger actions necessary to change it.</p>
+<p>Editing <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank" rel="external">src/app.js</a>, we’ll write some components that do just that.</p>
+<p><strong>src/app.js</strong><br><figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ----------------------</span></div><div class="line"><span class="comment">// IMPORTS</span></div><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// @connect decorator to inject store state and dispatching</span></div><div class="line"><span class="keyword">import</span> &#123; connect &#125; from <span class="symbol">'react</span>-redux';</div><div class="line"><span class="comment">// Actions to add/remove to-do</span></div><div class="line"><span class="keyword">import</span> &#123; addToDo, removeToDo &#125; from <span class="symbol">'store</span>/actions';</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// To-do components.  This will demonstrate Redux at work.</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// Add a new to-do</span></div><div class="line"><span class="meta">@connect</span>() <span class="class"><span class="keyword">class</span> <span class="title">AddToDo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</div><div class="line">  setRef = ref =&gt; &#123; <span class="keyword">this</span>.ref = ref; &#125;</div><div class="line">  addToDo = () =&gt; &#123;</div><div class="line">    <span class="keyword">this</span>.props.dispatch(addToDo(<span class="keyword">this</span>.ref.value));</div><div class="line">    <span class="keyword">this</span>.ref.value = '';</div><div class="line">  &#125;;</div><div class="line">  render() &#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div&gt;</div><div class="line">        &lt;input ref=&#123;<span class="keyword">this</span>.setRef&#125; <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> /&gt;</div><div class="line">        &lt;button onClick=&#123;<span class="keyword">this</span>.addToDo&#125;&gt;<span class="type">Add</span> to-do&lt;/button&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// List the to-dos</span></div><div class="line"><span class="meta">@connect</span>(state =&gt; (&#123; todos: state.todos &#125;))</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ListToDos</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">PureComponent</span> </span>&#123;</div><div class="line">  static propTypes = &#123;</div><div class="line">    todos: <span class="type">PropTypes</span>.arrayOf(</div><div class="line">      <span class="type">PropTypes</span>.string,</div><div class="line">    ),</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// Return a thunk that dispatches the `removeToDo`</span></div><div class="line">  removeToDo = todo =&gt; () =&gt; &#123;</div><div class="line">    <span class="keyword">this</span>.props.dispatch(</div><div class="line">      removeToDo(todo),</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">  render() &#123;</div><div class="line">    const &#123; todos &#125; = <span class="keyword">this</span>.props;</div><div class="line">    let inner;</div><div class="line">    <span class="keyword">if</span> (!todos.length) &#123;</div><div class="line">      inner = (</div><div class="line">        &lt;h4&gt;<span class="type">No</span> to-dos yet. <span class="type">Add</span> one.&lt;/h4&gt;</div><div class="line">      );</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      inner = (</div><div class="line">        &lt;ul&gt;</div><div class="line">          &#123;todos.map(todo =&gt; (</div><div class="line">            &lt;li key=&#123;todo&#125;&gt;</div><div class="line">              &#123;todo&#125;</div><div class="line">              &lt;button onClick=&#123;<span class="keyword">this</span>.removeToDo(todo)&#125;&gt;<span class="type">Remove</span>&lt;/button&gt;</div><div class="line">            &lt;/li&gt;</div><div class="line">          ))&#125;</div><div class="line">        &lt;/ul&gt;</div><div class="line">      );</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">      &lt;div className=&#123;css.todos&#125;&gt;</div><div class="line">        &#123;inner&#125;</div><div class="line">      &lt;/div&gt;</div><div class="line">    );</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// Wire up the above components into a single `&lt;ToDoHandler&gt;`</span></div><div class="line">const <span class="type">ToDoHandler</span> = () =&gt; (</div><div class="line">  &lt;div&gt;</div><div class="line">    &lt;<span class="type">AddToDo</span> /&gt;</div><div class="line">    &lt;<span class="type">ListToDos</span> /&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>There’s a lot happening here, so let’s break it down.</p>
+<p>First, we import a function called <code>connect()</code> from the <a href="https://github.com/reactjs/react-redux" target="_blank" rel="external">react-redux</a> library. This provides our functions with a ‘higher-order component’ that injects in state/action dispatching via props.</p>
+<p>We then import our custom add/remove to-do actions.</p>
+<p>In our <code>&lt;AddToDo&gt;</code> component, we use the <code>connect</code> function as a decorator. This function automatically passes a <code>dispatch()</code> function to our props. It’s this function that allows us to tell Redux that an action has been triggered.</p>
+<p>We wire up a simple form. The input registers itself on <code>this.ref</code>, which allows us to easily grab the value in the text box. The button fires off the dispatch event, with the text box value. The call to <code>addToDo()</code> returns a full object that then looks like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">todo</span>: <span class="string">'Whatever you entered in the input box'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>This gets fed down to our reducer, which returns back the ‘new’ state which now looks like this:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  <span class="string">'Whatever you entered in the input box'</span></div><div class="line">]</div></pre></td></tr></table></figure>
+<p>If you enter something new into the input box and hit the button again, the state would now be:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  <span class="string">'Whatever you entered in the input box'</span>,</div><div class="line">  <span class="string">'Something new that you entered'</span></div><div class="line">]</div></pre></td></tr></table></figure>
+<p>So, now we have our means to <em>add</em> to our state.</p>
+<p>We then create the component that <em>listens</em> to the state – our <code>&lt;ListToDos&gt;</code>.</p>
+<p>Here, we use the same <code>@connect</code> decorator, but this time we pass in a function that tells <code>connect</code> which parts of our application state we want to listen to.</p>
+<p>Since we have access to the FULL state object (including the <code>apollo</code> root key!), and we only care about the <code>todos</code> key, we’ll return an object with just that part.</p>
+<p>Inside our component, we now have access to the <code>todos</code> via <code>this.props.todos</code>. Our component is then just basic Javascript - we check that <code>this.props.todos</code> isn’t an empty array (if it is, we encourage the user to add a to-do) and display them as a <code>&lt;li&gt;</code> list.</p>
+<p>Finally, we wire up another action - this time the <code>removeToDo</code> - to change the state of the application once again.</p>
+<blockquote>
+<p>Note: Updating React components is done declaratively. We don’t ‘tell’ React to update - the <code>connect</code> HOC automatically updates the <code>props</code> that are fed in to the component and thus React implicitly re-renders when the state data changes.</p>
+</blockquote>
+<h2 id="demo">Demo</h2>
+
+<hr>
+<p>Now if we fire up our project with <code>npm start</code>, we see this:</p>
+<p><img src="images/examples/redux1.png" alt="No-todos"></p>
+<p>If we add a to-do to the input box and click the button, we get:</p>
+<p><img src="images/examples/redux2.png" alt="Our first to-do"></p>
+<p>Pretty cool!</p>
+<p>But even cooler, is that we can do the same on the <em>server</em>….</p>
+<h2 id="server">Server-side state</h2>
+
+<hr>
+<p>Let’s imagine that our initial to-dos are loaded from a database, and we want to populate the first render back to the screen with those to-dos intact.</p>
+<p>If we do this only in the browser, we might initially see a ‘flicker’ where the <code>todos</code> state object is empty, and then the <code>&lt;li&gt;</code> items suddenly populate at some time in the future whenever the data has been loaded.</p>
+<p>That’s not a great experience for the user, who may wonder why the list that says ‘no to-dos’ suddenly changes on them.</p>
+<p>Instead, let’s inject the <em>initial</em> state on the server, and let the client automatically rehydrate this state for use in the browser.</p>
+<p>We already have all of the pieces in play to do that - ReactQL does that out-the-box. All we need to do is tell the server what our initial state is. Let’s edit <a href="https://github.com/reactql/kit/blob/master/kit/entry/server.js" target="_blank" rel="external">kit/entry/server.js</a> to simulate adding our first to-do:</p>
+<p><strong>kit/entry/server.js</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="comment">// Import our 'AddToDo' action</span></div><div class="line"><span class="keyword">import</span> &#123; addToDo &#125; <span class="keyword">from</span> <span class="string">'store/actions'</span>;</div><div class="line"><span class="comment">// ...</span></div><div class="line"><span class="comment">// Inside the `reactHandler` function...</span></div><div class="line"><span class="comment">// Create a new Redux store for this request</span></div><div class="line"><span class="keyword">const</span> store = createNewStore();</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// Add a to-do on the server side, to demonstrate how the state is</span></div><div class="line"><span class="comment">// sent back down the wire and dehydrated by the browser</span></div><div class="line">store.dispatch(</div><div class="line">  addToDo(<span class="string">'This To-Do was sent from the server!'</span>),</div><div class="line">);</div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">// ... continue with the rest of our server code</span></div></pre></td></tr></table></figure></p>
+<p>If we fire up our development web server, we now see this:</p>
+<p><img src="images/examples/redux3.png" alt="From the server"></p>
+<p>Awesome! Our browser has ‘rehydrated’ the state sent back down from the server, and continued where the server finishes.</p>
+<p>If we check out the source code, we can see the ‘to-do’ data has been added to <code>window.__STATE__</code>:</p>
+<p><img src="images/examples/redux4.png" alt="SSR source"></p>
+<p>That’s how the browser knows what the initial state is. See <a href="ssr.html">server-side rendering</a> for more info on how this works</p>
+<h2 id="devtools">Redux DevTools</h2>
+
+<hr>
+<p>In the Chrome webstore, there’s an awesome free <a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd" target="_blank" rel="external">Redux DevTools</a> extension that lets you view Redux state from within the Developer console.</p>
+<p>Remember this line from <a href="https://github.com/reactql/kit/blob/master/kit/lib/redux.js" target="_blank" rel="external">kit/lib/redux.js</a>?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(!SERVER &amp;&amp; <span class="keyword">typeof</span> <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__ !== <span class="string">'undefined'</span>) ? <span class="built_in">window</span>.__REDUX_DEVTOOLS_EXTENSION__() : <span class="function"><span class="params">f</span> =&gt;</span> f,</div></pre></td></tr></table></figure>
+<p>This gives the Redux DevTools extension what it needs to attach itself to the Redux state, which then activates comprehensive tooling to debug most every aspect of Redux:</p>
+<p><img src="images/examples/redux5.png" alt="Redux DevTools"></p>
+<p>You can even dispatch your own action objects from within here, to simulate what happens when firing from within functions. Try this one an see what happens:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">type</span>: <span class="string">'ADD_TODO'</span>,</div><div class="line">  <span class="attr">todo</span>: <span class="string">'Watch me magically appear on the screen!'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Enjoy!</p>
+
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="content-wrapper">
+      
+      
+        <a class="link primary prev"
+          href="env.html">
+          <span class="icon-arrow-left-alt"></span>
+          <span class="subtitle-pagination">Previous</span>
+          Server/browser awareness
+        </a>
+      
+      
+        <a class="link primary next"
+          href="faq.html">
+          <span class="subtitle-pagination">Next</span>
+          FAQ
+          <span class="icon-arrow-right-alt"></span>
+        </a>
+      
+    </div>
+  </div>
+
+  <div class="github">
+    <a class="link tertiary " href="https://github.com/reactql/docs/tree/master/source/state.md" target="_blank">
+      <span class="icon-github"></span>Edit on GitHub</a>
+  </div>
+</div>
+
+    <script src="/docs/script/smooth-scroll.min.js"></script>
+    <script src="/docs/script/main.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+    <script>
+     
+      
+
+      // search box
+      
+
+      
+    </script>
+  </body>
+</html>

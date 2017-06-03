@@ -221,6 +221,13 @@
                 </a>
               </li>
             
+              
+              <li class="item-toc ">
+                <a href="state.html" class="sidebar-link ">
+                  <span>Custom Redux stores</span>
+                </a>
+              </li>
+            
           </ul>
         </li>
       
@@ -278,32 +285,45 @@
 
 <h2 id="stack">Features</h2>
 
-<ul>
+<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><ul>
 <li><a href="https://github.com/reactql/cli" target="_blank" rel="external">ReactQL CLI</a> for quickly starting a new project</li>
 <li><a href="https://facebook.github.io/react/" target="_blank" rel="external">React</a> for UI</li>
 <li><a href="http://dev.apollodata.com/react/" target="_blank" rel="external">Apollo Client (React)</a> for GraphQL</li>
 <li><a href="https://github.com/ReactTraining/react-router/tree/v4" target="_blank" rel="external">React Router 4</a> for declarative browser + server routes</li>
 <li><a href="http://redux.js.org/" target="_blank" rel="external">Redux</a> for flux/store state management</li>
-<li><a href="https://webpack.js.org/" target="_blank" rel="external">Webpack 2</a>, with <a href="https://webpack.js.org/guides/tree-shaking/" target="_blank" rel="external">tree shaking</a></li>
-<li><a href="http://postcss.org/" target="_blank" rel="external">PostCSS v6</a> with <a href="http://cssnext.io/" target="_blank" rel="external">next-gen CSS</a> and inline <a href="https://github.com/postcss/postcss-import" target="_blank" rel="external">@imports</a></li>
-<li><a href="http://sass-lang.com" target="_blank" rel="external">SASS</a> and <a href="http://lesscss.org/" target="_blank" rel="external">LESS</a> support (also parsed through PostCSS)</li>
+</ul>
+<h3 id="Server-side-rendering"><a href="#Server-side-rendering" class="headerlink" title="Server-side rendering"></a>Server-side rendering</h3><ul>
+<li>Built-in <a href="http://koajs.com/" target="_blank" rel="external">Koa 2</a> web server, with async/await routing</li>
 <li>Full route-aware <a href="https://reactql.org/docs/ssr">server-side rendering (SSR)</a> of initial HTML</li>
 <li>Universal building - both browser + Node.js web server</li>
-<li>Dev + <a href="http://gaearon.github.io/react-hot-loader/" target="_blank" rel="external">React-compatible hot code reloading</a>; zero refresh, real-time updates</li>
-<li>Built-in <a href="http://koajs.com/" target="_blank" rel="external">Koa 2</a> web server, with async/await routing</li>
-<li><a href="https://reactql.org/docs/setup#development">Development web server</a> that automatically rebuilds and restarts on code changes, for on-the-fly SSR testing with full source maps</li>
-<li><a href="https://reactql.org/docs/setup#production">Production bundling</a>, for generating optimised server and client code</li>
-<li><a href="https://reactql.org/docs/setup#browser">Static bundling mode</a> for hosting your full app on any static host – Github pages, S3, Netlify, etc</li>
 <li>HTTP header hardening with <a href="https://github.com/venables/koa-helmet" target="_blank" rel="external">Helmet for Koa</a></li>
 <li>Declarative/dynamic <code>&lt;head&gt;</code> section, using <a href="https://github.com/nfl/react-helmet" target="_blank" rel="external">react-helmet</a></li>
+</ul>
+<h3 id="Real-time"><a href="#Real-time" class="headerlink" title="Real-time"></a>Real-time</h3><ul>
+<li>Dev + <a href="http://gaearon.github.io/react-hot-loader/" target="_blank" rel="external">React-compatible hot code reloading</a>; zero refresh, real-time updates</li>
+<li><a href="https://reactql.org/docs/setup#development">Development web server</a> that automatically rebuilds and restarts on code changes, for on-the-fly SSR testing with full source maps</li>
+</ul>
+<h3 id="Code-optimisation"><a href="#Code-optimisation" class="headerlink" title="Code optimisation"></a>Code optimisation</h3><ul>
+<li><a href="https://webpack.js.org/" target="_blank" rel="external">Webpack 2</a>, with <a href="https://webpack.js.org/guides/tree-shaking/" target="_blank" rel="external">tree shaking</a></li>
+<li>Universal building - both browser + Node.js web server</li>
 <li>Easily extendable <a href="https://fitbit.github.io/webpack-config/" target="_blank" rel="external">webpack-config</a> files</li>
+<li><a href="https://reactql.org/docs/setup#production">Production bundling</a>, for generating optimised server and client code</li>
+<li><a href="https://reactql.org/docs/setup#browser">Static bundling mode</a> for hosting your full app on any static host – Github pages, S3, Netlify, etc</li>
 <li>Separate local + vendor bundles, for better browser caching/faster builds</li>
 <li>Dynamic polyfills, courtesy of <a href="https://github.com/babel/babel-preset-env" target="_blank" rel="external">babel-preset-env</a></li>
 <li>Aggressive code minification with <a href="https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin" target="_blank" rel="external">Uglify</a></li>
 <li><a href="https://github.com/tcoopman/image-webpack-loader" target="_blank" rel="external">GIF/JPEG/PNG/SVG crunching</a> for images</li>
 <li><a href="https://webpack.js.org/plugins/compression-webpack-plugin/" target="_blank" rel="external">Static compression</a> using the <a href="https://en.wikipedia.org/wiki/Zopfli" target="_blank" rel="external">Zopfli Gzip</a> and <a href="https://opensource.googleblog.com/2015/09/introducing-brotli-new-compression.html" target="_blank" rel="external">Brotli</a> algorithms for the serving of static assets as pre-compressed <code>.gz</code> and <code>.br</code> files</li>
+</ul>
+<h3 id="Styles"><a href="#Styles" class="headerlink" title="Styles"></a>Styles</h3><ul>
+<li><a href="http://postcss.org/" target="_blank" rel="external">PostCSS v6</a> with <a href="http://cssnext.io/" target="_blank" rel="external">next-gen CSS</a> and inline <a href="https://github.com/postcss/postcss-import" target="_blank" rel="external">@imports</a></li>
+<li><a href="http://sass-lang.com" target="_blank" rel="external">SASS</a> and <a href="http://lesscss.org/" target="_blank" rel="external">LESS</a> support (also parsed through PostCSS)</li>
+</ul>
+<h3 id="Developer-support"><a href="#Developer-support" class="headerlink" title="Developer support"></a>Developer support</h3><ul>
 <li><a href="http://eslint.org/" target="_blank" rel="external">ESLint</a>ing based on a tweaked <a href="https://github.com/airbnb/javascript" target="_blank" rel="external">Airbnb style guide</a></li>
-<li>Tons of commentary/documentation to fill you in on what’s happening under the hood</li>
+<li>Tons of code commentary to fill you in on what’s happening under the hood</li>
+<li>Extensive, up-to-date <a href="https://reactql.org/docs/">online documentation</a></li>
+<li><a href="https://github.com/reactql/examples" target="_blank" rel="external">Examples repository</a>, showing you how to add a GraphQL server, run without GraphQL, take advantage of Redux, etc.</li>
 </ul>
 
     </div>
