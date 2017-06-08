@@ -1,0 +1,1292 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>How ReactQL implements SSR · ReactQL documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Lee Benson <lee@leebenson.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="environment.html" />
+    
+    
+    <link rel="prev" href="prerendering.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Read Me
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../setup/">
+            
+                <a href="../setup/">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../setup/requirements.html">
+            
+                <a href="../setup/requirements.html">
+            
+                    
+                    System requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../setup/installation.html">
+            
+                <a href="../setup/installation.html">
+            
+                    
+                    Installing the CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../setup/project.html">
+            
+                <a href="../setup/project.html">
+            
+                    
+                    Starting a new project
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../setup/typescript.html">
+            
+                <a href="../setup/typescript.html">
+            
+                    
+                    Typescript support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../setup/upgrading.html">
+            
+                <a href="../setup/upgrading.html">
+            
+                    
+                    Upgrading
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../running/">
+            
+                <a href="../running/">
+            
+                    
+                    Running projects
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../running/development.html">
+            
+                <a href="../running/development.html">
+            
+                    
+                    Development
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../running/production.html">
+            
+                <a href="../running/production.html">
+            
+                    
+                    Production
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../running/static.html">
+            
+                <a href="../running/static.html">
+            
+                    
+                    Static bundling
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../layout/">
+            
+                <a href="../layout/">
+            
+                    
+                    Project layout
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../layout/folders.html">
+            
+                <a href="../layout/folders.html">
+            
+                    
+                    Folders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="../layout/webpack.html">
+            
+                <a href="../layout/webpack.html">
+            
+                    
+                    Webpack configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="../layout/root.html">
+            
+                <a href="../layout/root.html">
+            
+                    
+                    Root files
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../writing_code/">
+            
+                <a href="../writing_code/">
+            
+                    
+                    Writing code
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../writing_code/styleguide.html">
+            
+                <a href="../writing_code/styleguide.html">
+            
+                    
+                    Styleguide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../writing_code/typescript.html">
+            
+                <a href="../writing_code/typescript.html">
+            
+                    
+                    ES6 or Typescript?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../writing_code/modules.html">
+            
+                <a href="../writing_code/modules.html">
+            
+                    
+                    Module resolution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.4" data-path="../writing_code/graphql.html">
+            
+                <a href="../writing_code/graphql.html">
+            
+                    
+                    GraphQL components
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../stylesheets/">
+            
+                <a href="../stylesheets/">
+            
+                    
+                    CSS stylesheets
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../stylesheets/css.html">
+            
+                <a href="../stylesheets/css.html">
+            
+                    
+                    Writing CSS files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../stylesheets/parsers.html">
+            
+                <a href="../stylesheets/parsers.html">
+            
+                    
+                    SASS / LESS support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.3" data-path="../stylesheets/postcss.html">
+            
+                <a href="../stylesheets/postcss.html">
+            
+                    
+                    Next-gen CSS via PostCSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.4" data-path="../stylesheets/nesting.html">
+            
+                <a href="../stylesheets/nesting.html">
+            
+                    
+                    Nesting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.5" data-path="../stylesheets/modules.html">
+            
+                <a href="../stylesheets/modules.html">
+            
+                    
+                    Local modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.6" data-path="../stylesheets/globals.html">
+            
+                <a href="../stylesheets/globals.html">
+            
+                    
+                    Global styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.7" data-path="../stylesheets/bundling.html">
+            
+                <a href="../stylesheets/bundling.html">
+            
+                    
+                    Bundling styles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.8" data-path="../stylesheets/pipeline.html">
+            
+                <a href="../stylesheets/pipeline.html">
+            
+                    
+                    Build pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.9" data-path="../stylesheets/server.html">
+            
+                <a href="../stylesheets/server.html">
+            
+                    
+                    Server-side support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../routing/">
+            
+                <a href="../routing/">
+            
+                    
+                    Routing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../routing/declarative.html">
+            
+                <a href="../routing/declarative.html">
+            
+                    
+                    Declarative routes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../routing/server.html">
+            
+                <a href="../routing/server.html">
+            
+                    
+                    Server-side routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../routing/browser.html">
+            
+                <a href="../routing/browser.html">
+            
+                    
+                    Browser linking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../routing/match.html">
+            
+                <a href="../routing/match.html">
+            
+                    
+                    Match parameters
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../routing/notfound.html">
+            
+                <a href="../routing/notfound.html">
+            
+                    
+                    Not Found (404) handling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" data-path="../routing/redirects.html">
+            
+                <a href="../routing/redirects.html">
+            
+                    
+                    Redirects
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../bundling/">
+            
+                <a href="../bundling/">
+            
+                    
+                    Code bundling
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../bundling/webpack.html">
+            
+                <a href="../bundling/webpack.html">
+            
+                    
+                    Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../bundling/server.html">
+            
+                <a href="../bundling/server.html">
+            
+                    
+                    Server bundling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.3" data-path="../bundling/config.html">
+            
+                <a href="../bundling/config.html">
+            
+                    
+                    Config files
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.4" data-path="../bundling/css.html">
+            
+                <a href="../bundling/css.html">
+            
+                    
+                    CSS / stylesheets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.5" data-path="../bundling/images.html">
+            
+                <a href="../bundling/images.html">
+            
+                    
+                    Images
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.6" data-path="../bundling/fonts.html">
+            
+                <a href="../bundling/fonts.html">
+            
+                    
+                    Fonts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.7" data-path="../bundling/json.html">
+            
+                <a href="../bundling/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.8" data-path="../bundling/development.html">
+            
+                <a href="../bundling/development.html">
+            
+                    
+                    Development mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.9" data-path="../bundling/production.html">
+            
+                <a href="../bundling/production.html">
+            
+                    
+                    Production mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.10" data-path="../bundling/static.html">
+            
+                <a href="../bundling/static.html">
+            
+                    
+                    Static bundling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.11" data-path="../bundling/compression.html">
+            
+                <a href="../bundling/compression.html">
+            
+                    
+                    Compression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.12" data-path="../bundling/docker.html">
+            
+                <a href="../bundling/docker.html">
+            
+                    
+                    Building a Docker image
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Server-side rendering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="benefits.html">
+            
+                <a href="benefits.html">
+            
+                    
+                    Why use server-side rendering?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="prerendering.html">
+            
+                <a href="prerendering.html">
+            
+                    
+                    SSR vs. pre-rendering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="9.1.3" data-path="features.html">
+            
+                <a href="features.html">
+            
+                    
+                    How ReactQL implements SSR
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.4" data-path="environment.html">
+            
+                <a href="environment.html">
+            
+                    
+                    Environment awareness
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../state/">
+            
+                <a href="../state/">
+            
+                    
+                    Managing state
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="10.1.1" data-path="../state/redux.html">
+            
+                <a href="../state/redux.html">
+            
+                    
+                    How Redux works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.2" data-path="../state/example.html">
+            
+                <a href="../state/example.html">
+            
+                    
+                    An example: To-Do list
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.3" data-path="../state/reducers.html">
+            
+                <a href="../state/reducers.html">
+            
+                    
+                    Adding custom reducers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.4" data-path="../state/actions.html">
+            
+                <a href="../state/actions.html">
+            
+                    
+                    Adding actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.5" data-path="../state/react.html">
+            
+                <a href="../state/react.html">
+            
+                    
+                    Wiring up to React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.6" data-path="../state/demo.html">
+            
+                <a href="../state/demo.html">
+            
+                    
+                    Running the demo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.7" data-path="../state/server.html">
+            
+                <a href="../state/server.html">
+            
+                    
+                    Server-side state
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.1.8" data-path="../state/devtools.html">
+            
+                <a href="../state/devtools.html">
+            
+                    
+                    Redux DevTools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../faq.html">
+            
+                <a href="../faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../support.html">
+            
+                <a href="../support.html">
+            
+                    
+                    Need support?
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >How ReactQL implements SSR</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="how-reactql-implements-ssr">How ReactQL implements SSR</h1>
+<hr>
+<h2 id="features-you-get-out-the-box">Features you get out-the-box</h2>
+<p>ReactQL includes a <a href="http://koajs.com/" target="_blank">Koa web server</a>. In <a href="../running/production.html">production mode</a>, the entry point Webpack will use to generate your web server code is <a href="https://github.com/reactql/kit/blob/master/kit/entry/server_prod.js" target="_blank"><code>kit/entry/server_prod.js</code></a>. In development, it&apos;s <a href="https://github.com/reactql/kit/blob/master/kit/entry/server_dev.js" target="_blank"><code>kit/entry/server_dev.js</code></a></p>
+<p>In both modes, navigating to a server route returns a full HTML dump to the client.</p>
+<p>An example response-- notes below:</p>
+<p><img src="img/features.png" alt="SSR, with features"></p>
+<p>This demonstrates the following features:</p>
+<h3 id="1-head-re-winding">1. <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span></code> re-winding</h3>
+<hr>
+<p>Thanks to <a href="https://github.com/nfl/react-helmet" target="_blank">React Helmet</a>, you can declare <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span></code> content anywhere inside your React chain, and it&apos;ll wind up in the resulting HTML.</p>
+<p>Use it like this:</p>
+<pre class="language-"><code class="lang-jsx"><span class="token comment" spellcheck="true">// React Helmet</span>
+<span class="token keyword">import</span> Helmet <span class="token keyword">from</span> <span class="token string">&apos;react-helmet&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Define &lt;Helmet&gt; (i.e. &lt;head&gt;) settings anywhere</span>
+<span class="token keyword">const</span> Component <span class="token operator">=</span> <span class="token punctuation">(</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Helmet</span>
+      <span class="token attr-name">title</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>ReactQL</span> <span class="token attr-name">application&quot;</span>
+      <span class="token attr-name">meta</span><span class="token script language-javascript"><span class="token punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
+        name<span class="token punctuation">:</span> <span class="token string">&apos;description&apos;</span><span class="token punctuation">,</span>
+        content<span class="token punctuation">:</span> <span class="token string">&apos;ReactQL starter kit app&apos;</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>Helmet makes it easy to add request-specific, dynamic titles and meta data.</p>
+<h3 id="2-pre-compiled-css-stylesheets">2. Pre-compiled CSS stylesheets</h3>
+<hr>
+<p>Stylesheets used anywhere in your app are optimised, minified and concatenated into a single file in production, which winds up in <code>dist/public/assets/css/style.css</code>.</p>
+<blockquote>
+<p>Learn more about <a href="../stylesheets/">ReactQL stylesheets here</a></p>
+</blockquote>
+<p>Files ending in <code>.scss</code> or <code>.sass</code> as first processed by <a href="https://github.com/sass/node-sass" target="_blank">node-sass</a>. Files ending in <code>.css</code> skip the SASS compilation step. Both types are then processed by <a href="http://postcss.org/" target="_blank">PostCSS</a>, using <a href="http://cssnext.io/" target="_blank">CSSNext</a> rules.</p>
+<p>Stylesheet code is heavily optimised, common CSS rules are combined, and browser prefixes are added automatically.</p>
+<p>Although it&apos;s generally a good idea to avoid loading styles that aren&apos;t relevant to the current route, the aggressive optimisation and automatic gzipping typically results in a very small <code>style.css</code> file. In the original starter kit, <code>style.css.gz</code> is just 317 bytes.</p>
+<p>Given the small file sizes involved, it&apos;s generally okay to keep the css file as a blocking <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span><span class="token punctuation">&gt;</span></span></code> in the resulting HTML. The effort of splitting stylesheets generally yields a low ROI, and can give way to a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">flash of unstyled content</a>.</p>
+<h3 id="3-react-to-html">3. React to HTML</h3>
+<hr>
+<p>React components that are active in the current route are rendered to HTML, and sent back to the browser inside the <code>#main</code> div, like so:</p>
+<pre class="language-"><code class="lang-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>main<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- React code will be converted to HTML and placed here --&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>ReactQL uses ReactDOMServer&apos;s <a href="https://facebook.github.io/react/docs/react-dom-server.html#rendertostring" target="_blank">renderToString()</a> method, allowing the browser to load the resulting HTML into the local bundle and continue serving further React changes on the client-side.</p>
+<blockquote>
+<p>Before HTML is sent back to the browser, GraphQL queries are executed on the server asynchronously, and &apos;awaited&apos;. See <a href="../writing_code/graphql.html">React components with GraphQL data</a> for a how-to on writing components that require GraphQL data.</p>
+</blockquote>
+<h3 id="4-store-dehydration-redux">4. Store dehydration (Redux)</h3>
+<hr>
+<p>If the server has already requested data from a third-party source like a GraphQL server, it makes little sense to repeat that same request on the client-side.</p>
+<p>Instead, ReactQL automatically sends down the &apos;state&apos; of the application along with the initial HTML render.</p>
+<p>The browser can then use this data to &apos;rehydrate&apos; the state of the application, and continue from the point the server finished - without surplus API calls or unnecessary round-trips to a third-party resource.</p>
+<p>The built-in <a href="http://dev.apollodata.com/react/" target="_blank">Apollo Client (for React)</a> uses <a href="http://redux.js.org/" target="_blank">Redux</a> under the hood, for managing &apos;store&apos; state and implementing its data loading and caching strategy.</p>
+<p>To make it easier to manage your own application state, ReactQL includes custom instantiation code for managing Redux instead of relying on Apollo&apos;s implicit store state. This makes it trivial to add <a href="http://redux.js.org/docs/basics/Reducers.html" target="_blank">custom reducers</a>, and share store state from the server to the client.</p>
+<blockquote>
+<p>ReactQL includes built-in support for <a href="../state/devtools.html">Redux Devtools</a> in the browser</p>
+</blockquote>
+<h3 id="5-code-bundling">5. Code bundling</h3>
+<hr>
+<p>Two client-side bundles are produced by the server config, and loaded by your browser:</p>
+<ol>
+<li><p><code>vendor.js</code>. Third-party code from NPM modules that are used in the starter kit, or imported into your own code.</p>
+</li>
+<li><p><code>bundle.js</code>. Your own app code.</p>
+</li>
+</ol>
+<p>Vendor code is produced automatically from modules that appear in the <code>node_modules</code> folder. Any other code winds up in <code>bundle.js</code>.</p>
+<blockquote>
+<p>If you use code-splitting, Webpack will produce additional files such as <code>bundle.0.js</code>, <code>bundle.1.js</code>, etc. These are loaded asynchronously as needed - you don&apos;t need to explicitly define a loading mechanism, Webpack will do this for you.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="prerendering.html" class="navigation navigation-prev " aria-label="Previous page: SSR vs. pre-rendering">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="environment.html" class="navigation navigation-next " aria-label="Next page: Environment awareness">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"How ReactQL implements SSR","level":"9.1.3","depth":2,"next":{"title":"Environment awareness","level":"9.1.4","depth":2,"path":"ssr/environment.md","ref":"ssr/environment.md","articles":[]},"previous":{"title":"SSR vs. pre-rendering","level":"9.1.2","depth":2,"path":"ssr/prerendering.md","ref":"ssr/prerendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube","disqus"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"ssr/features.md","mtime":"2017-06-08T15:05:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-08T15:18:35.619Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
