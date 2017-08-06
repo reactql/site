@@ -21,10 +21,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
                 
             
@@ -166,20 +162,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="../setup/typescript.html">
-            
-                <a href="../setup/typescript.html">
-            
-                    
-                    Typescript support
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../setup/upgrading.html">
+        <li class="chapter " data-level="2.1.4" data-path="../setup/upgrading.html">
             
                 <a href="../setup/upgrading.html">
             
@@ -361,20 +344,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="typescript.html">
-            
-                <a href="typescript.html">
-            
-                    
-                    ES6 or Typescript?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.1.3" data-path="modules.html">
+        <li class="chapter " data-level="5.1.2" data-path="modules.html">
             
                 <a href="modules.html">
             
@@ -387,7 +357,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="5.1.4" data-path="graphql.html">
+        <li class="chapter active" data-level="5.1.3" data-path="graphql.html">
             
                 <a href="graphql.html">
             
@@ -1123,72 +1093,100 @@
                                 <h1 id="react-components-with-graphql-data">React components with GraphQL data</h1>
 <hr>
 <h3 id="how-to-write-components-that-talk-to-a-graphql-server">How to write components that talk to a GraphQL server</h3>
-<p>When running <code>npm start</code> and visiting the Webpack dev server at <a href="http://localhost:8080/" target="_blank">http://localhost:8080</a> you&apos;ll see an example of GraphQL talking to a live server end-point hosted at <a href="https://www.graph.cool/" target="_blank">graph.cool</a></p>
-<p>Check out <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank">src/app.js</a> to see this working in action.</p>
+<p>When running <code>npm start</code> and visiting the Webpack dev server at <a href="http://localhost:8080/" target="_blank">http://localhost:8080</a> you&apos;ll see an example of GraphQL talking to the built-in GraphQL server.</p>
+<p>You can also visit <a href="http://localhost:8081/graphql" target="_blank">http://localhost:8081/graphql</a> and run queries against the sample schema, live!</p>
+<p>(Check out <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank">src/app.js</a> to see how the GraphQL server is enabled in the default project, and how the GraphQL schema is pieced together.)</p>
 <p>The cool thing is, if you visit your server-side web server at <a href="http://localhost:8081/" target="_blank">http://localhost:8081</a>, you&apos;ll see the GraphQL response directly in the source code, too!</p>
-<p>That&apos;s because ReactQL automatically requests data from GraphQL <em>before</em> rendering the resulting HTML back to the browser, in server mode.</p>
+<p>That&apos;s because ReactQL automatically requests data from GraphQL <em>before</em> rendering the resulting HTML back to the browser, in server mode -- whether the GraphQL server is &apos;local&apos; to the web server or not.</p>
 <p>Furthermore, it will send back the initial Redux state with the HTML, too, ensuring that the browser doesn&apos;t re-request data it already has.</p>
 <p>Here&apos;s a blow-by-blow of how it works:</p>
-<p>First, set the GraphQL API endpoint.  By default, I&apos;ve included a sample to a <a href="https://www.graph.cool/" target="_blank">graph.cool</a> service I created for this starter kit -- change this to your own GraphQL server in production:</p>
+<p>First, set the GraphQL API endpoint.  You can elect to run a GraphQL server directly on top of the built-in Koa web server by running this code:</p>
 <p><strong>config/project.js</strong></p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">export</span> <span class="token keyword">const</span> APOLLO <span class="token operator">=</span> <span class="token punctuation">{</span>
-  uri<span class="token punctuation">:</span> <span class="token string">&apos;https://api.graph.cool/simple/v1/cinomw2r1018601o42x5z69uc&apos;</span><span class="token punctuation">,</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p>Both the browser and server entry points will create an Apollo client based on the above config.</p>
-<p>Then, in your <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank">src/app.js</a> file, we define the GraphQL query to grab the data we need:</p>
-<p><strong>src/app.js</strong></p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// First, create the GraphQL query that we&apos;ll use to request data from our</span>
-<span class="token comment" spellcheck="true">// sample endpoint</span>
-<span class="token keyword">const</span> query <span class="token operator">=</span> gql<span class="token template-string"><span class="token string">`
-  query {
-    allMessages(first:1) {
-      text
-    }
-  }
-`</span></span><span class="token punctuation">;</span>
-</code></pre>
-<p>We use Apollo&apos;s <code>gql</code> template function to specify the data we require.</p>
-<p>Next, we&apos;ll create the &apos;plain&apos; component that will ultimately take the data in via props. Note: This doesn&apos;t have any &apos;special&apos; GraphQL related syntax. It&apos;s just a plain React component that will take in GraphQL data via plain props:</p>
-<pre class="language-"><code class="lang-jsx"><span class="token keyword">const</span> Message <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// `data` will initially be blank before GraphQL has returned with data, so test it exists</span>
-  <span class="token keyword">const</span> message <span class="token operator">=</span> data<span class="token punctuation">.</span>allMessages <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span>allMessages<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>text<span class="token punctuation">;</span>
-  <span class="token keyword">const</span> isLoading <span class="token operator">=</span> data<span class="token punctuation">.</span>loading <span class="token operator">?</span> <span class="token string">&apos;yes&apos;</span> <span class="token punctuation">:</span> <span class="token string">&apos;nope&apos;</span><span class="token punctuation">;</span>
-  <span class="token keyword">return</span> <span class="token punctuation">(</span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Message <span class="token keyword">from</span> GraphQL server<span class="token punctuation">:</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>em</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span>message<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>em</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Currently loading<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>isLoading<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p>Now, for use in development, we can add custom <code>propTypes</code> to the component so that React knows what to expect.</p>
-<p>In this example, we&apos;re expecting an <code>allMessages</code> array which will contain an object with <code>text</code> property, containing our message received from our GraphQL endpoint.</p>
-<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Import from the `prop-types` lib</span>
-<span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">&apos;prop-types&apos;</span><span class="token punctuation">;</span>
+<pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Config API, for adding reducers and configuring our ReactQL app</span>
+<span class="token keyword">import</span> config <span class="token keyword">from</span> <span class="token string">&apos;kit/config&apos;</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// Add propTypes for React to expect data from GraphQL</span>
-Message<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
-  data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    allMessages<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>
-      PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        text<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>SERVER<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* GRAPHQL */</span>
+
+  <span class="token comment" spellcheck="true">// Enable the GraphQL server by passing in the schema.  Since we&apos;re running</span>
+  <span class="token comment" spellcheck="true">// in an `if (SERVER)` block, we can be sure that `require()`&apos;ing</span>
+  <span class="token comment" spellcheck="true">// the schema won&apos;t &apos;bloat&apos; our browser bundle</span>
+  config<span class="token punctuation">.</span><span class="token function">enableGraphQLServer</span><span class="token punctuation">(</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;src/graphql/schema&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>Finally, we create a higher-order component that wraps our plain component, and gives it GraphQL listening powers:</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> GraphQLMessage <span class="token operator">=</span> <span class="token function">graphql</span><span class="token punctuation">(</span>query<span class="token punctuation">)</span><span class="token punctuation">(</span>Message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>Or, if you&apos;re using an off-site GraphQL server, you can simply set the endpoint with:</p>
+<p><strong>config/project.js</strong></p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> config <span class="token keyword">from</span> <span class="token string">&apos;kit/config&apos;</span><span class="token punctuation">;</span>
+
+config<span class="token punctuation">.</span><span class="token function">setGraphQLEndpoint</span><span class="token punctuation">(</span><span class="token string">&apos;http://example.com/graphql&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<p>You can save GraphQL queries to a <code>.gql</code> file and simply import them:</p>
+<p><strong>src/graphql/queries/all_messages.gql</strong></p>
+<pre class="language-"><code>#import &quot;./message.gql&quot;
+
+query message {
+  message {
+    ...Message
+  }
+}
+</code></pre><p>Ir use Apollo&apos;s <code>gql</code> template function to specify the data we require, inline.</p>
+<p>Then, in your React component, use the <code>@graphql</code> decorator to pass the GraphQL query, and its data will be made available to your component when it returns:</p>
+<p><strong>src/components/graphql.js</strong></p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> graphql <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-apollo&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> allMessages <span class="token keyword">from</span> <span class="token string">&apos;src/graphql/queries/all_messages.gql&apos;</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Since this component needs to &apos;listen&apos; to GraphQL data, we wrap it in</span>
+<span class="token comment" spellcheck="true">// `react-apollo`&apos;s `graphql` HOC/decorator and pass in the query that this</span>
+<span class="token comment" spellcheck="true">// component requires.   Note: This is not to be confused with the `graphql`</span>
+<span class="token comment" spellcheck="true">// lib, which is used on the server-side to initially define the schema</span>
+@<span class="token function">graphql</span><span class="token punctuation">(</span>allMessages<span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">GraphQLMessage</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>PureComponent</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+    data<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      message<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        text<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">static</span> defaultProps <span class="token operator">=</span> <span class="token punctuation">{</span>
+    data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      message<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        text<span class="token punctuation">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> data <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Since we&apos;re dealing with async GraphQL data, we defend against the</span>
+    <span class="token comment" spellcheck="true">// data not yet being loaded by checking to see that we have the `message`</span>
+    <span class="token comment" spellcheck="true">// key on our returned object</span>
+    <span class="token keyword">const</span> message <span class="token operator">=</span> data<span class="token punctuation">.</span>message <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span>message<span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// Apollo will tell us whether we&apos;re still loading.  We can also use this</span>
+    <span class="token comment" spellcheck="true">// check to ensure we have a fully returned response</span>
+    <span class="token keyword">const</span> isLoading <span class="token operator">=</span> data<span class="token punctuation">.</span>loading <span class="token operator">?</span> <span class="token string">&apos;yes&apos;</span> <span class="token punctuation">:</span> <span class="token string">&apos;nope&apos;</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>Message <span class="token keyword">from</span> GraphQL server<span class="token punctuation">:</span> <span class="token operator">&lt;</span>em<span class="token operator">&gt;</span><span class="token punctuation">{</span>message<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>em<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>Currently loading<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>isLoading<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>In this example, we&apos;re expecting a <code>data.message</code> object which will a <code>text</code> property, containing our message received from our built-in GraphQL endpoint.</p>
 <p>Now, we can use <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>GraphQLMessage</span> <span class="token punctuation">/&gt;</span></span></code> inside any other React component, and it&apos;ll automatically update with props when data has been retrieved or is updated via Apollo.</p>
 <h2 id="how-can-i-prevent-data-loading-on-the-server">How can I prevent data loading on the server?</h2>
 <p>Server-side rendering is an awesome feature that will bolster your SEO strategy, and generally improve the user experience by making the full page available on initial render.</p>
 <p>However, sometimes you don&apos;t want or need all of the data to load at once. At times, this may slow down the user experience because the time-to-first-byte will be delayed until ALL GraphQL data is available.</p>
 <p>At those times, you can tell Apollo <em>not</em> to load on the server, by specifying options on your <code>graphql()</code> HOC:</p>
-<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> GraphQLMessage <span class="token operator">=</span> <span class="token function">graphql</span><span class="token punctuation">(</span>query<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-js">@<span class="token function">graphql</span><span class="token punctuation">(</span>query<span class="token punctuation">,</span> <span class="token punctuation">{</span>
   options<span class="token punctuation">:</span> <span class="token punctuation">{</span> ssr<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// won&apos;t be called during SSR</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>Message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>See <a href="http://dev.apollodata.com/react/server-side-rendering.html#skip-for-ssr" target="_blank">&quot;Skipping queries for SSR&quot;</a> in the official Apollo docs for info.</p>
 
@@ -1234,7 +1232,7 @@ Message<span class="token punctuation">.</span>propTypes <span class="token oper
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GraphQL components","level":"5.1.4","depth":2,"next":{"title":"CSS stylesheets","level":"6.1","depth":1,"path":"stylesheets/README.md","ref":"stylesheets/README.md","articles":[{"title":"Writing CSS files","level":"6.1.1","depth":2,"path":"stylesheets/css.md","ref":"stylesheets/css.md","articles":[]},{"title":"SASS / LESS support","level":"6.1.2","depth":2,"path":"stylesheets/parsers.md","ref":"stylesheets/parsers.md","articles":[]},{"title":"Next-gen CSS via PostCSS","level":"6.1.3","depth":2,"path":"stylesheets/postcss.md","ref":"stylesheets/postcss.md","articles":[]},{"title":"Nesting","level":"6.1.4","depth":2,"path":"stylesheets/nesting.md","ref":"stylesheets/nesting.md","articles":[]},{"title":"Local modules","level":"6.1.5","depth":2,"path":"stylesheets/modules.md","ref":"stylesheets/modules.md","articles":[]},{"title":"Global styles","level":"6.1.6","depth":2,"path":"stylesheets/globals.md","ref":"stylesheets/globals.md","articles":[]},{"title":"Bundling styles","level":"6.1.7","depth":2,"path":"stylesheets/bundling.md","ref":"stylesheets/bundling.md","articles":[]},{"title":"Build pipeline","level":"6.1.8","depth":2,"path":"stylesheets/pipeline.md","ref":"stylesheets/pipeline.md","articles":[]},{"title":"Server-side support","level":"6.1.9","depth":2,"path":"stylesheets/server.md","ref":"stylesheets/server.md","articles":[]}]},"previous":{"title":"Module resolution","level":"5.1.3","depth":2,"path":"writing_code/modules.md","ref":"writing_code/modules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube","disqus"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"writing_code/graphql.md","mtime":"2017-06-07T11:51:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-18T14:57:00.959Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"GraphQL components","level":"5.1.3","depth":2,"next":{"title":"CSS stylesheets","level":"6.1","depth":1,"path":"stylesheets/README.md","ref":"stylesheets/README.md","articles":[{"title":"Writing CSS files","level":"6.1.1","depth":2,"path":"stylesheets/css.md","ref":"stylesheets/css.md","articles":[]},{"title":"SASS / LESS support","level":"6.1.2","depth":2,"path":"stylesheets/parsers.md","ref":"stylesheets/parsers.md","articles":[]},{"title":"Next-gen CSS via PostCSS","level":"6.1.3","depth":2,"path":"stylesheets/postcss.md","ref":"stylesheets/postcss.md","articles":[]},{"title":"Nesting","level":"6.1.4","depth":2,"path":"stylesheets/nesting.md","ref":"stylesheets/nesting.md","articles":[]},{"title":"Local modules","level":"6.1.5","depth":2,"path":"stylesheets/modules.md","ref":"stylesheets/modules.md","articles":[]},{"title":"Global styles","level":"6.1.6","depth":2,"path":"stylesheets/globals.md","ref":"stylesheets/globals.md","articles":[]},{"title":"Bundling styles","level":"6.1.7","depth":2,"path":"stylesheets/bundling.md","ref":"stylesheets/bundling.md","articles":[]},{"title":"Build pipeline","level":"6.1.8","depth":2,"path":"stylesheets/pipeline.md","ref":"stylesheets/pipeline.md","articles":[]},{"title":"Server-side support","level":"6.1.9","depth":2,"path":"stylesheets/server.md","ref":"stylesheets/server.md","articles":[]}]},"previous":{"title":"Module resolution","level":"5.1.2","depth":2,"path":"writing_code/modules.md","ref":"writing_code/modules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"writing_code/graphql.md","mtime":"2017-08-06T16:25:36.523Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-06T17:15:31.049Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1249,14 +1247,6 @@ Message<span class="token punctuation">.</span>propTypes <span class="token oper
     
         
         <script src="../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
-        
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

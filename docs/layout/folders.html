@@ -21,10 +21,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
                 
             
@@ -166,20 +162,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="../setup/typescript.html">
-            
-                <a href="../setup/typescript.html">
-            
-                    
-                    Typescript support
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../setup/upgrading.html">
+        <li class="chapter " data-level="2.1.4" data-path="../setup/upgrading.html">
             
                 <a href="../setup/upgrading.html">
             
@@ -361,20 +344,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="../writing_code/typescript.html">
-            
-                <a href="../writing_code/typescript.html">
-            
-                    
-                    ES6 or Typescript?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.1.3" data-path="../writing_code/modules.html">
+        <li class="chapter " data-level="5.1.2" data-path="../writing_code/modules.html">
             
                 <a href="../writing_code/modules.html">
             
@@ -387,7 +357,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.4" data-path="../writing_code/graphql.html">
+        <li class="chapter " data-level="5.1.3" data-path="../writing_code/graphql.html">
             
                 <a href="../writing_code/graphql.html">
             
@@ -1122,13 +1092,12 @@
                                 
                                 <h1 id="project-folders">Project folders</h1>
 <p>Code is organised neatly into folders, to make it clear what goes where.</p>
+<p><strong>TL;DR - Put your own code in <code>src</code>, and generally you won&apos;t need to edit anything else!</strong></p>
 <p>Here&apos;s the folder layout:</p>
 <h2 id="config"><a href="https://github.com/reactql/kit/blob/master/config" target="_blank"><code>config</code></a></h2>
 <hr>
 <p>Project configuration files, such as the folder structure that ReactQL will use to determine where your code lives.</p>
-<p>You can put your own settings in <a href="https://github.com/reactql/kit/blob/master/config/project.js" target="_blank"><code>config/project.js</code></a> or create new files in this folder to host them.</p>
-<p>By default, <a href="https://github.com/reactql/kit/blob/master/config/project.js" target="_blank"><code>config/project.js</code></a> contains just the URI that Apollo will use to connect to your back-end GraphQL server. You can extend this with your own configuration options, for example SMTP details or other API endpoints.</p>
-<p>This is written in ES6 style with no defaults, so you can import select configuration options from the client side without exposing credentials thanks to automatic tree-shaking/dead code elimination.</p>
+<p>You shouldn&apos;t need to edit any files in here, unless you&apos;re making changes to the fundamental layout of the kit.</p>
 <h2 id="kit"><a href="https://github.com/reactql/kit/blob/master/kit" target="_blank"><code>kit</code></a></h2>
 <hr>
 <p>The bulk of ReactQL is found in <a href="https://github.com/reactql/kit/blob/master/kit" target="_blank"><code>./kit</code></a>.  If you need to dive into the Webpack config or add some custom functionality to your web server or browser instantiation, you&apos;d do it here.</p>
@@ -1156,11 +1125,11 @@
 </ul>
 <h3 id="kitwebpack"><a href="https://github.com/reactql/kit/blob/master/kit/webpack" target="_blank"><code>kit/webpack</code></a></h3>
 <hr>
-<p>Webpack v2 config files. <a href="webpack.html">See here</a> for a complete break-down.</p>
+<p>Webpack config files. <a href="webpack.html">See here</a> for a complete break-down.</p>
 <h2 id="src"><a href="https://github.com/reactql/kit/blob/master/src" target="_blank"><code>src</code></a></h2>
 <hr>
-<p>This is where all of your own code will live. By default, it contains the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>App</span><span class="token punctuation">&gt;</span></span></code> component in <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank"><code>app.js</code></a> which demonstrates a few of the concepts that this starter kit offers you, along with CSS defined in various style files.</p>
-<p>You can overwrite these files directly with your own code and use this as a starter point.</p>
+<p>This is where all of your own code will live. Start editing <a href="https://github.com/reactql/kit/blob/master/src/app.js" target="_blank"><code>app.js</code></a> -- this is where you define your app config, and export your root React component.</p>
+<p>However else you organise your code <code>src</code> is entirely up to you.</p>
 <h2 id="static"><a href="https://github.com/reactql/kit/blob/master/static" target="_blank"><code>static</code></a></h2>
 <hr>
 <p>Put static files here that you want to wind up serving in production.</p>
@@ -1208,7 +1177,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Folders","level":"4.1.1","depth":2,"next":{"title":"Webpack configuration","level":"4.1.2","depth":2,"path":"layout/webpack.md","ref":"layout/webpack.md","articles":[]},"previous":{"title":"Project layout","level":"4.1","depth":1,"path":"layout/README.md","ref":"layout/README.md","articles":[{"title":"Folders","level":"4.1.1","depth":2,"path":"layout/folders.md","ref":"layout/folders.md","articles":[]},{"title":"Webpack configuration","level":"4.1.2","depth":2,"path":"layout/webpack.md","ref":"layout/webpack.md","articles":[]},{"title":"Root files","level":"4.1.3","depth":2,"path":"layout/root.md","ref":"layout/root.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube","disqus"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"layout/folders.md","mtime":"2017-06-08T13:32:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-18T14:57:00.959Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Folders","level":"4.1.1","depth":2,"next":{"title":"Webpack configuration","level":"4.1.2","depth":2,"path":"layout/webpack.md","ref":"layout/webpack.md","articles":[]},"previous":{"title":"Project layout","level":"4.1","depth":1,"path":"layout/README.md","ref":"layout/README.md","articles":[{"title":"Folders","level":"4.1.1","depth":2,"path":"layout/folders.md","ref":"layout/folders.md","articles":[]},{"title":"Webpack configuration","level":"4.1.2","depth":2,"path":"layout/webpack.md","ref":"layout/webpack.md","articles":[]},{"title":"Root files","level":"4.1.3","depth":2,"path":"layout/root.md","ref":"layout/root.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"layout/folders.md","mtime":"2017-08-06T16:05:59.955Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-06T17:15:31.049Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1223,14 +1192,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
-        
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

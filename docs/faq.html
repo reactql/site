@@ -21,10 +21,6 @@
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
                 
             
@@ -166,20 +162,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="setup/typescript.html">
-            
-                <a href="setup/typescript.html">
-            
-                    
-                    Typescript support
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="setup/upgrading.html">
+        <li class="chapter " data-level="2.1.4" data-path="setup/upgrading.html">
             
                 <a href="setup/upgrading.html">
             
@@ -361,20 +344,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="writing_code/typescript.html">
-            
-                <a href="writing_code/typescript.html">
-            
-                    
-                    ES6 or Typescript?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.1.3" data-path="writing_code/modules.html">
+        <li class="chapter " data-level="5.1.2" data-path="writing_code/modules.html">
             
                 <a href="writing_code/modules.html">
             
@@ -387,7 +357,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.4" data-path="writing_code/graphql.html">
+        <li class="chapter " data-level="5.1.3" data-path="writing_code/graphql.html">
             
                 <a href="writing_code/graphql.html">
             
@@ -1128,35 +1098,28 @@
 <li>Step 2: Create a new project with <code>reactql new</code>, and run through the wizard</li>
 <li>Step 3: <code>cd</code> into your new project, and run <code>npm start</code></li>
 </ul>
-<p>This will spawn a &apos;hot reloading&apos; client dev server on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>, and a full development web server with <a href="ssr/">server-side rendering</a> <a href="http://localhost:8081" target="_blank">http://localhost:8081</a></p>
+<p>This will spawn a &apos;hot reloading&apos; client dev server on <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>, and a full development web server with <a href="ssr/">server-side rendering</a> <a href="http://localhost:8081" target="_blank">http://localhost:8081</a>,</p>
+<p>You can play with the sample GraphQL server (provided by default, out-the-box) and run queries at <a href="http://localhost:8081/graphql" target="_blank">http://localhost:8081/graphql</a></p>
 <p>To build and run in production, replace <code>npm start</code> with <code>npm run build-run</code></p>
 <h3 id="why-should-i-use-reactql">Why should I use ReactQL?</h3>
 <hr>
 <p>This starter kit is the product of over 2 years working with React, and GraphQL since its initial public release.</p>
-<p>IMO, this represents the best available tooling for web apps in 2017. I use this stuff every day in production, so you can be confident it&apos;ll be maintained and updated regularly.</p>
+<p>IMO, this represents the best available full-stack tooling for web apps in 2017. I use this stuff every day in production, so you can be confident it&apos;ll be maintained and updated regularly.</p>
 <p>Use ReactQL if you want to skip the set-up, and get your next project up in record time.</p>
 <h3 id="where-do-i-start-coding">Where do I start coding?</h3>
 <hr>
-<p><code>src/app.js</code> is the main React component, that both the browser and the serve will look to. Overwrite it with your own code.</p>
-<p>If you need to edit the build defaults, you can start digging into the <code>kit</code> dir which contains the &apos;under the hood&apos; build stuff.  But that generally comes later.</p>
+<p><code>src/app.js</code> is the starting point to your app. Read it, understand it, then overwrite it with your own code.</p>
 <h3 id="is-this-production-ready">Is this production ready?</h3>
 <hr>
-<p>Some of the third-party packages in my stack may be in beta or pre-beta stages, so it&apos;s up to you to evaluate if they&apos;re a good fit for your application.</p>
-<p>I personally use this starter kit as a basis for several heavy product loads-- so I&apos;m quite comfortable with the tech choices.</p>
+<p>Open source is never finished. Some of the third-party packages in my stack may be in beta or pre-beta stages, so it&apos;s up to you to evaluate if they&apos;re a good fit for your application.</p>
+<p>I personally use this starter kit as a basis for several heavy production loads.</p>
 <h3 id="what-kind-of-projects-is-reactql-a-good-starter-for">What kind of projects is ReactQL a good starter for?</h3>
 <hr>
-<p>Anything &apos;front end&apos; that&apos;s backed by a GraphQL server. I typically break my projects down into a few pieces:</p>
-<ul>
-<li><p><strong>Front end</strong>, with a built-in web server that serves public traffic. This usually sits behind an Nginx proxy/load balancer and compiles and dumps back the UI. <strong>This is basically ReactQL</strong>.</p>
-</li>
-<li><p><strong>GraphQL API</strong>. This could be Node.js, Python, Go, etc. But it&apos;s usually separate to the front-end code base, and is something the front-end talks to directly via the Apollo GraphQL client. <em>I generally don&apos;t use ReactQL for this</em> unless there&apos;s a good reason to build a monolithic app (e.g. speed, the back-end not doing a whole lot, etc.)</p>
-</li>
-<li><p><strong>Microservices</strong>.  Smaller pieces of the stack that do one thing, and do it well. The API server is responsible for talking to this stuff.  Again, ReactQL doesn&apos;t really get a look in.</p>
-</li>
-</ul>
-<p>I&apos;d generally recommend a similar layout to keep your code light and maintainable.</p>
-<p>With that said, if you want Node.js to handle both your front and back-office concerns, there&apos;s no reason you couldn&apos;t add a GraphQL server to <code>kit/entry/server.js</code> and handle your API requests from the same host.</p>
-<p>You can see an example of <a href="https://github.com/reactql/examples/tree/master/graphql-server" target="_blank">adding a GraphQL server here</a></p>
+<p>ReactQL can be considered &apos;full-stack&apos; or &apos;front-end&apos;, depending on your needs.</p>
+<p>By default, it bundles a GraphQL server, a web server offering full server-side rendering over HTTP, and a complete browser front-end that provides single-page applications/websites.</p>
+<p>It&apos;s highly configurable-- you can add REST server routes, set a custom 404 handler, render React universally, and use a built-in GraphQL server or point to one off-site, all from within <code>src/app.js</code>.</p>
+<p>If you want a client-only app, you can build a static distribution package. If you want to run a web server and serve live traffic, you can build a Docker image using the built-in <code>Dockerfile</code> and enjoy the high-performance Koa web server config that&apos;s bundled as standard.</p>
+<p>It&apos;s an ideal stack to use for building modern web-based apps.</p>
 <h3 id="is-this-windows-compatible">Is this Windows compatible?</h3>
 <hr>
 <p>Yes. The kit has been tested on Windows 10, but will probably work on other versions, too. Environment variables and paths are written to be Windows-compatible.</p>
@@ -1168,21 +1131,16 @@
 <p>There&apos;s currently no test library, so feel free to add your own.</p>
 <h3 id="will-reactql-play-nicely-with-themes-or-other-frameworks">Will ReactQL play nicely with themes or other frameworks?</h3>
 <hr>
-<p>ReactQL provides UI, flux/app state, routing, code bundling and SASS/PostCSS stylesheets out the box. It should play nicely with any framework that isn&apos;t opinionated about any of those things.</p>
+<p>ReactQL provides UI, flux/app state, a web server, GraphQL, routing, code bundling and SASS/PostCSS stylesheets out the box. It should play nicely with any framework that isn&apos;t opinionated about any of those things.</p>
 <p>If you&apos;re using a theme that&apos;s built on React, many times it will include its own competing build flow for the site -- e.g. <a href="http://gulpjs.com/" target="_blank">Gulp</a> for build tasks, <a href="http://lesscss.org/" target="_blank">LESS</a> for stylesheets, <a href="https://www.browsersync.io/" target="_blank">Browsersync</a> for hot code reloading, etc. The work involved in translating that flow to ReactQL can vary. It depends how tightly coupled the components are to the flow the author provides.</p>
 <p>Try to opt for components that are &apos;self-contained&apos;, that don&apos;t rely on specific build tools to compile. I&apos;d encourage you to use components that you are in control of that don&apos;t require lots of third-party tooling, where possible. Sometimes, it makes sense to use HTML themes and manually translate to React instead.</p>
 <h3 id="im-using-insert-databaseback-end-x-here-will-reactql-work">I&apos;m using <code>[insert database/back-end X here]</code>. Will ReactQL work?</h3>
 <hr>
-<p>ReactQL is designed to consume <a href="http://graphql.org/" target="_blank">GraphQL APIs</a>, and includes its own built-in web server to serve HTML on the front-end. It&apos;s completely agnostic about your back-end, and will connect to any API that can speak GraphQL.</p>
+<p>ReactQL is designed to consume <a href="http://graphql.org/" target="_blank">GraphQL APIs</a>, and includes its own built-in web server to serve HTML on the front-end. Despite coming bundled with a GraphQL server, it&apos;s completely agnostic about your back-end, and will connect to any API that can speak GraphQL.  It&apos;s up to you to define your GraphQL schema in a way that &apos;queries&apos; whichever back-end you want to use.</p>
 <p>If you&apos;re using a database such as MySQL or PostgreSQL, and you&apos;d typically use REST to interact with a legacy system, consider building a GraphQL server that&apos;s designed to handle more dynamic requests instead.</p>
 <h3 id="how-do-i-build-a-graphql-server">How do I build a GraphQL server?</h3>
 <hr>
-<p>GraphQL is a layer &apos;above&apos; an existing database. It&apos;s agnostic about your back-end technology or stack, and simply defines the shape of queries it will accept. It&apos;s up to you to define how data is retrieved. There&apos;s lots of community tooling to handle translating queries to SQL, handling data loading, caching, etc.</p>
-<p>Check out <a href="https://github.com/chentsulin/awesome-graphql" target="_blank">Awesome GraphQL</a> for a list of current libraries and resources for your back-end platform.</p>
-<p>FWIW, I generally use <a href="http://dev.apollodata.com/tools/" target="_blank">Apollo Server</a> (Node.js) and <a href="http://graphene-python.org/" target="_blank">Graphene</a> (Python) in my own projects for building GraphQL servers.</p>
-<blockquote>
-<p>ReactQL is intended for apps that <em>consume</em> GraphQL, rather than supply it. Creating a GraphQL server is a back-end concern that&apos;s outside of the scope of this starter kit. However, adding one to your existing server - if that&apos;s what you want to do - is trivial. Check out <a href="https://github.com/reactql/examples/tree/master/graphql-server" target="_blank">this example project</a> for the code.</p>
-</blockquote>
+<p>New in v2.0, ReactQL comes bundled with GraphQL server powers out-the-box. See <a href="writing_code/graphql.html">this page</a> for details on how it works.</p>
 
                                 
                                 </section>
@@ -1226,7 +1184,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"11.1","depth":1,"next":{"title":"Need support?","level":"11.2","depth":1,"path":"support.md","ref":"support.md","articles":[]},"previous":{"title":"Redux DevTools","level":"10.1.8","depth":2,"path":"state/devtools.md","ref":"state/devtools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube","disqus"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"faq.md","mtime":"2017-06-08T15:08:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-18T14:57:00.959Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"11.1","depth":1,"next":{"title":"Need support?","level":"11.2","depth":1,"path":"support.md","ref":"support.md","articles":[]},"previous":{"title":"Redux DevTools","level":"10.1.8","depth":2,"path":"state/devtools.md","ref":"state/devtools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"faq.md","mtime":"2017-08-06T17:12:44.524Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-06T17:15:31.049Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -1241,14 +1199,6 @@
     
         
         <script src="gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
-        
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         

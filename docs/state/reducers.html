@@ -21,10 +21,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
                 
             
@@ -166,20 +162,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="../setup/typescript.html">
-            
-                <a href="../setup/typescript.html">
-            
-                    
-                    Typescript support
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="2.1.5" data-path="../setup/upgrading.html">
+        <li class="chapter " data-level="2.1.4" data-path="../setup/upgrading.html">
             
                 <a href="../setup/upgrading.html">
             
@@ -361,20 +344,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="../writing_code/typescript.html">
-            
-                <a href="../writing_code/typescript.html">
-            
-                    
-                    ES6 or Typescript?
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="5.1.3" data-path="../writing_code/modules.html">
+        <li class="chapter " data-level="5.1.2" data-path="../writing_code/modules.html">
             
                 <a href="../writing_code/modules.html">
             
@@ -387,7 +357,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.4" data-path="../writing_code/graphql.html">
+        <li class="chapter " data-level="5.1.3" data-path="../writing_code/graphql.html">
             
                 <a href="../writing_code/graphql.html">
             
@@ -1125,57 +1095,51 @@
 <p>A &apos;<a href="http://redux.js.org/docs/basics/Reducers.html" target="_blank">reducer</a>&apos; is a function that modifies the state of your application, and returns a copy.</p>
 <p>This is what enables Redux to know that something has changed, and ultimately feed those changes back to any listening React components.</p>
 <p>The first thing we need to do is create a reducer.</p>
-<p>Since we&apos;re building a simple to-do list, let&apos;s create a reducer that has two simple functions: Adding a to-do, and removing one. We&apos;ll create this at <code>store/reducer.js</code>, since we&apos;ll only have one reducer throughout our application (the name&apos;s not important; if we have more than one reducer, we might call it &apos;reducers/todo.js&apos; or something similar.)</p>
-<p><strong>store/reducers.js</strong></p>
+<p>Since we&apos;re building a simple to-do list, let&apos;s create a reducer that has two simple functions: Adding a to-do, and removing one. We&apos;ll create this at <code>src/store/reducer.js</code>, since we&apos;ll only have one reducer throughout our application (the name&apos;s not important; if we have more than one reducer, we might call it &apos;reducers/todo.js&apos; or something similar.)</p>
+<p><strong>src/store/reducer.js</strong></p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// Custom reducers.  We&apos;ll create a simple to-do list handler.</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">reducer</span><span class="token punctuation">(</span>state <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// eslint-disable-next-line default-case</span>
-  <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> <span class="token string">&apos;ADD_TODO&apos;</span><span class="token punctuation">:</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>todo <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span>todo<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>state<span class="token punctuation">,</span> action<span class="token punctuation">.</span>todo<span class="token punctuation">]</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-      <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> <span class="token string">&apos;REMOVE_TODO&apos;</span><span class="token punctuation">:</span>
-      <span class="token keyword">return</span> state<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>todo <span class="token operator">=</span><span class="token operator">&gt;</span> action<span class="token punctuation">.</span>todo <span class="token operator">!==</span> todo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Export an object in the shape of { state, reducer()}  -- the</span>
+<span class="token comment" spellcheck="true">// `state` part is our initial state, and `reducer()` is a function that modifies</span>
+<span class="token comment" spellcheck="true">// the state when it receives a particular instruction -- like &apos;ADD_TODO&apos;</span>
+<span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function">reducer</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> action<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// eslint-disable-next-line default-case</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">case</span> <span class="token string">&apos;ADD_TODO&apos;</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>action<span class="token punctuation">.</span>todo <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>state<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>action<span class="token punctuation">.</span>todo<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">...</span>state<span class="token punctuation">,</span> action<span class="token punctuation">.</span>todo<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+      <span class="token keyword">case</span> <span class="token string">&apos;REMOVE_TODO&apos;</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> state<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>todo <span class="token operator">=</span><span class="token operator">&gt;</span> action<span class="token punctuation">.</span>todo <span class="token operator">!==</span> todo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> state<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-  <span class="token keyword">return</span> state<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>What&apos;s happening here?</p>
-<p>Redux will pass in our current &apos;state&apos; object. If we&apos;re calling this for the first time, we won&apos;t have an object, so by default we create an empty <code>state</code> array.</p>
+<p>Redux will pass in our current &apos;state&apos; object. If we&apos;re calling this for the first time, we won&apos;t have an object, so we pass in a <code>state</code> key along with the export, which will become our initial state.</p>
 <p><code>action</code> will contain whatever our action (which we&apos;ve not yet built) passes to the reducer. We&apos;ll get to that in a moment, but for now let&apos;s assume it&apos;ll have an <code>action.type</code> string, which tells our reducer what to do with the <code>state</code>.</p>
 <p>If <code>action.type === &apos;ADD_TODO&apos;</code>, then we check to ensure that same to-do item doesn&apos;t already exist on our state. If not, we&apos;ll create a <em>new</em> array, passing in all of the old values, along with our new to-do.</p>
 <blockquote>
-<p>Note: Creating a new array and not simply mutating the old one is a <a href="http://redux.js.org/docs/recipes/UsingObjectSpreadOperator.html" target="_blank">key concept</a> of Redux. This allows us to keep our state &apos;clean&apos; and free of side-effects, by each new action always resulting in a new/fresh copy of the state. We can then guarantee our React components are never relying on stale data, and it also makes it trivial to implement &apos;undo&apos; features that travel back to previous states.</p>
+<p>Note: Creating a new array and not simply mutating the old one is a <a href="http://redux.js.org/docs/recipes/UsingObjectSpreadOperator.html" target="_blank">key concept</a> of Redux. This allows us to keep our state &apos;clean&apos; and free of side-effects, by each new action always resulting in a new/fresh copy of the state. We can then guarantee our React components are never relying on stale data, and it also makes it trivial to implement &apos;undo&apos; features that travel back to previous states. ReactQL bundles <code>seamless-immutable</code>, which is a library that can turn plain Javascript objects/arrays into &apos;immutable&apos; variants that can&apos;t be modified. You can examine the source code to see how that works.</p>
 </blockquote>
 <p>If <code>action.type === &apos;REMOVE_TODO&apos;</code>, we&apos;ll pass back a new array with the todo filtered out. Again, note that we&apos;re not just removing it from the current array -- we pass back a fresh copy, just with that value omitted.</p>
 <p>Once we&apos;ve built our reducer, we need to add it to our Redux instantiation code that both the server and browser will use to wire up Redux.</p>
-<p>Edit <a href="https://github.com/reactql/kit/blob/master/kit/lib/redux.js" target="_blank">kit/lib/redux.js</a> by importing your reducer and adding it to the <code>combineReducers()</code> object that you&apos;re passing:</p>
-<p><strong>kit/lib/redux.js</strong></p>
+<p>That&apos;s easy to do:</p>
+<p><strong>src/app.js</strong></p>
 <pre class="language-"><code class="lang-js"><span class="token comment" spellcheck="true">// ...</span>
 
+<span class="token comment" spellcheck="true">// Import the global `Config` singleton that ReactQL provides out-the-box</span>
+<span class="token keyword">import</span> config <span class="token keyword">from</span> <span class="token string">&apos;kit/config&apos;</span><span class="token punctuation">;</span>
+
 <span class="token comment" spellcheck="true">// Import the new reducer we&apos;ve just created</span>
-<span class="token keyword">import</span> todoReducer <span class="token keyword">from</span> <span class="token string">&apos;store/reducer&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> todoReducer <span class="token keyword">from</span> <span class="token string">&apos;src/store/reducer.js&apos;</span><span class="token punctuation">;</span>
 
-<span class="token comment" spellcheck="true">// ...</span>
-
-<span class="token comment" spellcheck="true">// Add it to the existing `combineReducers()` call, alongside Apollo</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">function</span> <span class="token function">createNewStore</span><span class="token punctuation">(</span>apolloClient<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>
-    <span class="token function">combineReducers</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      apollo<span class="token punctuation">:</span> apolloClient<span class="token punctuation">.</span><span class="token function">reducer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-      todos<span class="token punctuation">:</span> todoReducer<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// &lt;--- this is where we&apos;ve added our custom reducer!</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token operator">!</span>SERVER <span class="token operator">?</span> window<span class="token punctuation">.</span>__STATE__ <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// initial state</span>
-    <span class="token function">compose</span><span class="token punctuation">(</span>
-        <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>apolloClient<span class="token punctuation">.</span><span class="token function">middleware</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">(</span><span class="token operator">!</span>SERVER <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> window<span class="token punctuation">.</span>__REDUX_DEVTOOLS_EXTENSION__ <span class="token operator">!==</span> <span class="token string">&apos;undefined&apos;</span><span class="token punctuation">)</span> <span class="token operator">?</span> window<span class="token punctuation">.</span><span class="token function">__REDUX_DEVTOOLS_EXTENSION__</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> f <span class="token operator">=</span><span class="token operator">&gt;</span> f<span class="token punctuation">,</span>
-    <span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">return</span> store<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// Add the reducer by key</span>
+config<span class="token punctuation">.</span><span class="token function">addReducer</span><span class="token punctuation">(</span><span class="token string">&apos;todos&apos;</span><span class="token punctuation">,</span> todoReducer<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Note that we&apos;ve given the reducer object a <code>todos</code> root keyword. This means changes to the state will affect <em>only</em> that &apos;part&apos; of the state. Apollo has its own <code>apollo</code> root, to avoid clashing with other &apos;parts&apos; of our application state.</p>
 <p>That&apos;s it - we now have a custom reducer that&apos;s concerned with responding to our to-do actions.</p>
@@ -1222,7 +1186,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Adding custom reducers","level":"10.1.3","depth":2,"next":{"title":"Adding actions","level":"10.1.4","depth":2,"path":"state/actions.md","ref":"state/actions.md","articles":[]},"previous":{"title":"An example: To-Do list","level":"10.1.2","depth":2,"path":"state/example.md","ref":"state/example.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube","disqus"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"state/reducers.md","mtime":"2017-06-08T12:17:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-18T14:57:00.959Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Adding custom reducers","level":"10.1.3","depth":2,"next":{"title":"Adding actions","level":"10.1.4","depth":2,"path":"state/actions.md","ref":"state/actions.md","articles":[]},"previous":{"title":"An example: To-Do list","level":"10.1.2","depth":2,"path":"state/example.md","ref":"state/example.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","prism","heading-anchors","youtube"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"disqus":{"shortName":"reactql"},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"heading-anchors":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Lee Benson <lee@leebenson.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ReactQL documentation","gitbook":"*","description":"Documentation for ReactQL starter kit"},"file":{"path":"state/reducers.md","mtime":"2017-08-06T16:52:21.215Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-06T17:15:31.049Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1237,14 +1201,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
-        
-    
-        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
         
     
         
