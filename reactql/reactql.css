@@ -47,7 +47,7 @@
 }
 
 .install {
-  width: 500px;
+  width: 800px;
   max-width: 80%;
   padding: 10px;
   background-color: white;
@@ -56,8 +56,22 @@
   margin: 0 auto;
   font-size: 18px;
   font-weight: bold;
+  word-wrap: break-word;
 }
 
 .buttons {
   margin-top: 75px;
+}
+
+.cli {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  background-color: black;
+  color: limegreen;
+  padding: 5px;
+}
+
+.banner img {
+  width: 100%;
+  max-width: 300px;
 }

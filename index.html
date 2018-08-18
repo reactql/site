@@ -1,428 +1,533 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <!-- Site made with Mobirise Website Builder v3.12.1, https://mobirise.com -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="assets/images/connect-develop.svg" type="image/x-icon">
-    <meta name="description" content="Starter kit for React, Apollo, Redux, React Router, Webpack 3 and PostCSS. Full server-side rendering.">
-    <title>ReactQL: Modern stack for React+GraphQL</title>
-    <!-- favicons -->
-    <link rel="icon" type="image/png" href="reactql/favicons/32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="reactql/favicons/16x16.png" sizes="16x16" />
-    <!-- css -->
-    <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
-    <link rel="stylesheet" href="assets/et-line-font-plugin/style.css">
-    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
-    <link rel="stylesheet" href="assets/tether/tether.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/dropdown/css/style.css">
-    <link rel="stylesheet" href="assets/animate.css/animate.min.css">
-    <link rel="stylesheet" href="assets/theme/css/style.css">
-    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-    <link rel="stylesheet" href="reactql/reactql.css" type="text/css">
+  <!-- Site made with Mobirise Website Builder v3.12.1, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="assets/images/connect-develop.svg" type="image/x-icon">
+  <meta name="description" content="Starter kit for React, Apollo, Redux, React Router, Webpack 3 and PostCSS. Full server-side rendering.">
+  <title>ReactQL: Modern stack for React+GraphQL</title>
+  <!-- favicons -->
+  <link rel="icon" type="image/png" href="reactql/favicons/32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="reactql/favicons/16x16.png" sizes="16x16" />
+  <!-- css -->
+  <link rel="stylesheet" href="assets/bootstrap-material-design-font/css/material.css">
+  <link rel="stylesheet" href="assets/et-line-font-plugin/style.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="reactql/reactql.css" type="text/css">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
 <body>
   <div id="video">
     <div id="yt"></div>
   </div>
-    <section id="menu-0">
-        <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
-            <div class="container">
-                <div class="mbr-table">
-                    <div class="mbr-table-cell">
-                        <div class="navbar-brand">
-                            <a href="/" class="navbar-logo"><img src="assets/images/connect-develop.svg" alt="ReactQL"></a>
-                            <a class="navbar-caption" href="/">REACTQL</a>
-                        </div>
-                    </div>
-                    <div class="mbr-table-cell">
-                        <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-                        <div class="hamburger-icon"></div>
-                    </button>
-
-                        <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
-                            <li class="nav-item"><a class="nav-link link" href="/docs" aria-expanded="false">DOCUMENTATION</a></li>
-                            <li class="nav-item"><a class="nav-link link video_open" href="/docs" aria-expanded="false">WATCH VIDEO</a></li>
-                            <li class="nav-item nav-btn"><a class="nav-link btn btn-white btn-white-outline" href="https://github.com/leebenson/reactql" target="_blank">GITHUB</a></li>
-                        </ul>
-                        <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-                        <div class="close-icon"></div>
-                    </button>
-
-                    </div>
-                </div>
-
+  <section id="menu-0">
+    <nav class="navbar navbar-dropdown bg-color transparent navbar-fixed-top">
+      <div class="container">
+        <div class="mbr-table">
+          <div class="mbr-table-cell">
+            <div class="navbar-brand">
+              <a href="/" class="navbar-logo">
+                <img src="assets/images/connect-develop.svg" alt="ReactQL">
+              </a>
+              <a class="navbar-caption" href="/">REACTQL</a>
             </div>
-        </nav>
+          </div>
+          <div class="mbr-table-cell">
+            <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+              <div class="hamburger-icon"></div>
+            </button>
 
-    </section>
+            <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
+              <!-- <li class="nav-item"><a class="nav-link link" href="/docs" aria-expanded="false">DOCUMENTATION</a></li> -->
+              <!-- <li class="nav-item"><a class="nav-link link video_open" href="/docs" aria-expanded="false">WATCH VIDEO</a></li> -->
+              <li class="nav-item nav-btn">
+                <a class="nav-link btn btn-white btn-white-outline" href="https://github.com/leebenson/reactql" target="_blank">GITHUB</a>
+              </li>
+            </ul>
+            <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+              <div class="close-icon"></div>
+            </button>
 
-    <section class="engine"></section>
-    <section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background mbr-section-with-arrow reactql-bg" id="header1-1">
-
-        <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
-
-        <div class="mbr-table-cell">
-
-            <div class="container">
-                <div class="row">
-                    <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
-                        <h1 class="mbr-section-title display-1">ReactQL <sup class="version">v4.9.5</sup></h1>
-                        <p class="mbr-section-lead" style="font-style:normal;font-weight:bold;margin:25px auto">
-                          Universal React+GraphQL starter kit.
-                        </p>
-                        <div class="install">npm install -g reactql</div>
-                        <p class="mbr-section-lead" style="margin:25px auto">
-                          React v16 · Apollo Server 1.0 · Redux · Webpack 3 · React Router 4 · PostCSS/SASS/Less
-                        </p>
-                        <p class="mbr-section-lead" style="font-weight:bold; font-style:normal;margin-top:20px">
-                          Full-stack. Universal. Server-side rendering.
-                        </p>
-                        <div class="mbr-section-btn buttons"><a class="btn btn-lg btn-primary" href="https://github.com/leebenson/reactql">VIEW SOURCE <img src="reactql/github.svg" alt="Github" class="git"></a> <a class="btn btn-lg btn-white btn-white-outline" href="/docs">LEARN MORE</a></div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
 
-        <div class="mbr-arrow mbr-arrow-floating" aria-hidden="true"><a href="#header3-8"><i class="mbr-arrow-icon"></i></a></div>
+      </div>
+    </nav>
 
-    </section>
+  </section>
 
-    <section class="mbr-section mbr-section__container article" id="header3-8" style="background-color: rgb(255, 255, 255); padding-top: 75px; padding-bottom: 50px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3 class="mbr-section-title display-2">Your go-to stack for GraphQL</h3>
-                    <small class="mbr-section-subtitle">ReactQL is a "done for you" starter kit that seamlessly integrates:&nbsp;</small>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="engine"></section>
+  <section class="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background mbr-section-with-arrow reactql-bg"
+    id="header1-1">
 
-    <section class="mbr-cards mbr-section mbr-section-nopadding" id="features3-h" style="background-color: rgb(255, 255, 255);">
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
 
-        <div class="mbr-cards-row row">
-            <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 75px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img">
-                            <a href="https://facebook.github.io/react/" target="_blank"><img src="reactql/react.png" srcset="reactql/react.png 1x, reactql/react@2x.png 2x" class="card-img-top"></a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title"><a href="https://facebook.github.io/react/" target="_blank">React v16 (streaming API)</a></h4>
-                            <h5 class="card-subtitle">User interface (UI)</h5>
-                            <p class="card-text">Create reusable components that combine UI and logic, and compile down to HTML on the server. Seamless server and browser compatibility, from the same codebase.</p>
+    <div class="mbr-table-cell">
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 75px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img">
-                            <a href="http://dev.apollodata.com/react/" target="_blank"><img src="reactql/apollo.png" srcset="reactql/apollo.png 1x, reactql/apollo@2x.png 2x" class="card-img-top"></a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title"><a href="http://dev.apollodata.com/react/" target="_blank">Apollo Server/Client</a> + <a href="http://redux.js.org/" target="_blank">Redux</a></h4>
-                            <h5 class="card-subtitle">GraphQL &amp; store management</h5>
-                            <p class="card-text">Build/connect a GraphQL back-end with Apollo Server + Client + custom Redux stores. Fully SSR compatible- data is fetched before HTML is sent.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 75px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img">
-                            <a href="https://reacttraining.com/react-router/" target="_blank"><img src="reactql/react-router.png" srcset="reactql/react-router.png 1x, reactql/react-router@2x.png 2x" class="card-img-top"></a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title"><a href="https://reacttraining.com/react-router/" target="_blank">React Router 4</a></h4>
-                            <h5 class="card-subtitle">Universal HTTP/app routing</h5>
-                            <p class="card-text">New in v4, write routes declaratively inside your React components. Zero configuration required.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="mbr-cards mbr-section mbr-section-nopadding" id="features4-a" style="background-color: rgb(255, 255, 255);">
-
-        <div class="mbr-cards-row row">
-            <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 40px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img">
-                            <a href="https://webpack.js.org/" target="_blank"><img src="reactql/webpack.png" srcset="reactql/webpack.png 1x, reactql/webpack@2x.png 2x" class="card-img-top"></a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title"><a href="https://webpack.js.org/" target="_blank">Webpack 3</a></h4>
-                            <h5 class="card-subtitle">Code bundling &amp; minification</h5>
-                            <p class="card-text">Extendable Webpack config generates browser + server bundles, optimises your code paths, crunches images and generates code ready for production.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 40px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img">
-                            <a href="http://postcss.org/" target="_blank"><img src="reactql/css.png" srcset="reactql/css.png 1x, reactql/css@2x.png 2x" class="card-img-top"></a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title"><a href="http://postcss.org/" target="_blank">PostCSS</a> + <a href="http://sass-lang.com/" target="_blank">SASS</a> + <a href="http://lesscss.org/" target="_blank">LESS</a></h4>
-                            <h5 class="card-subtitle">Next-gen CSS stylesheets</h5>
-                            <p class="card-text">Write locally-scoped CSS with nested statements, @import, variables and <a href="http://cssnext.io/" target="_blank">next-gen CSS</a> features - in plain CSS, SASS or LESS. Automatic vendor prefixes come as standard.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 40px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img">
-                            <a href="http://koajs.com/" target="_blank"><img src="reactql/koa.png" srcset="reactql/koa.png 1x, reactql/koa@2x.png 2x" class="card-img-top"></a>
-                        </div>
-                        <div class="card-block">
-                            <h4 class="card-title"><a href="http://koajs.com/" target="_blank">Koa 2</a></h4>
-                            <h5 class="card-subtitle">Built-in web server with SSR</h5>
-                            <p class="card-text">Bolster your SEO with SSR and improve user experiences with fast time-to-first-byte (&lt; 10ms) with the performant Koa 2 web server, built in to your server bundle.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="mbr-section mbr-section__container article" id="header3-e" style="background-color: rgb(255, 255, 255); padding-top: 75px; padding-bottom: 50px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3 class="mbr-section-title display-2">Super powers, as standard</h3>
-                    <small class="mbr-section-subtitle">ReactQL solves the tedious set-up code, so you can focus on what matters</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-b" style="background-color: rgb(239, 239, 239);">
-
-        <div class="mbr-cards-row row">
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/ssr.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Server-side rendering (SSR)&nbsp;</h4>
-
-                            <p class="card-text">GraphQL queries run on the server first, giving users and search engines rich HTML with data, markup and styles - with no configuration needed.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/server.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Built-in GraphQL + web server</h4>
-
-                            <p class="card-text">Run a production-grade web server with one CLI command - dumps your React + GraphQL into plain HTML dynamically per request, with full client-side support.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/ultrafast.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Ultra-fast single page apps (SPA)</h4>
-
-                            <p class="card-text">Navigating your site will be blistering fast, thanks to pre-loaded routes and async data loading. Obliterate full-page reloads <em>and</em> enjoy server-side rendering, to boot.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/dev-production.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Built for dev + production</h4>
-
-                            <p class="card-text">Enjoy full sourcemaps and hot code reloading in development. Then, when you're ready to go live, one CLI command builds a production-grade bundle.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-9" style="background-color: rgb(239, 239, 239);">
-
-        <div class="mbr-cards-row row">
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/es6.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Written in ES6</h4>
-
-                            <p class="card-text">ReactQL is written in modern ES6 code&nbsp;with async/await and all the other&nbsp;goodies that Javascript now brings, with automatic polyfills thanks to <a href="https://github.com/babel/babel-preset-env" target="_blank">babel-present-env</a>.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/tree-shaking.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Tree shaking / no dead code</h4>
-
-                            <p class="card-text">Thanks to Webpack 3, ReactQL automatically <a href="https://webpack.js.org/guides/tree-shaking/" target="_blank">eliminates&nbsp;unused code</a> paths in your browser code, for minimal bundle sizes.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/hot-code-reload.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Hot code reloading</h4>
-
-                            <p class="card-text">Freely edit React components, styles or other code in development, and watch changes happen in real-time in the browser - no refresh needed.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/minification.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Aggressive minification</h4>
-
-                            <p class="card-text">Your code, images and CSS will be minified to save every byte possible. Assets in production will be served gzipped, too.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-c" style="background-color: rgb(239, 239, 239);">
-        <div class="mbr-cards-row row">
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/eslinting.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Airbnb linting, tweaked</h4>
-
-                            <p class="card-text">Built-in <a href="http://eslint.org" target="_blank">ESLinting</a> in Atom.io, Sublime or any supported editor/IDE. Write in an Airbnb style, but without restricting async/await, generators, for..of loops and more.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/flux-store.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Redux store de/rehydration</h4>
-                            <p class="card-text">Redux data crunched on the server is sent down the wire to the browser, so your user can pick-up where your server finishes. Easily add your own <a href="http://redux.js.org/docs/basics/Reducers.html" target="_blank">Redux reducers</a>, too.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/vendor-splitting.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">Auto vendor splitting</h4>
-
-                            <p class="card-text">Vendor code is automatically split from the code you write, making async route loading and caching fast and automatic. No need to maintain a separate vendor list.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
-                <div class="container">
-                    <div class="card cart-block">
-                        <div class="card-img"><img src="reactql/details.svg" class="card-img-top svg"></div>
-                        <div class="card-block">
-                            <h4 class="card-title">The finer details, sorted</h4>
-
-                            <p class="card-text">From <a href="https://github.com/venables/koa-helmet" target="_blank">HTTP hardening</a> in Koa, to declarative &lt;head&gt; rewinds via <a href="https://github.com/nfl/react-helmet" target="_blank">Helmet</a>, ReactQL gives you an optimised starter kit with all the finer details taken care of - freeing you to <em>code</em>.</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mbr-section mbr-section__container" id="buttons1-d" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="text-xs-center"><a class="btn btn-primary" href="https://github.com/leebenson/reactql" target="_blank">VIEW ON GITHUB</a> <a class="btn btn-black btn-black-outline" href="/docs">DOCUMENTATION</a></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-2" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
-        <div class="container">
-            <p class="text-xs-center">
-                Copyright &copy; 2017 <a href="https://github.com/leebenson" target="_blank">Lee Benson</a>. ReactQL is MIT licensed. Third-party modules subject to their respective licenses&mdash; see the relevant repo for details.
-                <br/> Background image designed by <a href="http://www.freepik.com" target="_blank">Starline / Freepik</a>. ReactQL was crafted in England <img src="reactql/england.svg" alt="England" class="svg-small" />
+      <div class="container">
+        <div class="row">
+          <div class="mbr-section col-md-10 col-md-offset-1 text-xs-center">
+            <h1 class="mbr-section-title display-1">ReactQL
+              <sup class="version">v3.1.0</sup>
+            </h1>
+            <a class="github-button" href="https://github.com/leebenson/reactql" data-size="large" data-show-count="true" aria-label="Star leebenson/reactql on GitHub">Star</a>
+            <p class="mbr-section-lead" style="font-style:normal;font-weight:bold;margin:25px auto">
+              Universal React + GraphQL starter kit, written in Typescript.
             </p>
-            <p class="text-xs-center">
-                <a href="https://www.netlify.com" target="_blank"><img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" alt="Deploys by Netlify" style="margin-top:20px; width: 75px" /></a>
+            <div class="banner">
+              <img src="reactql/banner.png" srcset="reactql/banner.png 1x, reactql/banner@2x.png 2x" alt="React + Typescript + GraphQL"
+              />
+            </div>
+            <!-- <div class="install">
+                        </div> -->
+            <p class="mbr-section-lead" style="margin:25px auto; max-width: 600px;">
+              React 16 &middot; Apollo 2 &middot; Webpack 4 &middot; Styled Components + PostCSS + LESS/SASS &middot; React Router 4 &middot;
+              SSR.
             </p>
+            <div class="mbr-section-btn buttons">
+              <a class="btn btn-lg btn-primary" href="https://github.com/leebenson/reactql">VIEW SOURCE
+                <img src="reactql/github.svg" alt="Github" class="git">
+              </a>
+              <!-- <a class="btn btn-lg btn-white btn-white-outline" href="/docs">LEARN MORE</a> -->
+            </div>
+          </div>
         </div>
-    </footer>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lora:400,700|Raleway:400,300,700">
-    <script src="assets/web/assets/jquery/jquery.min.js"></script>
-    <script src="assets/tether/tether.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/smooth-scroll/smooth-scroll.js"></script>
-    <script src="assets/dropdown/js/script.min.js"></script>
-    <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
-    <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
-    <script src="assets/jarallax/jarallax.js"></script>
-    <script src="assets/theme/js/script.js"></script>
-    <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
-    <script src="reactql/init.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <!-- <input name="animation" type="hidden"> -->
+      </div>
+    </div>
+
+    <div class="mbr-arrow mbr-arrow-floating" aria-hidden="true">
+      <a href="#header3-8">
+        <i class="mbr-arrow-icon"></i>
+      </a>
+    </div>
+
+  </section>
+
+  <section class="mbr-section mbr-section__container article" id="header3-8" style="background-color: rgb(255, 255, 255); padding-top: 75px; padding-bottom: 50px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="mbr-section-title display-2">Your go-to stack for GraphQL</h3>
+          <small class="mbr-section-subtitle">ReactQL is a "done for you" starter kit that seamlessly integrates:&nbsp;</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mbr-cards mbr-section mbr-section-nopadding" id="features3-h" style="background-color: rgb(255, 255, 255);">
+
+    <div class="mbr-cards-row row">
+      <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 75px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <a href="https://facebook.github.io/react/" target="_blank">
+                <img src="reactql/react.png" srcset="reactql/react.png 1x, reactql/react@2x.png 2x" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">
+                <a href="https://facebook.github.io/react/" target="_blank">React v16.4</a>
+              </h4>
+              <h5 class="card-subtitle">User interface (UI)</h5>
+              <p class="card-text">Create reusable components that combine UI and logic, and compile down to HTML on the server. Seamless server
+                and browser compatibility, from the same codebase.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 75px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <a href="http://dev.apollodata.com/react/" target="_blank">
+                <img src="reactql/apollostack.png" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">
+                <a href="http://dev.apollodata.com/react/" target="_blank">Apollo Client 2.0</a> + Local State</h4>
+              <h5 class="card-subtitle">GraphQL &amp; store management</h5>
+              <p class="card-text">Connect to any back-end GraphQL server, and keep local state entirely in GraphQL. Full re-hydration from SSR.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 75px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <a href="https://reacttraining.com/react-router/" target="_blank">
+                <img src="reactql/react-router.png" srcset="reactql/react-router.png 1x, reactql/react-router@2x.png 2x" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">
+                <a href="https://reacttraining.com/react-router/" target="_blank">React Router 4</a>
+              </h4>
+              <h5 class="card-subtitle">Universal HTTP/app routing</h5>
+              <p class="card-text">New in v4, write routes declaratively inside your React components. Zero configuration required.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="mbr-cards mbr-section mbr-section-nopadding" id="features4-a" style="background-color: rgb(255, 255, 255);">
+
+    <div class="mbr-cards-row row">
+      <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 40px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <a href="https://webpack.js.org/" target="_blank">
+                <img src="reactql/webpack.png" srcset="reactql/webpack.png 1x, reactql/webpack@2x.png 2x" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">
+                <a href="https://webpack.js.org/" target="_blank">Webpack 4</a>
+              </h4>
+              <h5 class="card-subtitle">Code bundling &amp; minification</h5>
+              <p class="card-text">Extensive Webpack config generates browser + server bundles, optimises your code paths, crunches images and
+                generates code ready for production.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 40px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <a href="http://postcss.org/" target="_blank">
+                <img src="reactql/css.png" srcset="reactql/css.png 1x, reactql/css@2x.png 2x" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">
+                <a href="https://www.styled-components.com/" target="_blank">Styled Components</a> +
+                <a href="http://postcss.org/" target="_blank">PostCSS</a> +
+                <a href="http://sass-lang.com/" target="_blank">SASS</a> +
+                <a href="http://lesscss.org/" target="_blank">LESS</a>
+              </h4>
+              <h5 class="card-subtitle">Next-gen CSS stylesheets</h5>
+              <p class="card-text">Optimised Style Components for per-request &lt;style&gt; generation or inline .scss/.less/.scss imports - in
+                plain CSS, SASS or LESS. Mix and match. It works out-the-box.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 0px; padding-bottom: 40px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <a href="http://koajs.com/" target="_blank">
+                <img src="reactql/koa.png" srcset="reactql/koa.png 1x, reactql/koa@2x.png 2x" class="card-img-top">
+              </a>
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">
+                <a href="http://koajs.com/" target="_blank">Koa 2</a>
+              </h4>
+              <h5 class="card-subtitle">Built-in web server with SSR</h5>
+              <p class="card-text">Bolster your SEO with SSR and improve user experiences with fast time-to-first-byte (&lt; 10ms) with the performant
+                Koa 2 web server, built in to your server bundle.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="mbr-section mbr-section__container article" id="header3-e" style="background-color: rgb(255, 255, 255); padding-top: 75px; padding-bottom: 50px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="mbr-section-title display-2">Super powers, as standard</h3>
+          <small class="mbr-section-subtitle">ReactQL solves the tedious set-up code, so you can focus on what matters</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-b" style="background-color: rgb(239, 239, 239);">
+
+    <div class="mbr-cards-row row">
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/ssr.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Server-side rendering (SSR)&nbsp;</h4>
+
+              <p class="card-text">GraphQL queries run on the server first, giving users and search engines rich HTML with data, markup and styles
+                - with no configuration needed.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/server.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">GraphQL all the things</h4>
+
+              <p class="card-text">Dumps your React + GraphQL into plain HTML dynamically per request, with full client-side support. Store state
+                automatically rehydrated.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/ultrafast.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Ultra-fast single page apps (SPA)</h4>
+
+              <p class="card-text">Navigating your site will be blistering fast, thanks to pre-loaded routes and async data loading. Obliterate
+                full-page reloads
+                <em>and</em> enjoy server-side rendering, to boot.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 40px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/dev-production.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Built for dev + production</h4>
+
+              <p class="card-text">Enjoy full sourcemaps and hot code reloading in development. When you're ready to go live, just
+                <br/><span class="cli">npm run production</span>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-9" style="background-color: rgb(239, 239, 239);">
+
+    <div class="mbr-cards-row row">
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/ts@2x.png" srcset="reactql/ts.png 1x, reactql/ts@2x.png 2x" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Written in Typescript v3</h4>
+
+              <p class="card-text">ReactQL is written in Typescript, offering strong typing out-the-box (even for Styled Components themes!)</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/tree-shaking.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Tree shaking / no dead code</h4>
+
+              <p class="card-text">Thanks to Webpack, ReactQL automatically
+                <a href="https://webpack.js.org/guides/tree-shaking/" target="_blank">eliminates&nbsp;unused code</a> paths in your browser code, for minimal bundle sizes.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/hot-code-reload.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Hot code reloading</h4>
+
+              <p class="card-text">Freely edit React components, styles or other code in development, and watch changes happen in real-time in
+                the browser - no refresh needed.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/minification.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Aggressive minification</h4>
+
+              <p class="card-text">Your code, images and CSS will be minified to save every byte possible. Assets in production will be served
+                gzipped and Brotli compressed, too.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mbr-cards mbr-section mbr-section-nopadding" id="features7-c" style="background-color: rgb(239, 239, 239);">
+    <div class="mbr-cards-row row">
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/file.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Tons of commentary</h4>
+
+              <p class="card-text">Almost every line of code is littered with comments, so you can get to grips
+                with how it's wired together, fast.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/flux-store.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">GraphQL store de/rehydration</h4>
+              <p class="card-text">GraphQL store state crunched on the server is sent down the wire to the browser, so your user can pick-up where
+                your server finishes. Everything is just GraphQL.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/vendor-splitting.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">Auto vendor splitting</h4>
+
+              <p class="card-text">Vendor code is automatically split from the code you write, making async route loading and caching fast and
+                automatic. No need to maintain a separate vendor list.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mbr-cards-col col-xs-12 col-lg-3" style="padding-top: 0px; padding-bottom: 80px;">
+        <div class="container">
+          <div class="card cart-block">
+            <div class="card-img">
+              <img src="reactql/details.svg" class="card-img-top svg">
+            </div>
+            <div class="card-block">
+              <h4 class="card-title">The finer details, sorted</h4>
+
+              <p class="card-text">From
+                <a href="https://github.com/venables/koa-helmet" target="_blank">HTTP hardening</a> in Koa, to declarative &lt;head&gt; rewinds via
+                <a href="https://github.com/nfl/react-helmet"
+                  target="_blank">Helmet</a>, ReactQL gives you an optimised starter kit with all the finer details taken care of - freeing
+                you to
+                <em>code</em>.</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mbr-section mbr-section__container" id="buttons1-d" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="text-xs-center">
+            <a class="btn btn-primary" href="https://github.com/leebenson/reactql" target="_blank">VIEW ON GITHUB</a>
+            <!-- <a class="btn btn-black btn-black-outline" href="/docs">DOCUMENTATION</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mbr-small-footer mbr-section mbr-section-nopadding" id="footer1-2" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
+    <div class="container">
+      <p class="text-xs-center">
+        Copyright &copy; 2017-2018
+        <a href="https://github.com/leebenson" target="_blank">Lee Benson</a>. ReactQL is MIT licensed. Third-party modules subject to their respective licenses&mdash; see the
+        relevant repo for details.
+        <br/> Background image designed by
+        <a href="http://www.freepik.com" target="_blank">Starline / Freepik</a>. ReactQL was crafted in the UK.
+        <img src="reactql/gb.svg" alt="Great Britain" class="svg-small"
+        />
+      </p>
+      <p class="text-xs-center">
+        <a href="https://www.netlify.com" target="_blank">
+          <img src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg" alt="Deploys by Netlify" style="margin-top:20px; width: 75px"
+          />
+        </a>
+      </p>
+    </div>
+  </footer>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Lora:400,700|Raleway:400,300,700">
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smooth-scroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touch-swipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewport-checker/jquery.viewportchecker.js"></script>
+  <script src="assets/jarallax/jarallax.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="https://cdn.rawgit.com/vast-engineering/jquery-popup-overlay/1.7.13/jquery.popupoverlay.js"></script>
+  <script src="reactql/init.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- <input name="animation" type="hidden"> -->
 </body>
+
 </html>
